@@ -109,7 +109,7 @@ class Product extends Model
     public function validateRequest(Request $request)
     {
         $request->validate([
-            'title' => 'required'
+            'title.*' => 'required'
         ]);
 
         $this->setRequest($request);
@@ -182,7 +182,7 @@ class Product extends Model
             'to_coordinates'   => $to,
             'start_time'       => Carbon::make($start),
             'end_time'         => Carbon::make($end),
-            'price'            => $this->request->price,
+            'price'            => $this->request->price ?: 0,
             'price_child'      => $this->request->price_child,
             'quantity'         => $this->request->quantity,
             'image'            => 'media/van.jpg',
