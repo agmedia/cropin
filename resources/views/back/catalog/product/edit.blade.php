@@ -253,7 +253,7 @@
                                             <div class="input-group ">
                                                 <span class="input-group-text" id="tiktok"><img src="{{ asset('assets/back/images/tiktok.svg') }}" style="width:12px" alt="tiktok"  /></span>
 
-                                                <input type="text" class="form-control"  id="facebook" name="facebook" value="{{ isset($product) ? $product->tiktok : old('tiktok') }}"  aria-describedby="tiktok">
+                                                <input type="text" class="form-control"  id="tiktok" name="tiktok" value="{{ isset($product) ? $product->tiktok : old('tiktok') }}"  aria-describedby="tiktok">
 
                                             </div>
                                         </div>
