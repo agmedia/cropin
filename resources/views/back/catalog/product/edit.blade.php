@@ -450,7 +450,7 @@
         }
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFTllyTVaqRn2KEoycZckOjmk3xw-OGU0&libraries=places&callback=initAutocomplete"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API_KEY')}}&libraries=places&callback=initAutocomplete"></script>
 
 
     <script>
