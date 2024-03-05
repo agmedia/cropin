@@ -13,7 +13,7 @@
                         <i class="ti ti-menu-2"></i>
                     </a>
                 </li>
-                <li class="dropdown pc-h-item">
+              {{--  <li class="dropdown pc-h-item">
                     <a
                             class="pc-head-link dropdown-toggle arrow-none m-0 trig-drp-search"
                             data-bs-toggle="dropdown"
@@ -31,7 +31,7 @@
                             <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . ." />
                         </form>
                     </div>
-                </li>
+                </li>--}}
             </ul>
         </div><!-- [Mobile Media Block end] -->
 

@@ -42,10 +42,6 @@
 
 <div class="auth-main">
     <div class="auth-wrapper v2">
-        <div class="auth-sidecontent">
-            <img src="{{ asset('assets/back/images/authentication/img-auth-sideimg.jpg') }}" alt="images"
-                 class="img-fluid img-auth-side">
-        </div>
         <div class="auth-form">
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -55,7 +51,7 @@
             <div class="card my-5">
                 <div class="card-body">
                     <div class="text-center">
-                        <a href="{{ route('index') }}"><img src="{{ asset('assets/back/images/logo-dark.svg') }}" alt="img"></a>
+                        <a href="{{ route('index') }}"><img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="max-width:160px" alt="img"></a>
                     </div>
 
                     @yield('content')

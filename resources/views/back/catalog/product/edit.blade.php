@@ -10,7 +10,7 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <div class="page-header-title">
-                        <h2 class="mb-4">Product</h2>
+                        <h2 class="mb-4">Listing</h2>
                     </div>
                 </div>
             </div>
@@ -25,143 +25,216 @@
         @endif
         <div class="row">
             @include('back.layouts.partials.session')
-            <div class="col-md-7">
-                <div class="card">
-                    <h5 class="card-header">Generel Info</h5>
-                    <div class="card-body">
-                        <div class="position-relative">
-                        <ul class="nav nav-pills position-absolute langimg me-0 mb-2" id="pills-tab" role="tablist">
-                            @foreach(ag_lang() as $lang)
-                                <li class="nav-item">
-                                    <a class="btn btn-icon btn-sm btn-link-primary ms-2 @if ($lang->code == current_locale()) active @endif" id="pills-{{ $lang->code }}-tab" data-bs-toggle="pill" href="#pills-{{ $lang->code }}" role="tab" aria-controls="pills-{{ $lang->code }}" aria-selected="true">
-                                        <img src="{{ asset('assets/flags/' . $lang->code . '.png') }}" />
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+            <div class="col-md-12">
+             <div class="card">
+                <div class="card-body py-0">
+                    <ul class="nav nav-tabs profile-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="general-tab" data-bs-toggle="tab" href="#general-tab-panel" role="tab"
+                               aria-selected="true">
+                                <i class="ti ti-info-circle me-2"></i>General
+                            </a>
+                        </li>
 
-                        <div class="tab-content" id="pills-tabContent">
-                            @foreach(ag_lang() as $lang)
-                                <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="pills-{{ $lang->code }}" role="tabpanel" aria-labelledby="pills-{{ $lang->code }}-tab">
-                                    <div class="form-group row">
-                                        <div class="col-12">
-                                            <label for="title-{{ $lang->code }}">Title @include('back.layouts.partials.required')</label>
-                                            <input type="text" class="form-control" id="title-{{ $lang->code }}" name="title[{{ $lang->code }}]" placeholder="{{ $lang->code }}" value="{{ isset($product) ? $product->translation($lang->code)->title : old('title.*') }}" />
-                                        </div>
-                                        <div class="col-12 mt-5">
-                                            <label for="description-{{ $lang->code }}">Description</label>
-                                            <textarea id="description-{{ $lang->code }}" class="form-control" rows="4" data-always-show="true" name="description[{{ $lang->code }}]" placeholder="{{ $lang->code }}" data-placement="top">{{ isset($product) ? $product->translation($lang->code)->description : old('description.*') }}</textarea>
+                        <li class="nav-item">
+                            <a class="nav-link" id="images-tab" data-bs-toggle="tab" href="#images-tab-panel" role="tab"
+                               aria-selected="true">
+                                <i class="ti ti-settings me-2"></i>Images
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="seo-tab" data-bs-toggle="tab" href="#seo-tab-panel" role="tab"
+                               aria-selected="true">
+                                <i class="ti ti-settings me-2"></i>SEO
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane show active" id="general-tab-panel" role="tabpanel" aria-labelledby="general-tab">
+
+                        <div class="col-md-12">
+                            <div class="card">
+
+                                <div class="d-flex card-header align-items-center justify-content-between">
+                                    <h5 class="mb-0">General Info</h5>
+
+                                    <div class="form-check form-switch custom-switch-v1 ">
+                                        <input type="checkbox" class="form-check-input input-success" id="status-swich" name="status" @if (isset($product) and $product->status) checked @endif>
+                                        <label class="form-check-label" for="status-swich">Status</label>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="card-body">
+                                    <div class="position-relative">
+                                    <ul class="nav nav-pills position-absolute langimg me-0 mb-2" id="pills-tab" role="tablist">
+                                        @foreach(ag_lang() as $lang)
+                                            <li class="nav-item">
+                                                <a class="btn btn-icon btn-sm btn-link-primary ms-2 @if ($lang->code == current_locale()) active @endif" id="pills-{{ $lang->code }}-tab" data-bs-toggle="pill" href="#pills-{{ $lang->code }}" role="tab" aria-controls="pills-{{ $lang->code }}" aria-selected="true">
+                                                    <img src="{{ asset('assets/flags/' . $lang->code . '.png') }}" />
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                    <div class="tab-content" id="pills-tabContent">
+                                        @foreach(ag_lang() as $lang)
+                                            <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="pills-{{ $lang->code }}" role="tabpanel" aria-labelledby="pills-{{ $lang->code }}-tab">
+                                                <div class="form-group row">
+                                                    <div class="col-12">
+                                                        <label for="title-{{ $lang->code }}">Title @include('back.layouts.partials.required')</label>
+                                                        <input type="text" class="form-control" id="title-{{ $lang->code }}" name="title[{{ $lang->code }}]" placeholder="{{ $lang->code }}" value="{{ isset($product) ? $product->translation($lang->code)->title : old('title.*') }}" />
+                                                    </div>
+                                                    <div class="col-12 mt-5">
+                                                        <label for="description-{{ $lang->code }}">Description</label>
+                                                        <textarea id="description-{{ $lang->code }}" class="form-control" rows="8" data-always-show="true" name="description[{{ $lang->code }}]" placeholder="{{ $lang->code }}" data-placement="top">{{ isset($product) ? $product->translation($lang->code)->description : old('description.*') }}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="card">
+                    <h5 class="card-header">Contact Info</h5>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-6 mt-3">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" value="{{ isset($product) ? $product->address: old('address') }}" />
+                            </div>
+                            <div class="col-6 mt-3">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control" id="zip" name="zip" value="{{ isset($product) ? $product->zip : old('zip') }}" />
+                            </div>
+                            <div class="col-6 mt-3">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city" value="{{ isset($product) ? $product->city : old('city') }}" />
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone" value="{{ isset($product) ? $product->phone : old('phone') }}" />
+                            </div>
+                            <div class="col-6 mt-3">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" name="email" value="{{ isset($product) ? $product->email : old('email') }}" />
+                            </div>
+                            <div class="col-6 mt-3">
+                                <label for="web">Web</label>
+                                <input type="text" class="form-control" id="web" name="web" value="{{ isset($product) ? $product->web : old('web') }}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                          </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Working hours</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3 align-items-center">
+
+                                    <div class="col">
+                                        <label class="form-check-label">Monday - Opening</label>
+                                        <input class="form-control" id="monday-open" name="monday-open" type="text" placeholder="Select time">
+
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-check-label">Monday - Closing</label>
+                                        <input class="form-control" id="monday-close" name="monday-close" type="text" placeholder="Select time">
+
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="monday-not-working" id="monday-not-working">
+                                            <label class="form-check-label" for="monday-not-working">Closed </label>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        </div>
-                        <div class="form-check form-switch custom-switch-v1 mt-5 mb-4">
-                            <input type="checkbox" class="form-check-input input-success" id="status-swich" name="status" @if (isset($product) and $product->status) checked @endif>
-                            <label class="form-check-label" for="status-swich"> Status</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-5">
-                <div class="card">
-                    <h5 class="card-header">From - To data</h5>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <label for="from-city">From City</label>
-                                <input type="text" class="form-control" id="from-city" name="from_city" value="{{ isset($product) ? $product->from_city : old('from_city') }}" />
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="from-longitude">From Longitude</label>
-                                <input type="text" class="form-control" id="from-longitude" name="from_longitude" value="{{ isset($product) ? $product->from_longitude : old('from_longitude') }}" />
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="from-latitude">Latitude</label>
-                                <input type="text" class="form-control" id="from-latitude" name="from_latitude" value="{{ isset($product) ? $product->from_latitude : old('from_latitude') }}" />
-                            </div>
-                        </div>
-                        <div class="form-group row mt-5">
-                            <div class="col-12">
-                                <label for="to-city">To City</label>
-                                <input type="text" class="form-control" id="to-city" name="to_city" value="{{ isset($product) ? $product->to_city : old('to_city') }}" />
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="to-longitude">To Longitude</label>
-                                <input type="text" class="form-control" id="to-longitude" name="to_longitude" value="{{ isset($product) ? $product->to_longitude : old('to_longitude') }}" />
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="to-latitude">Latitude</label>
-                                <input type="text" class="form-control" id="to-latitude" name="to_latitude" value="{{ isset($product) ? $product->to_latitude : old('to_latitude') }}" />
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
+
+                <div class="tab-pane " id="images-tab-panel" role="tabpanel" aria-labelledby="images-tab">
+
+                </div>
+
+                <div class="tab-pane " id="seo-tab-panel" role="tabpanel" aria-labelledby="seo-tab">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <h5 class="card-header">Page SEO</h5>
+                            <div class="card-body">
+                                <div class="position-relative">
+                                    <ul class="nav nav-pills position-absolute langimg me-0 mb-2" id="seo-tab" role="tablist">
+                                        @foreach(ag_lang() as $lang)
+                                            <li class="nav-item">
+                                                <a class="btn btn-icon btn-sm btn-link-primary ms-2 @if ($lang->code == current_locale()) active @endif" id="seo-{{ $lang->code }}-tab" data-bs-toggle="pill" href="#seo-{{ $lang->code }}" role="tab" aria-controls="seo-{{ $lang->code }}" aria-selected="true">
+                                                    <img src="{{ asset('assets/flags/' . $lang->code . '.png') }}" />
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                    <div class="tab-content" id="seo-tabContent">
+                                        @foreach(ag_lang() as $lang)
+                                            <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="seo-{{ $lang->code }}" role="tabpanel" aria-labelledby="seo-{{ $lang->code }}-tab">
+                                                <div class="form-group row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <div class="col-12">
+                                                                <label for="meta-title-{{ $lang->code }}">Meta Title</label>
+                                                                <input type="text" class="form-control" id="meta-title-{{ $lang->code }}" name="meta_title[{{ $lang->code }}]" placeholder="{{ $lang->code }}" value="{{ isset($page) ? $page->translation($lang->code)->meta_title : old('meta_title.*') }}" />
+                                                            </div>
+                                                            <div class="col-12 mt-5">
+                                                                <label for="meta-description-{{ $lang->code }}">Meta Description</label>
+                                                                <textarea id="meta-description-{{ $lang->code }}" class="form-control" rows="4" data-always-show="true" name="meta_description[{{ $lang->code }}]" placeholder="{{ $lang->code }}" data-placement="top">{{ isset($page) ? $page->translation($lang->code)->meta_description : old('meta_description.*') }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group row">
+                                                            <div class="col-12">
+                                                                <label for="slug-{{ $lang->code }}">SEO Slug <small class="m-l-30 fw-light">Best leave it alone on auto update by title</small></label>
+                                                                <input type="text" class="form-control" id="slug-{{ $lang->code }}" name="slug[{{ $lang->code }}]" placeholder="{{ $lang->code }}" value="{{ isset($page) ? $page->translation($lang->code)->slug : old('slug.*') }}" />
+                                                            </div>
+                                                            <div class="col-12 mt-5">
+                                                                <label for="keywords-{{ $lang->code }}">Keywords <small class="m-l-30 fw-light">Up to 5 keyword for each language</small></label>
+                                                                <input class="form-control" id="keywords-{{ $lang->code }}" type="text" name="keywords[{{ $lang->code }}]" value="{{ isset($page) ? $page->translation($lang->code)->keywords : old('keywords.*') }}" placeholder="Enter something {{ $lang->code }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
         </div>
-        <div class="row">
-            <div class="col-md-7">
-                <div class="card">
-                    <h5 class="card-header">Datum i Vrijeme polaska/dolaska</h5>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <div class="col-6 mb-3">
-                                <label for="start-date">Datum polaska</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="Datum polaska..." id="start-date" name="start_date" value="{{ isset($product) ? ag_date($product->start_time)->format('m/d/Y') : old('publish_date') }}">
-                                    <span class="input-group-text"><i class="feather icon-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <label for="start-time">Vrijeme polaska</label>
-                                <div class="input-group timepicker">
-                                    <input class="form-control" id="start-time" placeholder="Select time" type="text" name="start_time" value="{{ isset($product) ? ag_date($product->start_time)->format('h:i') : old('publish_date') }}">
-                                    <span class="input-group-text"><i class="feather icon-clock"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="end-date">Datum dolaska</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" placeholder="Datum dolaska..." id="end-date" name="end_date" value="{{ isset($product) ? ag_date($product->end_time)->format('m/d/Y') : old('publish_date') }}">
-                                    <span class="input-group-text"><i class="feather icon-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class="col-6 mt-3">
-                                <label for="end-time">Vrijeme dolaska</label>
-                                <div class="input-group timepicker">
-                                    <input class="form-control" id="end-time" placeholder="Select time" type="text" name="end_time" value="{{ isset($product) ? ag_date($product->end_time)->format('h:i') : old('publish_date') }}">
-                                    <span class="input-group-text"><i class="feather icon-clock"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="card">
-                    <h5 class="card-header">Cijene i Količina</h5>
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <div class="col-6 mb-3">
-                                <label for="price-input">Cijena Odrasli</label>
-                                <input type="text" class="form-control" id="price-input" name="price" value="{{ isset($product) ? $product->price : old('price') }}"/>
-                            </div>
-                            <div class="col-6 mb-3">
-                                <label for="price-child-input">Cijena Djete</label>
-                                <input type="text" class="form-control" id="price-child-input" name="price_child" value="{{ isset($product) ? $product->price_child : old('price_child') }}" />
-                            </div>
-                            <div class="col-12 mt-3">
-                                <label for="quantity-input">Količina</label>
-                                <input type="text" class="form-control" id="quantity-input" name="quantity" value="{{ isset($product) ? $product->quantity : old('quantity') }}" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
+
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
@@ -171,7 +244,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
     </form>
 
 @endsection
@@ -185,30 +258,27 @@
                 ClassicEditor
                 .create(document.querySelector('#description-' + item.code))
                 .then(editor => {
-                    editor.rows = 4;
+                    editor.rows = 8;
                 })
                 .catch(error => {
                     //console.error(error);
                 });
             });
 
-            let start_date = new Datepicker(document.querySelector('#start-date'), {
-                buttonClass: 'btn',
-                orientation: 'top right'
-            });
-            let start_time = document.querySelector('#start-time').flatpickr({
+            document.querySelector('#monday-open').flatpickr({
                 enableTime: true,
-                noCalendar: true
+                noCalendar: true,
+                time_24hr: true,
+                defaultDate: '09:00'
             });
 
-            let end_date = new Datepicker(document.querySelector('#end-date'), {
-                buttonClass: 'btn',
-                orientation: 'top right'
-            });
-            let end_time = document.querySelector('#end-time').flatpickr({
+            document.querySelector('#monday-close').flatpickr({
                 enableTime: true,
-                noCalendar: true
+                noCalendar: true,
+                time_24hr: true,
+                defaultDate: '23:00'
             });
+
 
         });
     </script>

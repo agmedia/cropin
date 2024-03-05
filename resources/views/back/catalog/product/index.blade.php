@@ -7,12 +7,12 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Products</h2>
+                        <h2 class="mb-0">Listings</h2>
                     </div>
                 </div>
                 <div class="col-md-6 text-end">
                     <a href="{{ route('product.create') }}" class="btn btn-primary">
-                        <i class="ti ti-plus f-18"></i> Add New Product
+                        <i class="ti ti-plus f-18"></i> Add New Listing
                     </a>
                 </div>
             </div>

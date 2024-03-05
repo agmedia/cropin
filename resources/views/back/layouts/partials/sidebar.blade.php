@@ -3,8 +3,8 @@
     <div class="navbar-wrapper">
         <div class="m-header">
             <a href="../dashboard/index.html" class="b-brand text-primary">
-                <img src="{{ asset('assets/back/images/logo-dark.svg') }}" class="img-fluid" alt="logo">
-                <span class="badge bg-light-success rounded-pill ms-2 theme-version">v9.0</span>
+                <img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="width:140px" class="img-fluid" alt="logo">
+
             </a>
         </div>
         <div class="navbar-content">
@@ -24,13 +24,13 @@
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item{{ request()->routeIs(['products', 'product.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('products') }}">{{ __('Products') }}</a></li>
+                        <li class="pc-item{{ request()->routeIs(['products', 'product.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('products') }}">{{ __('Listings') }}</a></li>
                         <li class="pc-item{{ request()->routeIs(['widgets', 'widget.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('widgets') }}">{{ __('Widgets') }}</a></li>
                         <li class="pc-item{{ request()->routeIs(['pages', 'page.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('pages') }}">{{ __('Pages') }}</a></li>
                     </ul>
                 </li>
 
-                <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/sales/*']) ? ' active pc-trigger' : '' }}">
+         {{--        <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/sales/*']) ? ' active pc-trigger' : '' }}">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-graph"></use></svg></span>
                         <span class="pc-mtext">{{ __('Sales') }}</span>
@@ -38,11 +38,11 @@
                     </a>
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="#">{{ __('Orders') }}</a></li>
-                        {{--<li class="pc-item"><a class="pc-link" href="#">{{ __('Payments') }}</a></li>--}}
+                       <li class="pc-item"><a class="pc-link" href="#">{{ __('Payments') }}</a></li>
                         <li class="pc-item{{ request()->routeIs(['calendar', 'calendar.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('calendar') }}">{{ __('Calendar') }}</a></li>
                     </ul>
                 </li>
-
+                --}}
                 <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/marketing/*']) ? ' active pc-trigger' : '' }}">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-link"></use></svg></span>
@@ -83,16 +83,16 @@
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item{{ request()->routeIs(['languages']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('languages') }}">{{ __('Langiages') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['currencies']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('currencies') }}">{{ __('Currencies') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['taxes']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('taxes') }}">{{ __('Taxes') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['geo-zones', 'geozones.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('geozones') }}">{{ __('Geo Zones') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['order-statuses']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('order.statuses') }}">{{ __('Order Statuses') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['payments']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('payments') }}">{{ __('Payment Methods') }}</a></li>
-                    </ul>
-                </li>
+                        <li class="pc-item{{ request()->routeIs(['languages']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('languages') }}">{{ __('Languages') }}</a></li>
+{{--   <li class="pc-item{{ request()->routeIs(['currencies']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('currencies') }}">{{ __('Currencies') }}</a></li>
+   <li class="pc-item{{ request()->routeIs(['taxes']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('taxes') }}">{{ __('Taxes') }}</a></li>
+   <li class="pc-item{{ request()->routeIs(['geo-zones', 'geozones.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('geozones') }}">{{ __('Geo Zones') }}</a></li>
+   <li class="pc-item{{ request()->routeIs(['order-statuses']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('order.statuses') }}">{{ __('Order Statuses') }}</a></li>
+   <li class="pc-item{{ request()->routeIs(['payments']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('payments') }}">{{ __('Payment Methods') }}</a></li> --}}
+</ul>
+</li>
 
-            </ul>
-        </div>
-    </div>
+</ul>
+</div>
+</div>
 </nav>
