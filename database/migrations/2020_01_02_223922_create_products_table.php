@@ -16,17 +16,26 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('hash')->nullable();
-            $table->string('from_city')->nullable();
-            $table->string('from_coordinates')->nullable();
-            $table->string('to_city')->nullable();
-            $table->string('to_coordinates')->nullable();
-            $table->timestamp('start_time')->nullable();
-            $table->timestamp('end_time')->nullable();
-            $table->decimal('price', 15, 4)->default(0);
-            $table->decimal('price_child', 15, 4)->default(0);
-            $table->integer('quantity')->unsigned()->default(0);
+            $table->text('address')->nullable();
+            $table->text('city')->nullable();
+            $table->text('country')->nullable();
+            $table->text('street')->nullable();
+            $table->text('lat')->nullable();
+            $table->text('lon')->nullable();
+            $table->text('zip')->nullable();
+            $table->text('category')->nullable();
+
+            $table->text('email')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('web')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('tiktok')->nullable();
+
+            $table->longText('working_hours')->nullable();
+            $table->longText('menu')->nullable();
             $table->string('image')->nullable();
-            $table->integer('tax_id')->unsigned()->default(0);
+
             $table->integer('viewed')->unsigned()->default(0);
             $table->integer('sort_order')->unsigned()->default(0);
             $table->boolean('featured')->default(false);

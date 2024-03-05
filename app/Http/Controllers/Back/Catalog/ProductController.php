@@ -58,10 +58,10 @@ class ProductController extends Controller
         $stored = $product->validateRequest($request)->store();
 
         if ($stored) {
-            return redirect()->back()->with(['success' => 'Proizvod je uspješno snimljen!']);
+            return redirect()->back()->with(['success' => 'Listing has been saved succesfully!']);
         }
 
-        return redirect()->back()->with(['error' => 'Whoops..! Desila se greška sa snimanjem proizvoda.']);
+        return redirect()->back()->with(['error' => 'Whoops..! error while saving.']);
     }
 
 
@@ -91,10 +91,10 @@ class ProductController extends Controller
         $updated = $product->validateRequest($request)->edit();
 
         if ($updated) {
-            return redirect()->back()->with(['success' => 'Proizvod je uspješno snimljen!']);
+            return redirect()->back()->with(['success' => 'Listing has been saved succesfully!']);
         }
 
-        return redirect()->back()->with(['error' => 'Whoops..! Desila se greška sa snimanjem proizvoda.']);
+        return redirect()->back()->with(['error' => 'Whoops..! error while saving.']);
     }
 
 

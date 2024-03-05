@@ -23,15 +23,6 @@ class Product extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    /**
-     * @var string[]
-     */
-    protected $appends = [
-        'from_longitude',
-        'from_latitude',
-        'to_longitude',
-        'to_latitude'
-    ];
 
     /**
      * @var string
@@ -74,27 +65,7 @@ class Product extends Model
         return $this->hasOne(ProductTranslation::class, 'product_id')->where('lang', $this->locale)->first();
     }
 
-    /*******************************************************************************
-     *                                Copyright : AGmedia                           *
-     *                              email: filip@agmedia.hr                         *
-     *******************************************************************************/
 
-    public function getFromLongitudeAttribute($value)
-    {
-        return explode('-', $this->from_coordinates)[0];
-    }
-    public function getFromLatitudeAttribute($value)
-    {
-        return explode('-', $this->from_coordinates)[1];
-    }
-    public function getToLongitudeAttribute($value)
-    {
-        return explode('-', $this->to_coordinates)[0];
-    }
-    public function getToLatitudeAttribute($value)
-    {
-        return explode('-', $this->to_coordinates)[1];
-    }
 
     /*******************************************************************************
     *                                Copyright : AGmedia                           *
@@ -169,24 +140,26 @@ class Product extends Model
      */
     private function getModelArray(bool $insert = true): array
     {
-        $from = $this->request->from_longitude . '-' . $this->request->from_latitude;
-        $to = $this->request->to_longitude . '-' . $this->request->to_latitude;
-        $start = $this->request->start_date . ' ' . $this->request->start_time;
-        $end = $this->request->end_date . ' ' . $this->request->end_time;
+
 
         $response = [
             'hash'             => Str::random(),
-            'from_city'        => $this->request->from_city,
-            'from_coordinates' => $from,
-            'to_city'          => $this->request->to_city,
-            'to_coordinates'   => $to,
-            'start_time'       => Carbon::make($start),
-            'end_time'         => Carbon::make($end),
-            'price'            => $this->request->price ?: 0,
-            'price_child'      => $this->request->price_child,
-            'quantity'         => $this->request->quantity,
+            'address'         => $this->request->address,
+            'zip'         => $this->request->zip,
+            'city'         => $this->request->city,
+            'street'         => $this->request->street,
+            'country'         => $this->request->country,
+            'category'         => $this->request->category,
+            'lat'         => $this->request->lat,
+            'lon'         => $this->request->lon,
+            'phone'         => $this->request->phone,
+            'email'         => $this->request->email,
+            'web'         => $this->request->web,
+            'facebook'         => $this->request->facebook,
+            'instagram'         => $this->request->instagram,
+            'tiktok'         => $this->request->tiktok,
+            'menu'         => $this->request->menu,
             'image'            => 'media/van.jpg',
-            'tax_id'           => 2,
             'sort_order'       => 0,
             'featured'         => 1,
             'status'           => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,

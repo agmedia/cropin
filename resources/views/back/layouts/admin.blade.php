@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="{{ asset('assets/back/css/style-preset.css') }}" >
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/datepicker-bs5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/flatpickr.min.css') }}">
+
+
+    @stack('css_before')
     <!-- Custom CSS-->
     @livewireStyles
    {{-- <link rel="stylesheet" href="{{ asset('assets/back/js/plugins/select2/css/select2.min.css') }}" >--}}
@@ -80,9 +83,15 @@
 <script src="{{ asset('assets/back/js/plugins/flatpickr.min.js') }}"></script>
 <script src="{{ asset('assets/back/js/plugins/choices.min.js') }}"></script>
 
+
+
+
+
 @livewireScripts
 {{--<script src="{{ asset('assets/back/js/plugins/component.js') }}"></script>--}}
 {{--<script src="{{ asset('assets/back/js/plugins/select2/js/select2.full.min.js') }}"></script>--}}
+
+
 
 <script>
     const API_PATH = window.location.origin + '/api/';
