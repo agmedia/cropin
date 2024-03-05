@@ -47,9 +47,16 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" id="menu-tab" data-bs-toggle="tab" href="#menu-tab-panel" role="tab"
+                               aria-selected="true">
+                                <i class="ti ti-file-certificate me-2"></i>Menu
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" id="images-tab" data-bs-toggle="tab" href="#images-tab-panel" role="tab"
                                aria-selected="true">
-                                <i class="ti ti-settings me-2"></i>Images
+                                <i class="ti ti-photo me-2"></i>Images
                             </a>
                         </li>
                         <li class="nav-item">
@@ -98,21 +105,12 @@
                                         @foreach(ag_lang() as $lang)
                                             <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="pills-{{ $lang->code }}" role="tabpanel" aria-labelledby="pills-{{ $lang->code }}-tab">
                                                 <div class="form-group row">
-                                                    <div class="col-6">
+                                                    <div class="col-12">
                                                         <label for="title-{{ $lang->code }}">Title @include('back.layouts.partials.required')</label>
                                                         <input type="text" class="form-control" id="title-{{ $lang->code }}" name="title[{{ $lang->code }}]" placeholder="{{ $lang->code }}" value="{{ isset($product) ? $product->translation($lang->code)->title : old('title.*') }}" />
                                                     </div>
 
-                                                    <div class="col-6">
-                                                        <label >Category</label>
-                                                        <select class="form-select" name="category">
-                                                            <option>Select...</option>
-                                                            <option value="Bars">Bars</option>
-                                                            <option value="Clubs">Clubs</option>
-                                                            <option value="Food">Food</option>
-                                                            <option value="Fun">Fun</option>
-                                                        </select>
-                                                    </div>
+
 
 
                                                     <div class="col-12 mt-5">
@@ -125,18 +123,11 @@
                                     </div>
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
 
-                    <div class="col-md-12">
-                        <div class="card">
 
-                            <h5 class="mb-0 card-header">Address</h5>
 
-                            <div class="card-body">
 
-                                <div class="form-group ">
+                                <div class="form-group row ">
                                     <div class="col-6 mt-3">
                                         <label for="address">Search address</label>
                                         <div class="input-group">
@@ -145,33 +136,45 @@
                                             <input type="text" class="form-control" id="address" name="address" value="{{ isset($product) ? $product->address: old('address') }}" />
                                         </div>
                                     </div>
+
+                                    <div class="col-6 mt-3">
+                                        <label >Category</label>
+                                        <select class="form-select" name="category">
+                                            <option>Select...</option>
+                                            <option value="Bars">Bars</option>
+                                            <option value="Clubs">Clubs</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Fun">Fun</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div class="form-group row ">
                                     <div class="col-md-6 mt-3">
                                         <label for="address">Street and Number</label>
-                                        <input type="text" class="form-control" id="street" name="street" value="{{ isset($product) ? $product->street: old('street') }}" />
+                                        <input type="text" class="form-control" id="street" name="street" value="{{ isset($product) ? $product->street: old('street') }}" readonly/>
                                     </div>
+
                                     <div class="col-md-6 mt-3">
                                         <label for="zip">Zip</label>
-                                        <input type="text" class="form-control" id="zip" name="zip" maxlength="5" value="{{ isset($product) ? $product->zip : old('zip') }}" />
+                                        <input type="text" class="form-control" id="zip" name="zip" maxlength="5" value="{{ isset($product) ? $product->zip : old('zip') }}" readonly/>
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="city">City</label>
-                                        <input type="text" class="form-control" id="city" name="city" value="{{ isset($product) ? $product->city : old('city') }}" />
+                                        <input type="text" class="form-control" id="city" name="city" value="{{ isset($product) ? $product->city : old('city') }}" readonly/>
                                     </div>
 
                                     <div class="col-md-6 mt-3">
                                         <label for="city">Country</label>
-                                        <input type="text" class="form-control" id="country" name="country" value="{{ isset($product) ? $product->country : old('country') }}" />
+                                        <input type="text" class="form-control" id="country" name="country" value="{{ isset($product) ? $product->country : old('country') }}" readonly/>
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="city">Latitude</label>
-                                        <input type="text" class="form-control" id="lat" name="lat" value="{{ isset($product) ? $product->lat : old('lat') }}" />
+                                        <input type="text" class="form-control" id="lat" name="lat" value="{{ isset($product) ? $product->lat : old('lat') }}" readonly/>
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="city">Longitude</label>
-                                        <input type="text" class="form-control" id="lon" name="lon" value="{{ isset($product) ? $product->lon : old('lon') }}" />
+                                        <input type="text" class="form-control" id="lon" name="lon" value="{{ isset($product) ? $product->lon : old('lon') }}" readonly/>
                                     </div>
 
 
@@ -301,6 +304,11 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+
+                <div class="tab-pane " id="menu-tab-panel" role="tabpanel" aria-labelledby="menu-tab">
 
                 </div>
 
