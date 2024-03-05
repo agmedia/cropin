@@ -249,11 +249,11 @@
 
                                     <div class="col-md-6 mt-3">
                                         <div class="form-group">
-                                            <label for="facebook">TikTok</label>
+                                            <label for="tiktok">TikTok</label>
                                             <div class="input-group ">
-                                                <span class="input-group-text" id="facebook"><img src="{{ asset('assets/back/images/tiktok.svg') }}" style="width:12px" alt="user-image" class="user-avtar" /></span>
+                                                <span class="input-group-text" id="tiktok"><img src="{{ asset('assets/back/images/tiktok.svg') }}" style="width:12px" alt="tiktok"  /></span>
 
-                                                <input type="text" class="form-control"  id="facebook" name="facebook" value="{{ isset($product) ? $product->facebook : old('facebook') }}"  aria-describedby="web">
+                                                <input type="text" class="form-control"  id="facebook" name="facebook" value="{{ isset($product) ? $product->tiktok : old('tiktok') }}"  aria-describedby="tiktok">
 
                                             </div>
                                         </div>
