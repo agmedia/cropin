@@ -159,7 +159,7 @@ class Product extends Model
             'instagram'         => $this->request->instagram,
             'tiktok'         => $this->request->tiktok,
             'menu'         => $this->request->menu,
-            'image'            => 'media/van.jpg',
+            'image'            => 'images/all/1.jpg',
             'sort_order'       => 0,
             'featured'         => 1,
             'status'           => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,

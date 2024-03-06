@@ -1,4 +1,11 @@
 @extends('back.layouts.admin')
+@push('css_before')
+
+    <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/dataTables.bootstrap5.min.css') }}">
+
+@endpush
+
+
 
 @section('content')
 
@@ -23,43 +30,43 @@
         @include('back.layouts.partials.session')
 
         <div class="col-sm-12">
-            <div class="table-responsive">
-                <table class="table table-hover">
+            <div class="dt-responsive table-responsive">
+                <table id="simpletable" class="table table-striped table-bordered nowrap">
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th>From - To</th>
-                        <th class="text-end">Price</th>
-                        <th class="text-center">Quantity</th>
+                        <th>Title</th>
+                        <th class="text-center">Category</th>
+                        <th class="text-center">City</th>
                         <th class="text-center">Status</th>
                         <th class="text-end">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     @forelse ($products as $product)
+
+
                         <tr>
                             <td class="text-center">{{ $product->id }}</td>
                             <td>
-                                <div class="row">
-                                    <div class="col-auto">
+
                                         <img src="{{ asset($product->image) }}" alt="user-image"
-                                             class="wid-40 rounded-circle">
-                                    </div>
-                                    <div class="col">
-                                        <h6 class="mb-0">
-                                            <a href="{{ route('product.edit', ['product' => $product]) }}">{{ $product->from_city }} - {{ $product->to_city }}</a>
-                                        </h6>
-                                        <p class="text-muted f-12 mb-0">Start: {{ \Illuminate\Support\Carbon::make($product->start_time) }}</p>
-                                    </div>
-                                </div>
+                                             class="wid-80 ">
+
+
+
+
+                                       <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
+
+
                             </td>
-                            <td class="text-end">{{ number_format($product->price, 2) }} / {{ number_format($product->price_child, 2) }}</td>
-                            <td class="text-center">{{ $product->quantity }}</td>
+                            <td class="text-center">{{ $product->category}}</td>
+                            <td class="text-center">{{ $product->city }}</td>
                             <td class="text-center">@include('back.layouts.partials.status', ['status' => $product->status])</td>
                             <td class="text-end">
                                 <ul class="list-inline me-auto mb-0">
-                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="View Sales">
-                                        <a href="{{ route('calendar') }}" class="avtar avtar-xs btn-link-secondary btn-pc-default">
+                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="View Listing">
+                                        <a href="#" class="avtar avtar-xs btn-link-secondary btn-pc-default">
                                             <i class="ti ti-eye f-18"></i>
                                         </a>
                                     </li>
@@ -92,4 +99,11 @@
 
 @push('js_after')
 
+    <script src="{{ asset('assets/back/js/plugins/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/back/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
+    <script>
+        // [ Zero Configuration ] start
+        $('#simpletable').DataTable();
+
+    </script>
 @endpush

@@ -16,6 +16,13 @@
         <div class="page-block">
             <div class="row align-items-center">
                 <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('products') }}">Listings</a></li>
+
+                        <li class="breadcrumb-item" aria-current="page">Listing</li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
                     <div class="page-header-title">
                         <h2 class="mb-4">Listing</h2>
                     </div>
