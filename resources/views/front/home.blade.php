@@ -6,16 +6,16 @@
 
 @push('meta_tags')
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima"/>
-    <meta property="og:image" content="https://goflexi.agmedia.rocks/image/Naslovna.jpg"/>
-    <meta property="og:site_name" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima"/>
-    <meta property="og:url" content="https://www.goflexi.eu/"/>
-    <meta property="og:description" content="Brza i ugodna putovanja putničkim kombi vozilima.Do Zagreba, Rijeke i Splita u pola klika!"/>
+    <meta property="og:title" content="CroPins - Croatian Clubs, Bars, Food and Fun."/>
+    <meta property="og:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png"/>
+    <meta property="og:site_name" content="CroPins - Croatian Clubs, Bars, Food and Fun"/>
+    <meta property="og:url" content="https://www.cropins.hr/"/>
+    <meta property="og:description" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia."/>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="" />
-    <meta name="twitter:title" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima" />
-    <meta name="twitter:description" content="Brza i ugodna putovanja putničkim kombi vozilima.Do Zagreba, Rijeke i Splita u pola klika!" />
-    <meta name="twitter:image" content="https://goflexi.agmedia.rocks/image/Naslovna.jpg" />
+    <meta name="twitter:title" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
+    <meta name="twitter:description" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
+    <meta name="twitter:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png" />
 @endpush
 
 @section('content')
