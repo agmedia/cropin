@@ -1,58 +1,24 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <!--=============== basic  ===============-->
-    <meta charset="UTF-8">
-    <title>CroPins -Cool Places Listings</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="index, follow"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <!--=============== css  ===============-->
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/plugins.css') }}">
+@extends('front.layouts.app')
 
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/color.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/mmenu.css') }}">
+@push('css_after')
 
-    <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href="images/favicon.ico">
-</head>
-<body>
-<!--loader-->
-<div class="loader-wrap">
-    <div class="pin"></div>
-    <div class="pulse"></div>
-</div>
-<!--loader end-->
-<!-- Main  -->
-<div id="main">
-    <!-- header-->
-    <header id="header" class="main-header dark-header fs-header sticky">
-        <div class="header-inner">
-            <div class="logo-holder">
-                <a href="index.html"><img src="images/cro-pins.svg" alt="CROPINS"></a>
-            </div>
+@endpush
 
+@push('meta_tags')
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima"/>
+    <meta property="og:image" content="https://goflexi.agmedia.rocks/image/Naslovna.jpg"/>
+    <meta property="og:site_name" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima"/>
+    <meta property="og:url" content="https://www.goflexi.eu/"/>
+    <meta property="og:description" content="Brza i ugodna putovanja putničkim kombi vozilima.Do Zagreba, Rijeke i Splita u pola klika!"/>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:title" content="GOFLEXI - Brza i ugodna piutovanje putničkim vozilima" />
+    <meta name="twitter:description" content="Brza i ugodna putovanja putničkim kombi vozilima.Do Zagreba, Rijeke i Splita u pola klika!" />
+    <meta name="twitter:image" content="https://goflexi.agmedia.rocks/image/Naslovna.jpg" />
+@endpush
 
-            <!-- nav-button-wrap-->
-            <div class="nav-button-wrap color-bg">
-                <a class="nav-button" href="#menu">
-                    <span></span><span></span><span></span>
-                </a>
-            </div>
-            <!-- nav-button-wrap end-->
-
-            <!-- The menu -->
-
-            <!--  navigation -->
-
-            <!-- navigation  end -->
-        </div>
-    </header>
-    <!--  header end -->
-    <!-- wrapper -->
+@section('content')
     <div id="wrapper">
         <div class="content">
             <!-- Map -->
@@ -281,131 +247,8 @@
         </div>
         <!-- content end -->
     </div>
-    <!-- wrapper end -->
-    <!--footer -->
-    <footer class="main-footer dark-footer  ">
+@endsection
 
-        <div class="sub-footer fl-wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="about-widget">
-                            <img src="images/cro-pins.svg" alt="CroPins">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="copyright"> &#169; CroPins 2024.  All rights reserved.</div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="footer-social">
-                            <ul>
-                                <li><a href="#" target="_blank" ><i class="fa fa-facebook-official"></i></a></li>
-                                <li><a href="#" target="_blank" ><i class="fa fa-whatsapp"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--footer end  -->
+@push('js_after')
 
-    <a class="to-top"><i class="fa fa-angle-up"></i></a>
-
-    <nav id="menu">
-
-
-        <ul>
-            <li>
-                <span>Bars</span>
-                <!--second level -->
-                <ul>
-                    <li><a href="index.html">Osijek</a></li>
-                    <li><a href="index.html">Rijeka</a></li>
-                    <li><a href="index.html">Split</a></li>
-                    <li><a href="index.html">Zagreb</a></li>
-
-                </ul>
-                <!--second level end-->
-            </li>
-            <li>
-                <span>Clubs</span>
-                <!--second level -->
-                <ul>
-                    <li><a href="index.html">Osijek</a></li>
-                    <li><a href="index.html">Rijeka</a></li>
-                    <li><a href="index.html">Split</a></li>
-                    <li><a href="index.html">Zagreb</a></li>
-
-                </ul>
-                <!--second level end-->
-            </li>
-            <li>
-                <span>Food</span>
-                <!--second level -->
-                <ul>
-                    <li><a href="index.html">Osijek</a></li>
-                    <li><a href="index.html">Rijeka</a></li>
-                    <li><a href="index.html">Split</a></li>
-                    <li><a href="index.html">Zagreb</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <span>Fun</span>
-                <!--second level -->
-                <ul>
-                    <li><a href="index.html">Osijek</a></li>
-                    <li><a href="index.html">Rijeka</a></li>
-                    <li><a href="index.html">Split</a></li>
-                    <li><a href="index.html">Zagreb</a></li>
-                </ul>
-                <!--second level end-->
-            </li>
-        </ul>
-
-
-
-    </nav>
-</div>
-<!-- Main end -->
-<!--=============== scripts  ===============-->
-<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFTllyTVaqRn2KEoycZckOjmk3xw-OGU0&libraries=places&callback=initAutocomplete"></script>
-<script type="text/javascript" src="{{ asset('js/map_infobox.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/markerclusterer.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/maps.js') }}"></script>
-<script src="js/mmenu.js"></script>
-<!-- Fire the plugin -->
-<script>
-    document.addEventListener(
-        "DOMContentLoaded", () => {
-            new Mmenu( "#menu", {
-                "extensions": [
-                    "fullscreen"
-                ],
-                "navbar": {
-                    title: " "
-                },
-                "offCanvas": {
-                    "position": "bottom"
-                },
-
-                "theme": "dark"
-
-
-
-
-
-
-
-            });
-        }
-    );
-</script>
-<style> #mm-1 .mm-navbar{display:none}</style>
-
-</body>
-</html>
+@endpush

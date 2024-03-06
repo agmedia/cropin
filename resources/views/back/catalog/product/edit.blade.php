@@ -2,7 +2,11 @@
 
 @push('css_before')
 
-
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
 
 @endpush
 
@@ -461,6 +465,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API_KEY')}}&libraries=places&callback=initAutocomplete"></script>
 
 
+
     <script>
         $(() => {
             {!! ag_lang() !!}.forEach(function(item) {
@@ -482,7 +487,7 @@
                 enableTime: true,
                 noCalendar: true,
                 time_24hr: true,
-                defaultDate: ''
+                defaultDate: '08:00'
             });
             @endforeach
 
@@ -491,7 +496,7 @@
                 enableTime: true,
                 noCalendar: true,
                 time_24hr: true,
-                defaultDate: ''
+                defaultDate: '23:00'
             });
             @endforeach
 
