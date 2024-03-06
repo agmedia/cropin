@@ -3,8 +3,12 @@
     <div class="navbar-wrapper">
         <div class="m-header">
             <a href="../dashboard/index.html" class="b-brand text-primary">
-                <img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="width:140px" class="img-fluid" alt="logo">
 
+                @if($mode =='dark')
+                <img src="{{ asset('assets/back/images/cro-pins-light.svg') }}" style="width:140px" class="img-fluid" alt="logo">
+                @else
+                    <img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="width:140px" class="img-fluid" alt="logo">
+                @endif
             </a>
         </div>
         <div class="navbar-content">
