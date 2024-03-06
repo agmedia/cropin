@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="CroPins">
     <meta name="keywords" content="CroPins">
-    <meta name="author" content="Phoenixcoded">
+    <meta name="author" content="AG media">
 
     <!-- [Favicon] icon -->
 

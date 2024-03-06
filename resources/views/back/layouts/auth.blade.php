@@ -11,8 +11,15 @@
 
     <meta name="author" content="AG media">
 
-    <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets/back/images/favicon.svg') }}" type="image/x-icon"> <!-- [Font] Family -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/image/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('media/image/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('media/image/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('media/image/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('media/image/safari-pinned-tab.svg') }}" color="#2f3b59">
+    <meta name="msapplication-TileColor" content="#2f3b59">
+    <meta name="theme-color" content="#2f3b59">
+
+
     <link rel="stylesheet" href="{{ asset('assets/back/fonts/inter/inter.css') }}" id="main-font-link" />
     <!-- [Tabler Icons] https://tablericons.com -->
     <link rel="stylesheet" href="{{ asset('assets/back/fonts/tabler-icons.min.css') }}" >
