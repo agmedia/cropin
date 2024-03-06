@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // feather icon start
   feather.replace();
   // feather icon end
-  
+
   // remove pre-loader start
   setTimeout(function () {
     document.querySelector('.loader-bg').remove();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     new SimpleBar(document.querySelector('.profile-notification-scroll'));
   }
   // header dropdown scrollbar end
-  
+
   // component scrollbar start
   if (document.querySelector('.component-list-card .card-body')) {
     new SimpleBar(document.querySelector('.component-list-card .card-body'));
@@ -448,7 +448,7 @@ function layout_rtl_change(value) {
   }
 }
 
-function layout_change(layout) {
+function layout_change(layout, change) {
   var control = document.querySelector('.pct-offcanvas');
   document.getElementsByTagName('body')[0].setAttribute('data-pc-theme', layout);
 
@@ -457,7 +457,9 @@ function layout_change(layout) {
     btn_control.classList.remove('active');
   }
   if (layout == 'dark') {
-    dark_flag = true;
+        dark_flag = true;
+
+
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
       document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../assets/images/logo-white.svg');
     }
@@ -476,6 +478,10 @@ function layout_change(layout) {
       document.querySelector('.theme-layout .btn.active').classList.remove('active');
       document.querySelector(".theme-layout .btn[data-value='false']").classList.add('active');
     }
+
+
+
+
   } else {
     dark_flag = false;
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
@@ -496,6 +502,10 @@ function layout_change(layout) {
       document.querySelector(".theme-layout .btn[data-value='true']").classList.add('active');
     }
   }
+
+    if (change) {
+        location.reload();
+    }
 }
 
 function change_box_container(value) {
@@ -506,21 +516,31 @@ function change_box_container(value) {
       //document.querySelector('.footer-wrapper').classList.remove('container-fluid');
 
       var control = document.querySelector('.theme-container .btn.active');
+
       if (control) {
         document.querySelector('.theme-container .btn.active').classList.remove('active');
         document.querySelector(".theme-container .btn[data-value='true']").classList.add('active');
+
       }
+
+
     } else {
       document.querySelector('.pc-content').classList.remove('container');
       //document.querySelector('.footer-wrapper').classList.remove('container');
       //document.querySelector('.footer-wrapper').classList.add('container-fluid');
       var control = document.querySelector('.theme-container .btn.active');
+
       if (control) {
         document.querySelector('.theme-container .btn.active').classList.remove('active');
         document.querySelector(".theme-container .btn[data-value='false']").classList.add('active');
+
       }
+
     }
+
+
   }
+
 }
 
 // ----------    new setup end   ------------
