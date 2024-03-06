@@ -3,17 +3,17 @@
 <!-- [Head] start -->
 
 <head>
-    <title>GoFlexi Dashboard</title>
+    <title>CroPins Dashboard</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Able Pro is trending dashboard template made using Bootstrap 5 design framework. Able Pro is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
-    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
+    <meta name="description" content="CroPins">
+    <meta name="keywords" content="CroPins">
     <meta name="author" content="Phoenixcoded">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets/back/images/favicon.svg') }}" type="image/x-icon"> <!-- [Font] Family -->
+
     <link rel="stylesheet" href="{{ asset('assets/back/fonts/inter/inter.css') }}" id="main-font-link" />
     <!-- notification css -->
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/notifier.css') }}">
@@ -30,6 +30,16 @@
     <link rel="stylesheet" href="{{ asset('assets/back/css/style-preset.css') }}" >
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/datepicker-bs5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/flatpickr.min.css') }}">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/image/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('media/image/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('media/image/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('media/image/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('media/image/safari-pinned-tab.svg') }}" color="#2f3b59">
+    <meta name="msapplication-TileColor" content="#2f3b59">
+    <meta name="theme-color" content="#2f3b59">
+
 
 
     @stack('css_before')

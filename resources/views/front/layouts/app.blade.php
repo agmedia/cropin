@@ -18,11 +18,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('media/image/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('media/image/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('media/image/site.webmanifest') }}">
-    <link rel="mask-icon" href="{{ asset('media/image/safari-pinned-tab.svg') }}" color="#ff006d">
-    <link rel="shortcut icon" href="{{ asset('media/image/favicon.ico') }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-config" content="{{ asset('media/image/browserconfig.xml') }}">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="mask-icon" href="{{ asset('media/image/safari-pinned-tab.svg') }}" color="#2f3b59">
+    <meta name="msapplication-TileColor" content="#2f3b59">
+    <meta name="theme-color" content="#2f3b59">
+
 
     @stack('meta_tags')
 
