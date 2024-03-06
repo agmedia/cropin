@@ -2,14 +2,14 @@
 <html lang="en">
 <!-- [Head] start -->
 <head>
-    <title>Login | Able Pro Dashboard Template</title>
+    <title>Login | CroPins</title>
     <!-- [Meta] -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Able Pro is trending dashboard template made using Bootstrap 5 design framework. Able Pro is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
-    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
-    <meta name="author" content="Phoenixcoded">
+    <meta name="description" content="CroPins - Croatian Clubs, Bars, Food and Fun.">
+
+    <meta name="author" content="AG media">
 
     <!-- [Favicon] icon -->
     <link rel="icon" href="{{ asset('assets/back/images/favicon.svg') }}" type="image/x-icon"> <!-- [Font] Family -->
@@ -42,6 +42,12 @@
 
 <div class="auth-main">
     <div class="auth-wrapper v2">
+
+        <div class="auth-sidecontent">
+            <img src="{{ asset('assets/back/images/login-bck.png') }}" alt="images"
+                 class="img-fluid img-auth-side">
+        </div>
+
         <div class="auth-form">
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
