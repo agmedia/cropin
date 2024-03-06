@@ -17,39 +17,38 @@
                     </a>
                 </li>
 
-                <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/catalog/*']) ? ' active pc-trigger' : '' }}">
-                    <a href="#!" class="pc-link">
-                        <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-element-plus"></use></svg></span>
-                        <span class="pc-mtext">{{ __('Catalog') }}</span>
-                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+
+
+
+                <li class="pc-item{{ request()->is([current_locale() . '/admin/catalog/*']) ? ' active r' : '' }}">
+                    <a href="{{ route('products') }}" class="pc-link">
+                     <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-fatrows"></use></svg></span>
+                        <span class="pc-mtext">{{ __('Listings') }}</span>
                     </a>
-                    <ul class="pc-submenu">
-                        <li class="pc-item{{ request()->routeIs(['products', 'product.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('products') }}">{{ __('Listings') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['widgets', 'widget.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('widgets') }}">{{ __('Widgets') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['pages', 'page.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('pages') }}">{{ __('Pages') }}</a></li>
-                    </ul>
                 </li>
 
-         {{--        <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/sales/*']) ? ' active pc-trigger' : '' }}">
-                    <a href="#!" class="pc-link">
-                        <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-graph"></use></svg></span>
-                        <span class="pc-mtext">{{ __('Sales') }}</span>
-                        <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="#">{{ __('Orders') }}</a></li>
-                       <li class="pc-item"><a class="pc-link" href="#">{{ __('Payments') }}</a></li>
-                        <li class="pc-item{{ request()->routeIs(['calendar', 'calendar.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('calendar') }}">{{ __('Calendar') }}</a></li>
-                    </ul>
-                </li>
-                --}}
+             {{--        <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/sales/*']) ? ' active pc-trigger' : '' }}">
+                        <a href="#!" class="pc-link">
+                            <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-graph"></use></svg></span>
+                            <span class="pc-mtext">{{ __('Sales') }}</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <ul class="pc-submenu">
+                            <li class="pc-item"><a class="pc-link" href="#">{{ __('Orders') }}</a></li>
+                           <li class="pc-item"><a class="pc-link" href="#">{{ __('Payments') }}</a></li>
+                            <li class="pc-item{{ request()->routeIs(['calendar', 'calendar.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('calendar') }}">{{ __('Calendar') }}</a></li>
+                        </ul>
+                    </li>
+                    --}}
                 <li class="pc-item pc-hasmenu{{ request()->is([current_locale() . '/admin/marketing/*']) ? ' active pc-trigger' : '' }}">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon"><svg class="pc-icon"><use xlink:href="#custom-link"></use></svg></span>
-                        <span class="pc-mtext">{{ __('Marketing') }}</span>
+                        <span class="pc-mtext">{{ __('Pages') }}</span>
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
                     <ul class="pc-submenu">
+
+                        <li class="pc-item{{ request()->routeIs(['pages', 'page.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('pages') }}">{{ __('Pages') }}</a></li>
                         <li class="pc-item{{ request()->routeIs(['faqs', 'faqs.*']) ? ' active' : '' }}"><a class="pc-link" href="{{ route('faqs') }}">{{ __('FAQ') }}</a></li>
                     </ul>
                 </li>

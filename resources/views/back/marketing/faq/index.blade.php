@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-md-6 text-end">
                     <a class="btn btn-success my-2" href="{{ route('faqs.create') }}">
-                        <i class="ti ti-file-plus"></i>Dodaj Novi
+                        <i class="ti ti-file-plus"></i>Add new
                     </a>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                             <thead>
                             <tr>
                                 <th style="width: 5%;">ID</th>
-                                <th>Pitanje</th>
+                                <th>Question</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-end" style="width: 10%;">Actions</th>
                             </tr>
