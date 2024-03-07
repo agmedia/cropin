@@ -35,58 +35,8 @@ return [
         ]
     ],
 
-
-    'week_list' => [
-        0 => [
-            'title' => [
-                'en' => 'Monday',
-                'hr' => 'Ponedjeljak'
-            ],
-            'value' => 'monday'
-        ],
-        1 => [
-            'title' => [
-                'en' => 'Tuesday',
-                'hr' => 'Utorak'
-            ],
-            'value' => 'tuesday'
-        ],
-        2 => [
-            'title' => [
-                'en' => 'Wednesday',
-                'hr' => 'Srijeda'
-            ],
-            'value' => 'wednesday'
-        ],
-        3 => [
-            'title' => [
-                'en' => 'Thursday',
-                'hr' => 'Četvrtak'
-            ],
-            'value' => 'thursday'
-        ],
-        4 => [
-            'title' => [
-                'en' => 'Friday',
-                'hr' => 'Petak'
-            ],
-            'value' => 'friday'
-        ],
-        5 => [
-            'title' => [
-                'en' => 'Saturday',
-                'hr' => 'Subota'
-            ],
-            'value' => 'saturday'
-        ],
-        6 => [
-            'title' => [
-                'en' => 'Sunday',
-                'hr' => 'Nedjelja'
-            ],
-            'value' => 'sunday'
-        ]
-    ],
+    'default_opening_hours' => '08:00',
+    'default_closing_hours' => '23:00',
 
     'product_select_status' => ['active', 'inactive'/*, 'with_action', 'without_action'*/],
     'product_select_sort' => ['new', 'old', 'price_up', 'price_down'/*, 'az', 'za'*/],

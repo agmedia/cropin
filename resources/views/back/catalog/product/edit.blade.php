@@ -299,23 +299,23 @@
                             </div>
                             <div class="card-body">
 
-                                @foreach (config('settings.week_list') as $item)
+                                @foreach ($working_hours as $key => $item)
                                     <div class="row g-3 mt-1 align-items-center">
-                                        <h6 class="mb-0">{{$item['title'][current_locale()]}} </h6>
+                                        <h6 class="mb-0">{{ $item['title'][current_locale()] }} </h6>
                                         <div class="col">
 
-                                            <input class="form-control" id="{{$item['value']}}-open" name="{{$item['value']}}_open" type="text" placeholder="Opening time ">
+                                            <input class="form-control" id="{{ $key }}-open" name="{{ $key }}_open" type="text" placeholder="Opening time" value="{{ $item['open'] ?: config('settings.default_opening_hours') }}">
 
                                         </div>
                                         <div class="col">
 
-                                            <input class="form-control" id="{{$item['value']}}-close" name="{{$item['value']}}_close" type="text" placeholder="Closing time">
+                                            <input class="form-control" id="{{ $key }}-close" name="{{ $key }}_close" type="text" placeholder="Closing time" value="{{ $item['close'] ?: config('settings.default_closing_hours') }}">
 
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="{{$item['value']}}_not_working" id="{{$item['value']}}-not-working">
-                                                <label class="form-check-label" for="{{$item['value']}}-not-working">Closed </label>
+                                                <input class="form-check-input" type="checkbox" name="{{ $key }}_not_working" id="{{ $key }}-not-working" @if($item['status']) checked @endif>
+                                                <label class="form-check-label" for="{{ $key }}-not-working">Closed </label>
                                             </div>
                                         </div>
                                     </div>
@@ -496,26 +496,20 @@
                 });
             });
 
-
-
-            @foreach (config('settings.week_list') as $item)
-
-            document.querySelector('#{{$item['value']}}-open').flatpickr({
-                enableTime: true,
-                noCalendar: true,
-                time_24hr: true,
-                defaultDate: '08:00'
+            {!! json_encode($working_hours) !!}.forEach(function(item, index) {
+                document.querySelector('#' + index + '-open').flatpickr({
+                    enableTime: true,
+                    noCalendar: true,
+                    time_24hr: true,
+                    //defaultDate: '08:00'
+                });
+                document.querySelector('#' + index + '-close').flatpickr({
+                    enableTime: true,
+                    noCalendar: true,
+                    time_24hr: true,
+                    //defaultDate: '23:00'
+                });
             });
-            @endforeach
-
-            @foreach (config('settings.week_list') as $item)
-            document.querySelector('#{{$item['value']}}-close').flatpickr({
-                enableTime: true,
-                noCalendar: true,
-                time_24hr: true,
-                defaultDate: '23:00'
-            });
-            @endforeach
 
         });
     </script>
