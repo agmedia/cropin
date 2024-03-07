@@ -42,7 +42,9 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        return view('back.catalog.product.edit');
+        $working_hours = (new Product())->getDefaultWorkingHours();
+
+        return view('back.catalog.product.edit', compact('working_hours'));
     }
 
 
@@ -78,9 +80,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        dd($product->toArray());
         $existing_images = Product::getExistingImages($product);
-        $working_hours   = $product->working_hours ? json_decode($product->working_hours, true) : config('settings.week_list');
+        $working_hours   = json_decode($product->working_hours, true);
 
         return view('back.catalog.product.edit', compact('product', 'existing_images', 'working_hours'));
     }

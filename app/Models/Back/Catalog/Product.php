@@ -155,6 +155,19 @@ class Product extends Model
         return (new ProductImage())->store($this->find($this->id), $request);
     }
 
+
+    /**
+     * @return false|string|mixed
+     */
+    public function getDefaultWorkingHours(bool $as_json = false): mixed
+    {
+        if ($as_json) {
+            return $this->resolveWorkingHours();
+        }
+
+        return json_decode($this->resolveWorkingHours(), true);
+    }
+
     /*******************************************************************************
      *                                Copyright : AGmedia                           *
      *                              email: filip@agmedia.hr                         *
@@ -215,42 +228,73 @@ class Product extends Model
     }
 
 
-    private function resolveWorkingHours()
+    /**
+     * @return false|string
+     */
+    private function resolveWorkingHours(): false|string
     {
         $arr = [
             'monday' => [
-                'open'  => $this->request->monday_open,
-                'close' => $this->request->monday_close,
+                'title' => [
+                    'en' => 'Monday',
+                    'hr' => 'Ponedjeljak'
+                ],
+                'open'  => $this->request ? $this->request->monday_open : null,
+                'close' => $this->request ? $this->request->monday_close : null,
                 'status' => (isset($this->request->monday_not_working) and $this->request->monday_not_working == 'on') ? 1 : 0,
             ],
             'tuesday' => [
-                'open'  => $this->request->tuesday_open,
-                'close' => $this->request->tuesday_close,
+                'title' => [
+                    'en' => 'Tuesday',
+                    'hr' => 'Utorak'
+                ],
+                'open'  => $this->request ? $this->request->tuesday_open : null,
+                'close' => $this->request ? $this->request->tuesday_close : null,
                 'status' => (isset($this->request->tuesday_not_working) and $this->request->tuesday_not_working == 'on') ? 1 : 0,
             ],
             'wednesday' => [
-                'open'  => $this->request->wednesday_open,
-                'close' => $this->request->wednesday_close,
+                'title' => [
+                    'en' => 'Wednesday',
+                    'hr' => 'Srijeda'
+                ],
+                'open'  => $this->request ? $this->request->wednesday_open : null,
+                'close' => $this->request ? $this->request->wednesday_close : null,
                 'status' => (isset($this->request->wednesday_not_working) and $this->request->wednesday_not_working == 'on') ? 1 : 0,
             ],
             'thursday' => [
-                'open'  => $this->request->thursday_open,
-                'close' => $this->request->thursday_close,
+                'title' => [
+                    'en' => 'Thursday',
+                    'hr' => 'Četvrtak'
+                ],
+                'open'  => $this->request ? $this->request->thursday_open : null,
+                'close' => $this->request ? $this->request->thursday_close : null,
                 'status' => (isset($this->request->thursday_not_working) and $this->request->thursday_not_working == 'on') ? 1 : 0,
             ],
             'friday' => [
-                'open'  => $this->request->friday_open,
-                'close' => $this->request->friday_close,
+                'title' => [
+                    'en' => 'Friday',
+                    'hr' => 'Petak'
+                ],
+                'open'  => $this->request ? $this->request->friday_open : null,
+                'close' => $this->request ? $this->request->friday_close : null,
                 'status' => (isset($this->request->friday_not_working) and $this->request->friday_not_working == 'on') ? 1 : 0,
             ],
             'saturday' => [
-                'open'  => $this->request->saturday_open,
-                'close' => $this->request->saturday_close,
+                'title' => [
+                    'en' => 'Saturday',
+                    'hr' => 'Subota'
+                ],
+                'open'  => $this->request ? $this->request->saturday_open : null,
+                'close' => $this->request ? $this->request->saturday_close : null,
                 'status' => (isset($this->request->saturday_not_working) and $this->request->saturday_not_working == 'on') ? 1 : 0,
             ],
             'sunday' => [
-                'open'  => $this->request->sunday_open,
-                'close' => $this->request->sunday_close,
+                'title' => [
+                    'en' => 'Sunday',
+                    'hr' => 'Nedjelja'
+                ],
+                'open'  => $this->request ? $this->request->sunday_open : null,
+                'close' => $this->request ? $this->request->sunday_close : null,
                 'status' => (isset($this->request->sunday_not_working) and $this->request->sunday_not_working == 'on') ? 1 : 0,
             ],
         ];
