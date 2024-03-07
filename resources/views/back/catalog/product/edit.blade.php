@@ -492,7 +492,11 @@
         <script src="{{ asset('assets/back/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
         <script>
             // [ Zero Configuration ] start
-            $('#simpletable').DataTable();
+            $('#simpletable').DataTable({
+                paging: false
+            });
+
+           
 
         </script>
 
