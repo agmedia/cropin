@@ -50,7 +50,10 @@ class ListingMenu extends Component
     {
         $this->addDefaultsToNewItem();
 
-        $this->items = json_decode($this->menu, true);
+        if ($this->menu != '') {
+            $this->items = json_decode($this->menu, true);
+        }
+
     }
 
 
