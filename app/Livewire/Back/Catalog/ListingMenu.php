@@ -26,7 +26,6 @@ class ListingMenu extends Component
      */
     public $menu = '';
 
-
     /**
      * @var array
      */
@@ -36,6 +35,16 @@ class ListingMenu extends Component
      * @var array
      */
     public $new_item = [];
+
+    /**
+     * @var array
+     */
+    public $groups = [];
+
+    /**
+     * @var string
+     */
+    public $new_group = '';
 
     /**
      * @var bool
@@ -49,11 +58,13 @@ class ListingMenu extends Component
     public function mount()
     {
         $this->addDefaultsToNewItem();
+        $this->groups = collect();
 
         if ($this->menu != '') {
             $this->items = json_decode($this->menu, true);
-        }
 
+            $this->groups = collect($this->items)->pluck('group')->unique();
+        }
     }
 
 
@@ -114,6 +125,19 @@ class ListingMenu extends Component
     {
         $this->should_update = false;
         $this->addDefaultsToNewItem();
+    }
+
+
+    /**
+     * @return void
+     */
+    public function addNewGroup()
+    {
+        if ($this->new_group != '') {
+            $this->groups->push($this->new_group);
+        }
+
+        $this->new_group = '';
     }
 
 

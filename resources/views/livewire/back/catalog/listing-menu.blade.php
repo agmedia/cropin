@@ -41,8 +41,18 @@
                         <label>Group</label>
                         <select class="form-select" wire:model="new_item.group">
                             <option>Select...</option>
-                            <option value="Bars">Bars</option>
+                            @foreach ($groups as $group)
+                                <option value="{{ $group }}">{{ $group }}</option>
+                            @endforeach
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Or enter a new group</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" wire:model="new_group" placeholder="Left Button">
+                            <button class="btn btn-outline-secondary" type="button" wire:click="addNewGroup()">Save</button>
+                        </div>
                     </div>
 
 
@@ -110,7 +120,7 @@
 
                                                 <ul class="list-inline me-auto mb-0">
 
-                                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Delete">
+                                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Edit">
                                                         <a wire:click="editItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
                                                             <i class="ti ti-edit-circle f-18"></i>
                                                         </a>
@@ -123,8 +133,6 @@
                                                     </li>
                                                 </ul>
 
-
-
                                             </td>
                                         </tr>
                                     @endforeach
@@ -135,22 +143,8 @@
                     @endif
 
 
-
-
-
-
-
-
-
-
-
-
-
                     @foreach ($items as $key => $item)
                         {{ json_encode($item) }}
-
-
-
                     @endforeach
                 </div>
             </div>
