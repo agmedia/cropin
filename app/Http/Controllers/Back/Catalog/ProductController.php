@@ -62,7 +62,7 @@ class ProductController extends Controller
         if ($stored) {
             $stored->storeImages($request);
 
-            return redirect()->back()->with(['success' => 'Listing has been saved succesfully!']);
+            return redirect()->route('product.edit', ['product' => $stored]);
         }
 
         return redirect()->back()->with(['error' => 'Whoops..! error while saving.']);
@@ -78,6 +78,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        dd($product->toArray());
         $existing_images = Product::getExistingImages($product);
         $working_hours   = $product->working_hours ? json_decode($product->working_hours, true) : config('settings.week_list');
 
