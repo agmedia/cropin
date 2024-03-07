@@ -46,6 +46,17 @@ class Product extends Model
 
 
     /**
+     * @param bool $all
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id')->orderBy('sort_order');
+    }
+
+
+    /**
      * @param null  $lang
      * @param false $all
      *

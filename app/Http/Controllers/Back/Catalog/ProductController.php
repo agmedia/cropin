@@ -29,7 +29,7 @@ class ProductController extends Controller
         }
 
         $products = $query->orderByDesc('created_at')
-                         ->paginate(config('settings.pagination.back'))->appends($request->query());
+                          ->paginate(config('settings.pagination.back'))->appends($request->query());
 
         return view('back.catalog.product.index', compact('products'));
     }
@@ -57,7 +57,7 @@ class ProductController extends Controller
     {
         //dd($request->toArray());
         $product = new Product();
-        $stored = $product->validateRequest($request)->store();
+        $stored  = $product->validateRequest($request)->store();
 
         if ($stored) {
             $stored->storeImages($request);
@@ -79,8 +79,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $existing_images = Product::getExistingImages($product);
+        $working_hours   = $product->working_hours ? json_decode($product->working_hours, true) : config('settings.week_list');
 
-        return view('back.catalog.product.edit', compact('product', 'existing_images'));
+        return view('back.catalog.product.edit', compact('product', 'existing_images', 'working_hours'));
     }
 
 

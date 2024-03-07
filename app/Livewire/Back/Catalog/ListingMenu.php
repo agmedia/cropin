@@ -9,6 +9,9 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+/**
+ *
+ */
 class ListingMenu extends Component
 {
     use WithPagination;
@@ -34,14 +37,20 @@ class ListingMenu extends Component
      */
     public $new_item = [];
 
-
+    /**
+     * @var bool
+     */
     public $should_update = false;
 
 
+    /**
+     * @return void
+     */
     public function mount()
     {
         $this->addDefaultsToNewItem();
 
+        $this->items = json_decode($this->menu, true);
     }
 
 
@@ -61,6 +70,11 @@ class ListingMenu extends Component
     }
 
 
+    /**
+     * @param int $key
+     *
+     * @return void
+     */
     public function editItem(int $key)
     {
         $this->new_item = $this->items[$key];
@@ -68,6 +82,9 @@ class ListingMenu extends Component
     }
 
 
+    /**
+     * @return void
+     */
     public function updateItem()
     {
         foreach ($this->items as $key => $item) {
@@ -87,6 +104,9 @@ class ListingMenu extends Component
     }
 
 
+    /**
+     * @return void
+     */
     public function cancelEdit()
     {
         $this->should_update = false;
