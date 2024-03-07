@@ -5,7 +5,6 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Intervention\Image\ImageManager;
 
 class Image
 {
@@ -72,8 +71,7 @@ class Image
         $time  = Str::random(4);
         $image = json_decode($new_image['image']);
 
-        $manager = new ImageManager(['driver' => 'gd']);
-        $img   = $manager->make(self::makeImageFromBase($image->output->image));
+        $img   = \Intervention\Image\Facades\Image::make(self::makeImageFromBase($image->output->image));
 
         // Image creation
         $img_ratio = static::setPreferedWidth($img);
