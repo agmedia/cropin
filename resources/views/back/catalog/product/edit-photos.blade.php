@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-12">
             <div class="file-drop-area">
-                <label for="files" style="display: block;padding: 1rem 2rem;border: 1px solid #CCCCCC;background-color: #eee;text-align: center;cursor: pointer;">Odaberite fotografiju... Ili više njih...</label>
+                <label for="files" style="display: block;padding: 1rem 2rem;border: 1px solid #CCCCCC;background-color: #eee;text-align: center;cursor: pointer;border-radius: 10px;">Odaberite fotografiju... Ili više njih...</label>
                 <input name="files[][image]" id="files" type="file" multiple>
             </div>
         </div>
@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                     <div class="@if ($image['default']) col-md-7 @else col-md-8 @endif pl-4">
-                                        <div class="row mb-2">
+                                         <div class="row mb-2 d-none">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-2">
                                                     <label for="title-input" class="w-100">Naziv fotografije
@@ -129,8 +129,9 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label class="col-sm-9 text-right font-size-sm pt-2" >Redosljed</label>
+
                                             <div class="col-sm-3">
+                                                <label class="font-size-sm pt-2" >Redosljed</label>
                                                 <input type="text" class="form-control js-tooltip-enabled" name="slim[{{ $image['id'] }}][sort_order]" value="{{ $image['sort_order'] }}" data-toggle="tooltip" data-placement="top" title="Sort Order">
                                             </div>
                                         </div>
