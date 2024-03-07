@@ -1,9 +1,5 @@
 @extends('back.layouts.admin')
-@push('css_before')
 
-    <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/dataTables.bootstrap5.min.css') }}">
-
-@endpush
 
 
 
@@ -31,7 +27,7 @@
 
         <div class="col-sm-12">
             <div class="dt-responsive table-responsive">
-                <table id="simpletable" class="table table-striped table-bordered nowrap">
+                <table  class="table table-striped table-bordered nowrap">
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
@@ -89,13 +85,4 @@
 
 @endsection
 
-@push('js_after')
 
-    <script src="{{ asset('assets/back/js/plugins/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/back/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
-    <script>
-        // [ Zero Configuration ] start
-        $('#simpletable').DataTable();
-
-    </script>
-@endpush

@@ -1,8 +1,14 @@
 <div class="col-md-12">
     <div class="card">
-        <h5 class="card-header">Add item</h5>
+        <div class="d-flex card-header align-items-center justify-content-between">
+            <h5 class="mb-0">Menu Items</h5>
+
+            <button type="button" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="ti ti-plus me-2"></i> Add Menu Item </button>
+
+        </div>
+
         <div class="card-body">
-            <div class="row mb-4">
+            <div class="row mb-4 collapse" id="collapseExample" wire:ignore.self>
                 <div class="col-md-6">
                     <div class="row col ">
                         <div class="position-relative">
@@ -85,7 +91,7 @@
                         {{ __('Save') }} <i class="ti ti-check ml-1"></i>
                     </button>
                     @if ($should_update)
-                        <button type="button" class="btn btn-warning my-2" wire:click="cancelEdit()">
+                        <button data-bs-toggle="collapse" href="#collapseExample" type="button" class="btn btn-warning my-2" wire:click="cancelEdit()">
                             {{ __('Cancel Edit') }} <i class="ti ti-backspace ml-1"></i>
                         </button>
                     @endif
@@ -97,14 +103,19 @@
 
 
                     @if ( ! empty($items))
-                        <div class="table-border-style mt-5">
-                            <div class="table-responsive">
-                                <table class="table ">
+
+                        <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+
+
+
                                     <thead class="thead-light">
                                     <tr>
                                         <th style="width: 80%;">{{ __('Title') }} </th>
-                                        <th class="text-end">{{ __('Sort') }}</th>
+                                        <th class="text-end">{{ __('Group') }}</th>
                                         <th class="text-end">{{ __('Price') }}</th>
+                                        <th class="text-end">{{ __('Sort') }}</th>
+
                                         <th class="text-end">{{ __('Actions') }}</th>
                                     </tr>
                                     </thead>
@@ -116,12 +127,22 @@
                                             <td>
                                                 {{$item['title'][current_locale()]}}
                                             </td>
+                                            <td>
+                                                {{$item['group']}}
+                                            </td>
+                                            <td>
+                                                {{$item['price']}}
+                                            </td>
+                                            <td>
+                                                {{$item['sort']}}
+                                            </td>
+
                                             <td class="text-end font-size-sm">
 
                                                 <ul class="list-inline me-auto mb-0">
 
                                                     <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Edit">
-                                                        <a wire:click="editItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
+                                                        <a data-bs-toggle="collapse" href="#collapseExample" wire:click="editItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
                                                             <i class="ti ti-edit-circle f-18"></i>
                                                         </a>
                                                     </li>
@@ -133,19 +154,17 @@
                                                     </li>
                                                 </ul>
 
+
+
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+
                         </div>
                     @endif
 
-
-                    @foreach ($items as $key => $item)
-                        {{ json_encode($item) }}
-                    @endforeach
                 </div>
             </div>
 
@@ -153,3 +172,4 @@
         </div>
     </div>
 </div>
+

@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="{{ asset('assets/back/js/plugins/dropzone/min/dropzone.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/slim/slim.css') }}">
 
+
+        <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/dataTables.bootstrap5.min.css') }}">
+
+
+
     @stack('gallery_css')
 
     <style>
@@ -483,6 +488,15 @@
 
 
 
+        <script src="{{ asset('assets/back/js/plugins/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/back/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
+        <script>
+            // [ Zero Configuration ] start
+            $('#simpletable').DataTable();
+
+        </script>
+
+
     <script>
         $(() => {
             {!! ag_lang() !!}.forEach(function(item) {
@@ -500,14 +514,14 @@
                 document.querySelector('#' + index + '-open').flatpickr({
                     enableTime: true,
                     noCalendar: true,
-                    time_24hr: true,
-                    //defaultDate: '08:00'
+                    time_24hr: true
+
                 });
                 document.querySelector('#' + index + '-close').flatpickr({
                     enableTime: true,
                     noCalendar: true,
-                    time_24hr: true,
-                    //defaultDate: '23:00'
+                    time_24hr: true
+
                 });
             });
 
