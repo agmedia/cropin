@@ -514,20 +514,20 @@
                 });
             });
 
-            {!! json_encode($working_hours) !!}.forEach(function(item, index) {
-                document.querySelector('#' + index + '-open').flatpickr({
-                    enableTime: true,
-                    noCalendar: true,
-                    time_24hr: true
+            @foreach($working_hours as $day => $hour)
+            document.querySelector('#{{ $day }}-open').flatpickr({
+                enableTime: true,
+                noCalendar: true,
+                time_24hr: true
 
-                });
-                document.querySelector('#' + index + '-close').flatpickr({
-                    enableTime: true,
-                    noCalendar: true,
-                    time_24hr: true
-
-                });
             });
+            document.querySelector('#{{ $day }}-close').flatpickr({
+                enableTime: true,
+                noCalendar: true,
+                time_24hr: true
+
+            });
+            @endforeach
 
         });
     </script>
