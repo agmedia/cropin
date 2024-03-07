@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('hash')->nullable();
+            $table->text('category')->nullable();
             $table->text('address')->nullable();
             $table->text('city')->nullable();
             $table->text('country')->nullable();
@@ -23,19 +24,15 @@ class CreateProductsTable extends Migration
             $table->text('lat')->nullable();
             $table->text('lon')->nullable();
             $table->text('zip')->nullable();
-            $table->text('category')->nullable();
-
             $table->text('email')->nullable();
             $table->text('phone')->nullable();
             $table->text('web')->nullable();
             $table->text('facebook')->nullable();
             $table->text('instagram')->nullable();
             $table->text('tiktok')->nullable();
-
             $table->longText('working_hours')->nullable();
             $table->longText('menu')->nullable();
             $table->string('image')->nullable();
-
             $table->integer('viewed')->unsigned()->default(0);
             $table->integer('sort_order')->unsigned()->default(0);
             $table->boolean('featured')->default(false);
@@ -58,6 +55,35 @@ class CreateProductsTable extends Migration
 
             $table->foreign('product_id')
                   ->references('id')->on('products')
+                  ->onDelete('cascade');
+        });
+
+
+        Schema::create('product_images', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('product_id')->index();
+            $table->string('image');
+            $table->boolean('default')->default(false);
+            $table->boolean('published')->default(false);
+            $table->integer('sort_order')->unsigned();
+            $table->timestamps();
+
+            $table->foreign('product_id')
+                  ->references('id')->on('products')
+                  ->onDelete('cascade');
+        });
+
+
+        Schema::create('product_images_translations', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('product_image_id')->index();
+            $table->string('lang', 2)->default(config('app.locale'));
+            $table->string('title')->nullable();
+            $table->string('alt')->nullable();
+            $table->timestamps();
+
+            $table->foreign('product_image_id')
+                  ->references('id')->on('product_images')
                   ->onDelete('cascade');
         });
 

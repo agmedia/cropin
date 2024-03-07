@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back\Catalog;
 
 use App\Helpers\Helper;
+use App\Helpers\Image;
 use App\Models\Back\Catalog\Product;
 use App\Models\Back\Catalog\Widget;
 use Illuminate\Http\Request;
@@ -54,10 +55,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->toArray());
         $product = new Product();
         $stored = $product->validateRequest($request)->store();
 
         if ($stored) {
+            $stored->storeImages($request);
+
             return redirect()->back()->with(['success' => 'Listing has been saved succesfully!']);
         }
 
@@ -74,7 +78,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('back.catalog.product.edit', compact('product'));
+        $existing_images = Product::getExistingImages($product);
+
+        return view('back.catalog.product.edit', compact('product', 'existing_images'));
     }
 
 
@@ -91,6 +97,8 @@ class ProductController extends Controller
         $updated = $product->validateRequest($request)->edit();
 
         if ($updated) {
+            $updated->storeImages($request);
+
             return redirect()->back()->with(['success' => 'Listing has been saved succesfully!']);
         }
 
@@ -118,6 +126,32 @@ class ProductController extends Controller
         }
 
         return response()->json(['error' => 300]);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImage(Request $request)
+    {
+        if ($request->has('data')) {
+            $image = Pro::find($request->input('data'));
+
+            $deleted = $image->delete();
+
+            if ($deleted) {
+                $path = Image::cleanPath('apartment', $image->apartment_id, $image->image);
+                Image::delete('apartment', $image->apartment_id, $path);
+
+                return response()->json(['success' => 200]);
+            }
+        }
+
+        return response()->json(['error' => 400]);
     }
 
 

@@ -64,7 +64,12 @@ return [
             'root' => public_path('assets/'),
             'url' => 'assets/'
         ],
-
+        //
+        'product' => [
+            'driver' => 'local',
+            'root' => public_path('media/img/product/'),
+            'url' => 'media/img/product/'
+        ],
     ],
 
     /*

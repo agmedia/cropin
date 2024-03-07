@@ -1,6 +1,10 @@
 @extends('back.layouts.admin')
 
 @push('css_before')
+    <link rel="stylesheet" href="{{ asset('assets/back/js/plugins/dropzone/min/dropzone.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/back/css/plugins/slim/slim.css') }}">
+
+    @stack('gallery_css')
 
     <style>
         .ck-editor__editable_inline {
@@ -83,6 +87,7 @@
             </div>
 
             <div class="tab-content">
+
                 <div class="tab-pane show active" id="general-tab-panel" role="tabpanel" aria-labelledby="general-tab">
 
                     <div class="col-md-12">
@@ -299,17 +304,17 @@
                                         <h6 class="mb-0">{{$item['title'][current_locale()]}} </h6>
                                         <div class="col">
 
-                                            <input class="form-control" id="{{$item['value']}}-open" name="{{$item['value']}}-open" type="text" placeholder="Opening time ">
+                                            <input class="form-control" id="{{$item['value']}}-open" name="{{$item['value']}}_open" type="text" placeholder="Opening time ">
 
                                         </div>
                                         <div class="col">
 
-                                            <input class="form-control" id="{{$item['value']}}-close" name="{{$item['value']}}-close" type="text" placeholder="Closing time">
+                                            <input class="form-control" id="{{$item['value']}}-close" name="{{$item['value']}}_close" type="text" placeholder="Closing time">
 
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="{{$item['value']}}-not-working" id="{{$item['value']}}-not-working">
+                                                <input class="form-check-input" type="checkbox" name="{{$item['value']}}_not_working" id="{{$item['value']}}-not-working">
                                                 <label class="form-check-label" for="{{$item['value']}}-not-working">Closed </label>
                                             </div>
                                         </div>
@@ -323,11 +328,11 @@
 
 
                 <div class="tab-pane " id="menu-tab-panel" role="tabpanel" aria-labelledby="menu-tab">
-
+                    @livewire('back.catalog.listing-menu', ['menu' => isset($product) ? $product->menu: ''])
                 </div>
 
                 <div class="tab-pane " id="images-tab-panel" role="tabpanel" aria-labelledby="images-tab">
-
+                    @include('back.catalog.product.edit-photos', ['resource' => isset($product) ? $product : null, 'existing' => isset($existing_images) ? $existing_images : null, 'delete_url' => route('product.destroy.image')])
                 </div>
 
 
@@ -405,6 +410,8 @@
 
 
 @push('js_after')
+    <script src="{{ asset('assets/back/js/plugins/dropzone/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('assets/back/js/plugins/slim/slim.kickstart.js') }}"></script>
 
     <script>
         function initAutocomplete() {
@@ -512,5 +519,7 @@
 
         });
     </script>
+
+    @stack('gallery_scripts')
 
 @endpush

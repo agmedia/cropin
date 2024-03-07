@@ -43,21 +43,13 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @forelse ($products as $product)
-
-
                         <tr>
                             <td class="text-center">{{ $product->id }}</td>
                             <td>
-
-                                        <img src="{{ asset($product->image) }}" alt="user-image"
-                                             class="wid-80 ">
-
-
-
-
-                                       <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
-
+                                <img src="{{ asset($product->image) }}" alt="user-image" class="wid-80 ">
+                                <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
 
                             </td>
                             <td class="text-center">{{ $product->category}}</td>

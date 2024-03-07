@@ -23,7 +23,6 @@ class Product extends Model
      */
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-
     /**
      * @var string
      */
@@ -68,9 +67,9 @@ class Product extends Model
 
 
     /*******************************************************************************
-    *                                Copyright : AGmedia                           *
-    *                              email: filip@agmedia.hr                         *
-    *******************************************************************************/
+     *                                Copyright : AGmedia                           *
+     *                              email: filip@agmedia.hr                         *
+     *******************************************************************************/
 
     /**
      * @param Request $request
@@ -94,7 +93,9 @@ class Product extends Model
      */
     public function store(): Product|null
     {
-        if ( ! $this->request) return null;
+        if ( ! $this->request) {
+            return null;
+        }
 
         $id = $this->insertGetId($this->getModelArray());
 
@@ -115,7 +116,9 @@ class Product extends Model
      */
     public function edit(): Product|null
     {
-        if ( ! $this->request) return null;
+        if ( ! $this->request) {
+            return null;
+        }
 
         $updated = $this->update($this->getModelArray(false));
 
@@ -128,10 +131,23 @@ class Product extends Model
         return null;
     }
 
+
+    /**
+     * @return bool|mixed
+     */
+    public function storeImages(Request $request = null)
+    {
+        if ( ! $request) {
+            $request = $this->request;
+        }
+
+        return (new ProductImage())->store($this->find($this->id), $request);
+    }
+
     /*******************************************************************************
-    *                                Copyright : AGmedia                           *
-    *                              email: filip@agmedia.hr                         *
-    *******************************************************************************/
+     *                                Copyright : AGmedia                           *
+     *                              email: filip@agmedia.hr                         *
+     *******************************************************************************/
 
     /**
      * @param bool $insert
@@ -140,30 +156,31 @@ class Product extends Model
      */
     private function getModelArray(bool $insert = true): array
     {
-
+        $working_hours = $this->resolveWorkingHours();
 
         $response = [
-            'hash'             => Str::random(),
-            'address'         => $this->request->address,
-            'zip'         => $this->request->zip,
-            'city'         => $this->request->city,
-            'street'         => $this->request->street,
-            'country'         => $this->request->country,
-            'category'         => $this->request->category,
-            'lat'         => $this->request->lat,
-            'lon'         => $this->request->lon,
+            'hash'          => Str::random(),
+            'address'       => $this->request->address,
+            'zip'           => $this->request->zip,
+            'city'          => $this->request->city,
+            'street'        => $this->request->street,
+            'country'       => $this->request->country,
+            'category'      => $this->request->category,
+            'lat'           => $this->request->lat,
+            'lon'           => $this->request->lon,
             'phone'         => $this->request->phone,
             'email'         => $this->request->email,
-            'web'         => $this->request->web,
-            'facebook'         => $this->request->facebook,
-            'instagram'         => $this->request->instagram,
-            'tiktok'         => $this->request->tiktok,
-            'menu'         => $this->request->menu,
-            'image'            => 'images/all/1.jpg',
-            'sort_order'       => 0,
-            'featured'         => 1,
-            'status'           => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
-            'updated_at'       => Carbon::now()
+            'web'           => $this->request->web,
+            'facebook'      => $this->request->facebook,
+            'instagram'     => $this->request->instagram,
+            'tiktok'        => $this->request->tiktok,
+            'working_hours' => $working_hours,
+            'menu'          => $this->request->menu,
+            'image'         => 'images/all/1.jpg',
+            'sort_order'    => 0,
+            'featured'      => 1,
+            'status'        => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
+            'updated_at'    => Carbon::now()
         ];
 
         if ($insert) {
@@ -184,6 +201,90 @@ class Product extends Model
     private function setRequest($request): void
     {
         $this->request = $request;
+    }
+
+
+    private function resolveWorkingHours()
+    {
+        $arr = [
+            'monday' => [
+                'open'  => $this->request->monday_open,
+                'close' => $this->request->monday_close,
+                'status' => (isset($this->request->monday_not_working) and $this->request->monday_not_working == 'on') ? 1 : 0,
+            ],
+            'tuesday' => [
+                'open'  => $this->request->tuesday_open,
+                'close' => $this->request->tuesday_close,
+                'status' => (isset($this->request->tuesday_not_working) and $this->request->tuesday_not_working == 'on') ? 1 : 0,
+            ],
+            'wednesday' => [
+                'open'  => $this->request->wednesday_open,
+                'close' => $this->request->wednesday_close,
+                'status' => (isset($this->request->wednesday_not_working) and $this->request->wednesday_not_working == 'on') ? 1 : 0,
+            ],
+            'thursday' => [
+                'open'  => $this->request->thursday_open,
+                'close' => $this->request->thursday_close,
+                'status' => (isset($this->request->thursday_not_working) and $this->request->thursday_not_working == 'on') ? 1 : 0,
+            ],
+            'friday' => [
+                'open'  => $this->request->friday_open,
+                'close' => $this->request->friday_close,
+                'status' => (isset($this->request->friday_not_working) and $this->request->friday_not_working == 'on') ? 1 : 0,
+            ],
+            'saturday' => [
+                'open'  => $this->request->saturday_open,
+                'close' => $this->request->saturday_close,
+                'status' => (isset($this->request->saturday_not_working) and $this->request->saturday_not_working == 'on') ? 1 : 0,
+            ],
+            'sunday' => [
+                'open'  => $this->request->sunday_open,
+                'close' => $this->request->sunday_close,
+                'status' => (isset($this->request->sunday_not_working) and $this->request->sunday_not_working == 'on') ? 1 : 0,
+            ],
+        ];
+
+        return json_encode($arr);
+    }
+
+    /*******************************************************************************
+     *                                Copyright : AGmedia                           *
+     *                              email: filip@agmedia.hr                         *
+     *******************************************************************************/
+
+    /**
+     * @param Apartment|null $product
+     *
+     * @return array
+     */
+    public static function getExistingImages(Product $product = null): array
+    {
+        if ( ! $product || empty($product)) {
+            return [];
+        }
+
+        $response = [];
+        $images   = $product->images()->get();
+
+        foreach ($images as $image) {
+            $response[$image->id] = [
+                'id'         => $image->id,
+                'image'      => $image->image,
+                'default'    => $image->default,
+                'published'  => $image->published,
+                'sort_order' => $image->sort_order,
+            ];
+
+            foreach (ag_lang() as $lang) {
+                $title = isset($image->translation($lang->code)->title) ? $image->translation($lang->code)->title : '';
+                $alt   = isset($image->translation($lang->code)->alt) ? $image->translation($lang->code)->alt : '';
+
+                $response[$image->id]['title'][$lang->code] = $title;
+                $response[$image->id]['alt'][$lang->code]   = $alt;
+            }
+        }
+
+        return $response;
     }
 
 }
