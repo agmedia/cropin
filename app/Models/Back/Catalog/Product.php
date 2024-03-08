@@ -183,7 +183,7 @@ class Product extends Model
     {
         $working_hours = $this->resolveWorkingHours();
 
-        $image = DB::table('product_images')->first();
+        $image = DB::table('product_images')->where('default', 1)->first();
 
         $response = [
             'hash'          => Str::random(),
