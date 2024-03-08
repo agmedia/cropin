@@ -49,6 +49,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
+            $table->string('keywords')->nullable();
             $table->string('slug');
             $table->string('url', 255);
             $table->timestamps();

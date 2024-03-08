@@ -42,6 +42,7 @@ class ProductTranslation extends Model
                 'description'      => $request['description'][$lang->code],
                 'meta_title'       => $request['title'][$lang->code],
                 'meta_description' => $request['meta_description'][$lang->code],
+                'keywords' => $request['keywords'][$lang->code],
                 'slug'             => $slug,
                 'url'              => $url,
                 'created_at'       => Carbon::now(),

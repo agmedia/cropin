@@ -58,8 +58,8 @@
                         @foreach($existing as $image)
 
                             <div class="col-sm-12 animated fadeIn mb-0 p-3 ribbon ribbon-left ribbon-bookmark ribbon-crystal" id="{{ 'image_id_' . $image['id'] }}">
-                                <div class="row form-group mt-2">
-                                    <div class="@if ($image['default']) col-md-5 @else col-md-4 @endif">
+                                <div class="row  form-group mt-2">
+                                    <div class="col-md-4">
                                         <div class="options-container fx-item-zoom-in fx-overlay-zoom-out">
                                             @if ($image['default'])
                                                 <div class="ribbon-box" style="background-color: #c3c3c3">
@@ -81,7 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="@if ($image['default']) col-md-7 @else col-md-8 @endif pl-4">
+                                    <div class="col-md-4 pl-4">
                                         <div class="row mb-2 d-none">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-2">

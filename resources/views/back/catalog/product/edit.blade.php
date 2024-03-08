@@ -512,6 +512,13 @@
                 .catch(error => {
                     //console.error(error);
                 });
+
+                new Choices('#keywords-' + item.code, {
+                    delimiter: ',',
+                    editItems: true,
+                    maxItemCount: 5,
+                    removeItemButton: true
+                });
             });
 
             @foreach($working_hours as $day => $hour)
