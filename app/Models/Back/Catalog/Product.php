@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use DB;
 
 class Product extends Model
 {
@@ -182,6 +183,8 @@ class Product extends Model
     {
         $working_hours = $this->resolveWorkingHours();
 
+        $image = DB::table('product_images')->first();
+
         $response = [
             'hash'          => Str::random(),
             'address'       => $this->request->address,
@@ -200,7 +203,7 @@ class Product extends Model
             'tiktok'        => $this->request->tiktok,
             'working_hours' => $working_hours,
             'menu'          => $this->request->menu,
-            'image'         => 'images/all/1.jpg',
+            'image'         => $image->image,
             'sort_order'    => 0,
             'featured'      => 1,
             'status'        => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
