@@ -43,7 +43,7 @@
     <div class="row">
         <div class="col-12">
             <div class="file-drop-area">
-                <label for="files" style="display: block;padding: 1rem 2rem;border: 1px solid #CCCCCC;background-color: #eee;text-align: center;cursor: pointer;border-radius: 10px;">Odaberite fotografiju... Ili više njih...</label>
+                <label for="files" style="display: block;padding: 1rem 2rem;border: 1px solid #CCCCCC;background-color: #eee;text-align: center;cursor: pointer;border-radius: 10px;">Drop files here to upload</label>
                 <input name="files[][image]" id="files" type="file" multiple>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                         <div class="options-container fx-item-zoom-in fx-overlay-zoom-out">
                                             @if ($image['default'])
                                                 <div class="ribbon-box" style="background-color: #c3c3c3">
-                                                    <i class="fa fa-check"></i> Glavna Slika
+                                                    <i class="fa fa-check"></i> Main Image
                                                 </div>
                                             @endif
                                             <div class="slim"
@@ -85,7 +85,7 @@
                                         <div class="row mb-2 d-none">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-2">
-                                                    <label for="title-input" class="w-100">Naziv fotografije
+                                                    <label for="title-input" class="w-100">Image title
                                                         <ul class="nav nav-pills float-right">
                                                             @foreach(ag_lang() as $lang)
                                                                 <li @if ($lang->code == current_locale()) class="active" @endif>
@@ -107,7 +107,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 mt-3">
-                                                <label for="alt-input" class="w-100">Alternativni tekst fotografije
+                                                <label for="alt-input" class="w-100">Alt text
                                                     <ul class="nav nav-pills float-right">
                                                         @foreach(ag_lang() as $lang)
                                                             <li @if ($lang->code == current_locale()) class="active" @endif>
@@ -131,7 +131,7 @@
                                         <div class="row mb-3">
 
                                             <div class="col-sm-3">
-                                                <label class="font-size-sm pt-2" >Redosljed</label>
+                                                <label class="font-size-sm pt-2" >Sort Order</label>
                                                 <input type="text" class="form-control js-tooltip-enabled" name="slim[{{ $image['id'] }}][sort_order]" value="{{ $image['sort_order'] }}" data-toggle="tooltip" data-placement="top" title="Sort Order">
                                             </div>
                                         </div>
@@ -139,13 +139,13 @@
                                             <div class="col-md-12 text-right mb-2">
                                                 <div class="custom-control custom-radio mb-1">
                                                     <input type="radio" class="custom-control-input" id="radio-default" name="slim[{{ $image['id'] }}][default]" value="{{ $image['id'] }}" @if ($image['default']) checked @endif>
-                                                    <label class="custom-control-label" for="radio-default">Glavna fotografija</label>
+                                                    <label class="custom-control-label" for="radio-default">Main Image</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 text-right">
                                                 <div class="custom-control custom-checkbox custom-checkbox-square custom-control-success mb-1">
                                                     <input type="checkbox" class="custom-control-input" id="check-published[{{ $image['id'] }}]" name="slim[{{ $image['id'] }}][published]" @if($image['published']) checked @endif>
-                                                    <label class="custom-control-label" for="check-published[{{ $image['id'] }}]">Vidljivost foto.</label>
+                                                    <label class="custom-control-label" for="check-published[{{ $image['id'] }}]">Image visibility</label>
                                                 </div>
                                             </div>
                                         </div>
