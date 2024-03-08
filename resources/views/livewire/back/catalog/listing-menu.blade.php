@@ -61,19 +61,19 @@
                         </div>
                     </div>
 
-
-                    <div class="form-group">
+                    <div class="row">
+                    <div class="form-group col-md-6">
                         <label for="title">Price</label>
                         <input type="text" class="form-control" wire:model="new_item.price" placeholder="..." />
                     </div>
 
 
 
-                    <div class="form-group">
+                    <div class="form-group col-md-6">
                         <label for="title">Sort order</label>
                         <input type="text" class="form-control" wire:model="new_item.sort" placeholder="..." />
                     </div>
-
+                    </div>
 
 
                     <div class="form-check form-switch custom-switch-v1 ">

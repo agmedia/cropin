@@ -349,23 +349,24 @@
             if (data.meta.hasOwnProperty('image_id')) {
                 axios.post("{{ $delete_url }}", { data: data.meta.image_id })
                     .then((response) => {
-                        successToast.fire({
-                            text: 'Fotografija je uspješno izbrisana',
-                        })
+
+
+                        showSuccess('Fotografija je uspješno izbrisana')
 
                         let elem = document.getElementById('image_id_' + data.meta.image_id);
 
                         elem.parentNode.removeChild(elem);
                     })
                     .catch((error) => {
-                        errorToast.fire({
-                            text: 'Greška u brisanju fotografije..! Molimo pokušajte ponovo.',
-                        })
+
+                            showError('Greška u brisanju fotografije..! Molimo pokušajte ponovo.')
+
+
                     })
             } else {
-                errorToast.fire({
-                    text: 'Glavna slika se ne može izbrisati..!',
-                })
+
+                showError('Glavna slika se ne može izbrisati..!')
+
             }
 
             //slim.destroy();
