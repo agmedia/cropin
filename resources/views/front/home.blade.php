@@ -50,7 +50,7 @@
                                         <div class="listing-item">
                                             <article class="geodir-category-listing fl-wrap">
                                                 <div class="geodir-category-img">
-                                                    <a  href="{{ route('resolve.route', ['product' => $listing]) }}">
+                                                    <a  href="{{ route('resolve.route', ['product' => $listing->translation(current_locale())->slug]) }}">
                                                         <img src="images/all/1.jpg" alt="">
                                                         <div class="overlay"></div>
                                                     </a>

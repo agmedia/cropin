@@ -76,8 +76,11 @@ class Product extends Model
     public function resolveRouteBinding($value, $field = NULL)
     {
         $pro = Product::query()->whereHas('translation', function ($query) use ($value) {
+            Log::info('whereHas $value=');
+            Log::info($value);
+
             $query->where('slug', $value);
-        })->first();
+        })->orWhere('id', $value)->first();
 
         Log::info('resolveRouteBinding');
         Log::info($pro);

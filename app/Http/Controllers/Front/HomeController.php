@@ -10,8 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontBaseController;
 use App\Imports\ProductImport;
 use App\Mail\ContactFormMessage;
-use App\Models\Back\Settings\Settings;
-use App\Models\Front\Apartment\Apartment;
 use App\Models\Front\Catalog\Page;
 use App\Models\Front\Catalog\Product;
 use App\Models\Front\Faq;
