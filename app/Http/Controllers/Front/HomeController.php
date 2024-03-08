@@ -13,6 +13,7 @@ use App\Mail\ContactFormMessage;
 use App\Models\Back\Settings\Settings;
 use App\Models\Front\Apartment\Apartment;
 use App\Models\Front\Catalog\Page;
+use App\Models\Front\Catalog\Product;
 use App\Models\Front\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -28,7 +29,9 @@ class HomeController extends FrontBaseController
      */
     public function index(Request $request)
     {
-        return view('front.home');
+        $listings = Product::query()->paginate(12);
+
+        return view('front.home', compact('listings'));
     }
 
 
@@ -37,19 +40,14 @@ class HomeController extends FrontBaseController
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function product(Apartment $apartment)
+    public function resolveRoute(Request $request, Product $product)
     {
-        $dates = $apartment->dates();
-        $langs = LanguageHelper::resolveSelector($apartment);
-        $meta  = $apartment->meta();
+        Log::info($request->toArray());
+        Log::info($product->toArray());
 
-        $reservation_session = null;
+        dd($request->toArray(), $product->toArray());
 
-        if (CheckoutSession::hasReservationData()) {
-            $reservation_session = CheckoutSession::getReservationData();
-        }
-
-        return view('front.apartment', compact('apartment', 'dates', 'langs', 'meta', 'reservation_session'));
+        return view('front.home');
     }
 
 

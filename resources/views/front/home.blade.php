@@ -46,27 +46,29 @@
                                 <!-- list-main-wrap-->
                                 <div class="list-main-wrap fl-wrap card-listing">
                                     <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
+                                    @foreach ($listings as $listing)
+                                        <div class="listing-item">
+                                            <article class="geodir-category-listing fl-wrap">
+                                                <div class="geodir-category-img">
+                                                    <a  href="{{ route('resolve.route', ['product' => $listing]) }}">
+                                                        <img src="images/all/1.jpg" alt="">
+                                                        <div class="overlay"></div>
+                                                    </a>
                                                 </div>
-                                            </div>
-                                        </article>
-                                    </div>
+
+                                                <div class="geodir-category-content fl-wrap">
+                                                    <a class="listing-geodir-category" href="listing.html">Food</a>
+
+                                                    <h3><a href="{{ route('resolve.route', ['product' => $listing]) }}">{{ $listing->translation(current_locale())->title }}</a></h3>
+                                                    <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
+                                                    <div class="geodir-category-options fl-wrap">
+
+                                                        <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    @endforeach
                                     <!-- listing-item end-->
                                     <!-- listing-item -->
                                     <div class="listing-item">
