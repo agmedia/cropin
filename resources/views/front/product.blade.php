@@ -166,10 +166,6 @@
                         <!--box-widget-wrap -->
                         <div class="col-md-4">
                             <div class="box-widget-wrap">
-
-
-
-
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec5">
                                     <div class="box-widget-item-header">
@@ -210,8 +206,6 @@
                                     </div>
                                 </div>
                                 <!--box-widget-item end -->
-
-
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap">
                                     <div class="box-widget-item-header">
@@ -221,13 +215,12 @@
                                         <div class="box-widget-content">
                                             <span class="current-status"><i class="fa fa-clock-o"></i> Now Open</span>
                                             <ul>
-                                                <li><span class="opening-hours-day">Monday </span><span class="opening-hours-time">9 AM - 5 PM</span></li>
-                                                <li><span class="opening-hours-day">Tuesday </span><span class="opening-hours-time">9 AM - 5 PM</span></li>
-                                                <li><span class="opening-hours-day">Wednesday </span><span class="opening-hours-time">9 AM - 5 PM</span></li>
-                                                <li><span class="opening-hours-day">Thursday </span><span class="opening-hours-time">9 AM - 5 PM</span></li>
-                                                <li><span class="opening-hours-day">Friday </span><span class="opening-hours-time">9 AM - 5 PM</span></li>
-                                                <li><span class="opening-hours-day">Saturday </span><span class="opening-hours-time">9 AM - 3 PM</span></li>
-                                                <li><span class="opening-hours-day">Sunday </span><span class="opening-hours-time">Closed</span></li>
+
+                                                @foreach (json_decode($product->working_hours) as $day)
+
+
+                                                <li><span class="opening-hours-day">  {{ $day->title->{current_locale()} }}</span><span class="opening-hours-time">{{ $day->open }} h - {{ $day->close }} h</span></li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>

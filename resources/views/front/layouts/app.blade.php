@@ -35,6 +35,7 @@
 
 
 
+
     @stack('css_after')
 
     <style>
@@ -44,23 +45,10 @@
 
 <!-- Body-->
 <body>
-<!--loader-->
-<div class="loader-wrap">
-    <div class="pin"></div>
-    <div class="pulse"></div>
-</div>
-<!--loader end-->
-<div id="main">
+
+<div id="page">
 
     @include('front.layouts.partials.header')
-
-    @yield('content')
-
-    @include('front.layouts.partials.footer')
-
-
-    <a class="to-top"><i class="fa fa-angle-up"></i></a>
-
     <nav id="menu">
 
 
@@ -116,6 +104,15 @@
 
 
     </nav>
+
+    @yield('content')
+
+    @include('front.layouts.partials.footer')
+
+
+    <a class="to-top"><i class="fa fa-angle-up"></i></a>
+
+
 </div>
 
 <!-- Javascript Files -->
@@ -132,11 +129,21 @@
     document.addEventListener(
         "DOMContentLoaded", () => {
             new Mmenu( "#menu", {
-                "extensions": [
-                    "fullscreen"
+                "navbars": [
+                    {
+                        "position": "top",
+                        "content": [
+                            "searchfield"
+                        ]
+                    }
                 ],
+
+
+
+
                 "navbar": {
-                    title: " "
+                    title: "Menu",
+
                 },
                 "offCanvas": {
                     "position": "bottom"
