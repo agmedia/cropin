@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back\Catalog;
 use App\Helpers\Helper;
 use App\Helpers\Image;
 use App\Models\Back\Catalog\Product;
+use App\Models\Back\Catalog\ProductImage;
 use App\Models\Back\Catalog\Widget;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -141,14 +142,15 @@ class ProductController extends Controller
      */
     public function destroyImage(Request $request)
     {
+        Log::info($request->toArray());
         if ($request->has('data')) {
-            $image = Pro::find($request->input('data'));
+            $image = ProductImage::find($request->input('data'));
 
             $deleted = $image->delete();
 
             if ($deleted) {
-                $path = Image::cleanPath('apartment', $image->apartment_id, $image->image);
-                Image::delete('apartment', $image->apartment_id, $path);
+                $path = Image::cleanPath('product', $image->product_id, $image->image);
+                Image::delete('product', $image->product_id, $path);
 
                 return response()->json(['success' => 200]);
             }

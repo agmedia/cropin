@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                     <div class="@if ($image['default']) col-md-7 @else col-md-8 @endif pl-4">
-                                         <div class="row mb-2 d-none">
+                                        <div class="row mb-2 d-none">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-2">
                                                     <label for="title-input" class="w-100">Naziv fotografije
@@ -348,25 +348,18 @@
         function removeImage(data, slim) {
             if (data.meta.hasOwnProperty('image_id')) {
                 axios.post("{{ $delete_url }}", { data: data.meta.image_id })
-                    .then((response) => {
+                .then((response) => {
+                    showSuccess('Fotografija je uspješno izbrisana')
 
+                    let elem = document.getElementById('image_id_' + data.meta.image_id);
 
-                        showSuccess('Fotografija je uspješno izbrisana')
-
-                        let elem = document.getElementById('image_id_' + data.meta.image_id);
-
-                        elem.parentNode.removeChild(elem);
-                    })
-                    .catch((error) => {
-
-                            showError('Greška u brisanju fotografije..! Molimo pokušajte ponovo.')
-
-
-                    })
+                    elem.parentNode.removeChild(elem);
+                })
+                .catch((error) => {
+                    showError('Greška u brisanju fotografije..! Molimo pokušajte ponovo.')
+                })
             } else {
-
                 showError('Glavna slika se ne može izbrisati..!')
-
             }
 
             //slim.destroy();
