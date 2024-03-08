@@ -216,7 +216,7 @@
             }]
         });
         var markerIcon2 = {
-            url: '{{ asset(\'images/marker.png\') }}',
+            url: 'images/marker.png',
         }
         var marker = new google.maps.Marker({
             position: myLatLng,

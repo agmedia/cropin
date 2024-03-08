@@ -40,12 +40,8 @@ class HomeController extends FrontBaseController
      */
     public function resolveRoute(Request $request, Product $product)
     {
-        Log::info($request->toArray());
-        Log::info($product->toArray());
 
-        dd($request->toArray(), $product->toArray());
-
-        return view('front.home');
+        return view('front.product', compact('product'));
     }
 
 

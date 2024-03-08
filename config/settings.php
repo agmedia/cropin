@@ -24,8 +24,8 @@ return [
     'default_admin_id' => 1,
 
     'images_domain' => '#',
-    'image_size_ratio' => '1440x960',
-    'thumb_size_ratio' => '800x534',
+    'image_size_ratio' => '800x530',
+    'thumb_size_ratio' => '400x265',
     'default_apartment_image' => 'media/default_img.jpg',
 
     'sorting_list' => [

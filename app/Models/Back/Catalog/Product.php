@@ -185,6 +185,12 @@ class Product extends Model
 
         $image = DB::table('product_images')->where('default', 1)->first();
 
+        if ($image){
+            $thumb = $image->image;
+        }else{
+            $thumb = '';
+        }
+
         $response = [
             'hash'          => Str::random(),
             'address'       => $this->request->address,
@@ -203,7 +209,7 @@ class Product extends Model
             'tiktok'        => $this->request->tiktok,
             'working_hours' => $working_hours,
             'menu'          => $this->request->menu,
-            'image'         => $image->image,
+            'image'         => $thumb,
             'sort_order'    => 0,
             'featured'      => 1,
             'status'        => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
