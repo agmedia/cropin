@@ -61,9 +61,9 @@ class Product extends Model
      *
      * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|mixed
      */
-    public function getLocalizedRouteKey($locale)
+    public function getRouteKey()
     {
-        return $this->translation($locale)->slug;
+        return $this->translation(current_locale())->slug;
     }
 
 
@@ -75,19 +75,7 @@ class Product extends Model
      */
     public function resolveRouteBinding($value, $field = NULL)
     {
-        $pro = Product::query()->whereHas('translation', function ($query) use ($value) {
-            Log::info('whereHas $value=');
-            Log::info($value);
-
-            $query->where('slug', $value);
-        })->orWhere('id', $value)->first();
-
-        Log::info('resolveRouteBinding');
-        Log::info($pro);
-
-        return $pro ?: abort(404);
-
-        return static::whereHas('translation', function ($query) use ($value) {
+        return static::query()->whereHas('translation', function ($query) use ($value) {
             $query->where('slug', $value);
         })->first() ?? abort(404);
     }
