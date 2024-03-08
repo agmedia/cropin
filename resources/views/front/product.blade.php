@@ -145,7 +145,7 @@
                                         <div class="box-widget-content">
                                             <div class="list-author-widget-contacts list-item-widget-contacts">
                                                 <ul>
-                                                    <li><span><i class="fa fa-map-marker"></i> Adress :</span> <a href="https://www.google.com/maps/search/?api=1&query={{$product->lat}},{{$product->lon}}">{{$product->street}}, {{$product->zip}}, {{$product->city}}, {{$product->country}}</a></li>
+                                                    <li><span><i class="fa fa-map-marker"></i> Adress :</span> <a href="https://www.google.com/maps/search/?api=1&query={{ $product->translation(current_locale())->title }}+{{$product->street}}+{{$product->zip}}+{{$product->city}}, {{$product->country}}">{{$product->street}}, {{$product->zip}}, {{$product->city}}</a></li>
                                                     <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">{{$product->phone}}</a></li>
                                                     <li><span><i class="fa fa-globe"></i> Website :</span> <a href="{{$product->web}}">{{$product->web}}</a></li>
                                                 </ul>
