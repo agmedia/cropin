@@ -49,6 +49,7 @@
 <div id="page">
 
     @include('front.layouts.partials.header')
+
     <nav id="menu">
 
 
@@ -109,7 +110,6 @@
 
     @include('front.layouts.partials.footer')
 
-
     <a class="to-top"><i class="fa fa-angle-up"></i></a>
 
 
@@ -137,9 +137,6 @@
                         ]
                     }
                 ],
-
-
-
 
                 "navbar": {
                     title: "Menu",
