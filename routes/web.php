@@ -218,9 +218,9 @@ Route::group(
     /**
      *
      */
-    /*Route::fallback(function () {
+    Route::fallback(function () {
         return view('errors.404');
-    });*/
+    });
 
 });
 
