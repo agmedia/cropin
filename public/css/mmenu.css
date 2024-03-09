@@ -106,7 +106,7 @@
     inset-inline-start:23px
 }
 .mm-btn--next:after {
-    inset-inline-end:23px;
+    inset-inline-end:23px
 }
 .mm-btn--close:before {
     content:"×";
@@ -165,7 +165,7 @@
     border-bottom-style:solid;
     display:block;
     position:absolute;
-    inset-inline-start:0px;
+    inset-inline-start:20px;
     inset-inline-end:0;
     bottom:0
 }
@@ -253,7 +253,7 @@
 }
 .mm-menu ::placeholder {
     color:#fff;
-    font-weight: 600;
+    font-weight: 500;
 }
 .mm-menu,
 .mm-menu * {
@@ -300,7 +300,6 @@
     text-decoration:none;
     color:inherit;
     font-size: 1.1em;
-    /*! margin-right: 23px; */
 }
 :root {
     --mm-navbar-size:50px
@@ -362,8 +361,7 @@
     -o-text-overflow:ellipsis;
     text-overflow:ellipsis;
     white-space:nowrap;
-    overflow:hidden;
-    margin-right: 23px;
+    overflow:hidden
 }
 .mm-btn.mm-hidden+.mm-navbar__title:not(:last-child) {
     -webkit-padding-start:60px;
@@ -551,8 +549,7 @@
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     min-height:100vh;
-    background:inherit;
-    position: relative;
+    background:inherit
 }
 :where(.mm-slideout) {
     position:relative;

@@ -18,6 +18,61 @@
         <!-- The menu -->
 
         <!--  navigation -->
+        <nav id="menu">
+
+
+            <ul>
+                <li>
+                    <span>Bars</span>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="index.html">Osijek</a></li>
+                        <li><a href="index.html">Rijeka</a></li>
+                        <li><a href="index.html">Split</a></li>
+                        <li><a href="index.html">Zagreb</a></li>
+
+                    </ul>
+                    <!--second level end-->
+                </li>
+                <li>
+                    <span>Clubs</span>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="index.html">Osijek</a></li>
+                        <li><a href="index.html">Rijeka</a></li>
+                        <li><a href="index.html">Split</a></li>
+                        <li><a href="index.html">Zagreb</a></li>
+
+                    </ul>
+                    <!--second level end-->
+                </li>
+                <li>
+                    <span>Food</span>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="index.html">Osijek</a></li>
+                        <li><a href="index.html">Rijeka</a></li>
+                        <li><a href="index.html">Split</a></li>
+                        <li><a href="index.html">Zagreb</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <span>Fun</span>
+                    <!--second level -->
+                    <ul>
+                        <li><a href="index.html">Osijek</a></li>
+                        <li><a href="index.html">Rijeka</a></li>
+                        <li><a href="index.html">Split</a></li>
+                        <li><a href="index.html">Zagreb</a></li>
+                    </ul>
+                    <!--second level end-->
+                </li>
+            </ul>
+
+
+
+        </nav>
 
         <!-- navigation  end -->
     </div>
