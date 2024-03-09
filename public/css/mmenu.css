@@ -551,7 +551,8 @@
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     min-height:100vh;
-    background:inherit
+    background:inherit;
+    position: relative;
 }
 :where(.mm-slideout) {
     position:relative;
