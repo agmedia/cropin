@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/image/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('media/image/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('media/image/favicon-16x16.png') }}">
@@ -21,44 +20,25 @@
     <link rel="mask-icon" href="{{ asset('media/image/safari-pinned-tab.svg') }}" color="#2f3b59">
     <meta name="msapplication-TileColor" content="#2f3b59">
     <meta name="theme-color" content="#2f3b59">
-
-
     @stack('meta_tags')
-
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-
     <link type="text/css" rel="stylesheet" href="{{ asset('css/plugins.css') }}">
-
     <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/color.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/mmenu.css') }}">
-
-
-
-
     @stack('css_after')
-
     <style>
         [v-cloak] { display:none !important; }
     </style>
+    <style> #mm-1 .mm-navbar{display:none}</style>
 </head>
-
 <!-- Body-->
 <body>
-
 <div id="page">
-
     @include('front.layouts.partials.header')
-
-
-
     @yield('content')
-
     @include('front.layouts.partials.footer')
-
     <a class="to-top"><i class="fa fa-angle-up"></i></a>
-
-
 </div>
 
 
@@ -77,7 +57,6 @@
     document.addEventListener(
         "DOMContentLoaded", () => {
             new Mmenu( "#menu", {
-
                 "navbars": [
                     {
                         "position": "top",
@@ -86,17 +65,12 @@
                         ]
                     }
                 ],
-
                 "navbar": {
                     title: "Menu",
-
                 },
                 "offCanvas": {
                     "position": "bottom"
                 },
-
-
-
                 "theme": "dark"
 
             }, {
@@ -111,14 +85,9 @@
                 },
 
             } );
-            }
+        }
     );
 </script>
-
-
-
-
 @stack('js_after')
-
 </body>
 </html>

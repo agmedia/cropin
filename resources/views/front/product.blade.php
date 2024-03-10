@@ -25,23 +25,33 @@
             <!--  carousel-->
             <div class="list-single-carousel-wrap fl-wrap" id="sec1">
                 <div class="fw-carousel fl-wrap full-height lightgallery">
-
                     @foreach  ($product->images()->get() as $image)
-
-
-                    <!-- slick-slide-item -->
-                    <div class="slick-slide-item">
-                        <div class="box-item">
-                            <img src="{{$image->image}}"   alt="{{$image->translation()->title}}">
-                            <a href="{{$image->image}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+                        <!-- slick-slide-item -->
+                        <div class="slick-slide-item">
+                            <div class="box-item">
+                                <img src="{{$image->image}}"   alt="{{$image->translation()->title}}">
+                                <a href="{{$image->image}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- slick-slide-item end -->
+                        <!-- slick-slide-item end -->
                     @endforeach
                 </div>
                 <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
                 <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
+            </div>
+            <div class="scroll-nav-wrapper fl-wrap">
+                <div class="container">
+                    <nav class="scroll-nav scroll-init">
+                        <ul>
+                            <li><a class="act-scrlink" href="#sec1">Gallery</a></li>
+                            <li><a href="#sec2">About</a></li>
+                            <li><a href="#sec3">Menu </a></li>
+                            <li><a href="#sec5">Reserve</a></li>
+                            <li><a href="#sec4">Directions</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="save-btn"> <i class="fa fa-heart"></i> Save </a>
+                </div>
             </div>
             <!--  section   -->
             <section class="gray-section no-top-padding">
@@ -80,10 +90,7 @@
                                     <div class="list-single-main-item-title fl-wrap">
                                         <h3>About  </h3>
                                     </div>
-
                                     {!! $product->translation(current_locale())->description !!}
-
-
                                 </div>
                                 <!-- list-single-main-item-->
                                 <div class="list-single-main-item fl-wrap" id="sec3">
@@ -91,48 +98,32 @@
                                         <h3>Menu</h3>
                                     </div>
                                     <div class="iframe-holder fl-wrap">
-
                                         <div class="accordion">
-                                            <a class="toggle act-accordion" href="#">Gourmet pizze alla Napoletana <i class="fa fa-angle-down"></i></a>
-                                            <div class="accordion-inner visible">
-                                                <div class="opening-hours">
 
-                                                    <ul>
-                                                        <li><span class="opening-hours-day">Pizza Dalmacija </span><span class="opening-hours-time">17 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Kvarner </span><span class="opening-hours-time">14 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Istria </span><span class="opening-hours-time">13 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Lika </span><span class="opening-hours-time">18 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Zagorje </span><span class="opening-hours-time">17 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Podravina </span><span class="opening-hours-time">16 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Baranja </span><span class="opening-hours-time">21 €</span></li>
-                                                    </ul>
+                                            @foreach (json_decode($product->menu) as $group)
 
+                                                <a class="toggle act-accordion" href="#">{{ $group->group }} <i class="fa fa-angle-down"></i></a>
+
+                                                <div class="accordion-inner ">
+                                                    <div class="opening-hours">
+                                                        <ul>
+
+
+                                                              <li><span class="opening-hours-day">{{ $group->title->{current_locale()} }} </span><span class="opening-hours-time">{{ $group->price }} €</span></li>
+
+
+
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <a class="toggle" href="#"> Pizza clasicco <i class="fa fa-angle-down"></i></a>
-                                            <div class="accordion-inner">
-                                                <div class="opening-hours">
 
-                                                    <ul>
-                                                        <li><span class="opening-hours-day">Pizza Dalmacija </span><span class="opening-hours-time">17 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Kvarner </span><span class="opening-hours-time">14 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Istria </span><span class="opening-hours-time">13 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Lika </span><span class="opening-hours-time">18 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Zagorje </span><span class="opening-hours-time">17 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Podravina </span><span class="opening-hours-time">16 €</span></li>
-                                                        <li><span class="opening-hours-day">Pizza Baranja </span><span class="opening-hours-time">21 €</span></li>
-                                                    </ul>
 
-                                                </div>
-                                            </div>
-
+                                            @endforeach
                                         </div>
 
                                     </div>
                                 </div>
                                 <!-- list-single-main-item end -->
-
-
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec4">
                                     <div class="box-widget-item-header">
@@ -215,20 +206,14 @@
                                         <div class="box-widget-content">
                                             <span class="current-status"><i class="fa fa-clock-o"></i> Now Open</span>
                                             <ul>
-
                                                 @foreach (json_decode($product->working_hours) as $day)
-
-
-                                                <li><span class="opening-hours-day">  {{ $day->title->{current_locale()} }}</span><span class="opening-hours-time">{{ $day->open }} h - {{ $day->close }} h</span></li>
+                                                    <li><span class="opening-hours-day">  {{ $day->title->{current_locale()} }}</span><span class="opening-hours-time">{{ $day->open }} h - {{ $day->close }} h</span></li>
                                                 @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <!--box-widget-item end -->
-
-
-
                             </div>
                         </div>
                         <!--box-widget-wrap end -->
@@ -237,12 +222,9 @@
             </section>
             <!--  section  end-->
             <div class="limit-box fl-wrap"></div>
-
         </div>
         <!--  content  end-->
     </div>
 @endsection
-
 @push('js_after')
-
 @endpush

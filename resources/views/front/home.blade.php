@@ -38,170 +38,10 @@
                 <div class="col-list-wrap fh-col-list-wrap  left-list">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8">
-                                <div class="listsearch-header fl-wrap">
-                                    <h3>Results For : <span>Food</span></h3>
 
-                                </div>
-                                <!-- list-main-wrap-->
-                                <div class="list-main-wrap fl-wrap card-listing">
-                                    <!-- listing-item -->
-                                    @foreach ($listings as $listing)
-                                        <div class="listing-item">
-                                            <article class="geodir-category-listing fl-wrap">
-                                                <div class="geodir-category-img">
-                                                    <a  href="{{ route('resolve.route', ['product' => $listing->translation(current_locale())->slug]) }}">
-                                                        <img src="images/all/1.jpg" alt="">
-                                                        <div class="overlay"></div>
-                                                    </a>
-                                                </div>
-
-                                                <div class="geodir-category-content fl-wrap">
-                                                    <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                    <h3><a href="{{ route('resolve.route', ['product' => $listing]) }}">{{ $listing->translation(current_locale())->title }}</a></h3>
-                                                    <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                    <div class="geodir-category-options fl-wrap">
-
-                                                        <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                    @endforeach
-                                    <!-- listing-item end-->
-                                    <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <!-- listing-item end-->
-                                    <div class="clearfix"></div>
-                                    <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <!-- listing-item end-->
-                                    <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <!-- listing-item end-->
-                                    <div class="clearfix"></div>
-                                    <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <!-- listing-item end-->
-                                    <!-- listing-item -->
-                                    <div class="listing-item">
-                                        <article class="geodir-category-listing fl-wrap">
-                                            <div class="geodir-category-img">
-                                                <a  href="listing-single.html">
-                                                    <img src="images/all/1.jpg" alt="">
-                                                    <div class="overlay"></div>
-                                                </a>
-                                            </div>
-
-                                            <div class="geodir-category-content fl-wrap">
-                                                <a class="listing-geodir-category" href="listing.html">Food</a>
-
-                                                <h3><a href="listing-single.html">Pizzeria Toccare</a></h3>
-                                                <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
-                                                <div class="geodir-category-options fl-wrap">
-
-                                                    <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <!-- listing-item end-->
-                                    <!-- pagination-->
-                                    <div class="pagination">
-                                        <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
-                                        <a href="#" class="blog-page transition">1</a>
-                                        <a href="#" class="blog-page current-page transition">2</a>
-                                        <a href="#" class="blog-page transition">3</a>
-                                        <a href="#" class="blog-page transition">4</a>
-                                        <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
-                                    </div>
-                                </div>
-                                <!-- list-main-wrap end-->
-                            </div>
                             <!-- sidebar filters -->
                             <div class="col-md-4">
-                                <div class="fl-wrap">
+                                <div class="fl-wrap ">
 
                                     <!-- listsearch-input-wrap  -->
                                     <div class="listsearch-input-wrap fl-wrap">
@@ -239,6 +79,46 @@
                                 </div>
                             </div>
                             <!-- sidebar filters end -->
+                            <div class="col-md-8 ">
+                                <div class="listsearch-header fl-wrap">
+                                    <h3>Results For : <span>Food</span></h3>
+
+                                </div>
+                                <!-- list-main-wrap-->
+                                <div class="list-main-wrap fl-wrap card-listing">
+                                    <!-- listing-item -->
+                                    @foreach ($listings as $listing)
+                                        <div class="listing-item">
+                                            <article class="geodir-category-listing fl-wrap">
+                                                <div class="geodir-category-img">
+                                                    <a  href="{{ route('resolve.route', ['product' => $listing->translation(current_locale())->slug]) }}">
+                                                        <img src="images/all/1.jpg" alt="">
+                                                        <div class="overlay"></div>
+                                                    </a>
+                                                </div>
+
+                                                <div class="geodir-category-content fl-wrap">
+                                                    <a class="listing-geodir-category" href="listing.html">Food</a>
+
+                                                    <h3><a href="{{ route('resolve.route', ['product' => $listing]) }}">{{ $listing->translation(current_locale())->title }}</a></h3>
+                                                    <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
+                                                    <div class="geodir-category-options fl-wrap">
+
+                                                        <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+
+                                        @if($loop->iteration / 2)
+                                            <div class="clearfix"></div>
+                                        @endif
+                                    @endforeach
+
+                                </div>
+                                <!-- list-main-wrap end-->
+                            </div>
+
                         </div>
                     </div>
                 </div>
