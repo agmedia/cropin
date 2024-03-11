@@ -16,7 +16,7 @@
         <!-- nav-button-wrap end-->
 
         <!-- The menu -->
-
+        @include('front.layouts.partials.language-selector')
         <!--  navigation -->
         <nav id="menu">
 
