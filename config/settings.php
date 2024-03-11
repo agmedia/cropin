@@ -71,6 +71,26 @@ return [
             //'keks' => \App\Models\Front\Checkout\Payment\Keks::class,
             'cod' => \App\Models\Front\Checkout\Payment\Cod::class
         ]
+    ],
+
+    //
+    'categories' => [
+        0 => [
+            'hr' => 'Sve Kategorije',
+            'en' => 'All Categories'
+        ],
+        1 => [
+            'hr' => 'Trgovine',
+            'en' => 'Shops'
+        ],
+        2 => [
+            'hr' => 'Hoteli',
+            'en' => 'Hotels'
+        ],
+        3 => [
+            'hr' => 'Restoranti',
+            'en' => 'Restaurants'
+        ],
     ]
 
 ];

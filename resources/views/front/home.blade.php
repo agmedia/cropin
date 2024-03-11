@@ -42,39 +42,34 @@
                             <!-- sidebar filters -->
                             <div class="col-md-4">
                                 <div class="fl-wrap ">
+                                    <form action="{{ route('index') }}" id="search-form" method="get">
+                                        <!-- listsearch-input-wrap  -->
+                                        <div class="listsearch-input-wrap fl-wrap">
 
-                                    <!-- listsearch-input-wrap  -->
-                                    <div class="listsearch-input-wrap fl-wrap">
+                                            <div class="box-widget-item-header">
+                                                <h3>Search </h3>
+                                            </div>
 
-                                        <div class="box-widget-item-header">
-                                            <h3>Search </h3>
+                                            <div class="listsearch-input-item">
+                                                <select data-placeholder="Location" class="chosen-select" name="location" id="select-location">
+                                                    <option value="all">All Locations</option>
+                                                    @foreach ($cities as $city)
+                                                        <option value="{{ $city }}" {{ $city == request()->input('location') ? 'selected' : '' }}>{{ $city }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="listsearch-input-item">
+                                                <select data-placeholder="All Categories" class="chosen-select" name="category" id="select-category">
+                                                    @foreach ($categories as $key => $category)
+                                                        <option value="{{ $key ? $category[current_locale()] : 'all' }}" {{ $category[current_locale()] == request()->input('category') ? 'selected' : '' }}>{{ $category[current_locale()] }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <!-- hidden-listing-filter end -->
+                                            <button class="button fs-map-btn">Update</button>
                                         </div>
-
-                                        <div class="listsearch-input-item">
-                                            <select data-placeholder="Location" class="chosen-select" >
-                                                <option>All Locations</option>
-                                                <option>Bronx</option>
-                                                <option>Brooklyn</option>
-                                                <option>Manhattan</option>
-                                                <option>Queens</option>
-                                                <option>Staten Island</option>
-                                            </select>
-                                        </div>
-                                        <div class="listsearch-input-item">
-                                            <select data-placeholder="All Categories" class="chosen-select" >
-                                                <option>All Categories</option>
-                                                <option>Shops</option>
-                                                <option>Hotels</option>
-                                                <option>Restaurants</option>
-                                                <option>Fitness</option>
-                                                <option>Events</option>
-                                            </select>
-                                        </div>
-
-
-                                        <!-- hidden-listing-filter end -->
-                                        <button class="button fs-map-btn">Update</button>
-                                    </div>
+                                    </form>
                                     <!-- listsearch-input-wrap end -->
                                 </div>
                             </div>
@@ -132,5 +127,57 @@
 @endsection
 
 @push('js_after')
+    <script type="text/javascript" src="{{ asset('js/maps.js') }}"></script>
 
+    <script>
+        $(() => {
+            $('#select-category').on('change', (e) => {
+                setURL('category', e.currentTarget.selectedOptions[0]);
+            });
+            $('#select-location').on('change', (e) => {
+                setURL('location', e.currentTarget.selectedOptions[0]);
+            });
+        });
+
+        /**
+         *
+         * @param type
+         * @param search
+         */
+        function setURL(type, search, isValue = false) {
+            let url = new URL(location.href);
+            let params = new URLSearchParams(url.search);
+            let keys = [];
+
+            for(var key of params.keys()) {
+                if (key === type) {
+                    keys.push(key);
+                }
+            }
+
+            keys.forEach((value) => {
+                if (params.has(value)) {
+                    params.delete(value);
+                }
+                if (value == 'all') {
+                    params.delete(value);
+                }
+            })
+
+            if (search.value) {
+                params.append(type, search.value);
+            }
+
+            if (isValue && search) {
+                params.append(type, search);
+            }
+
+            if (search.value == 'all') {
+                params.delete(type);
+            }
+
+            url.search = params;
+            location.href = url;
+        }
+    </script>
 @endpush

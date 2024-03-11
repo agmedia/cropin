@@ -54,7 +54,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API_KEY')}}&libraries=places&callback=initAutocomplete"></script>
 <script type="text/javascript" src="{{ asset('js/map_infobox.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/markerclusterer.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/maps.js') }}"></script>
 <script src="{{ asset('js/mmenu.js') }}"></script>
 <!-- Fire the plugin -->
 <script>
