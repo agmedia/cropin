@@ -165,10 +165,10 @@
                                         <label >Category</label>
                                         <select class="form-select" name="category">
                                             <option>Select...</option>
-                                            <option value="Bars"  {{ ((isset($product)) and ($product->category == 'Bars')) ? 'selected' : '' }}>Bars</option>
-                                            <option value="Clubs" {{ ((isset($product)) and ($product->category == 'Clubs')) ? 'selected' : '' }}>Clubs</option>
-                                            <option value="Food"  {{ ((isset($product)) and ($product->category == 'Food')) ? 'selected' : '' }}>Food</option>
-                                            <option value="Fun"  {{ ((isset($product)) and ($product->category == 'Fun')) ? 'selected' : '' }}>Fun</option>
+                                            <option value="1"  {{ ((isset($product)) and ($product->category == '1')) ? 'selected' : '' }}>Bars</option>
+                                            <option value="2" {{ ((isset($product)) and ($product->category == '2')) ? 'selected' : '' }}>Clubs</option>
+                                            <option value="3"  {{ ((isset($product)) and ($product->category == '3')) ? 'selected' : '' }}>Food</option>
+                                            <option value="4"  {{ ((isset($product)) and ($product->category == '4')) ? 'selected' : '' }}>Fun</option>
                                         </select>
                                     </div>
                                 </div>

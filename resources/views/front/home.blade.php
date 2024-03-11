@@ -76,30 +76,33 @@
                             <!-- sidebar filters end -->
                             <div class="col-md-8 ">
                                 <div class="listsearch-header fl-wrap">
-                                    <h3>Results For : <span>Food</span></h3>
+                                    <h3>Results For : <span>{{request()->get('category') ? request()->get('category') : 'All Categories'}}</span></h3>
 
                                 </div>
                                 <!-- list-main-wrap-->
                                 <div class="list-main-wrap fl-wrap card-listing">
                                     <!-- listing-item -->
                                     @foreach ($listings as $listing)
+
                                         <div class="listing-item">
                                             <article class="geodir-category-listing fl-wrap">
                                                 <div class="geodir-category-img">
                                                     <a  href="{{ route('resolve.route', ['product' => $listing->translation(current_locale())->slug]) }}">
-                                                        <img src="images/all/1.jpg" alt="">
+                                                        <img src="{{ $listing->image }}" alt="">
                                                         <div class="overlay"></div>
                                                     </a>
                                                 </div>
 
+                                                @php($cat =collect(config('settings.categories'))->get($listing->category))
+
                                                 <div class="geodir-category-content fl-wrap">
-                                                    <a class="listing-geodir-category" href="listing.html">Food</a>
+                                                    <a class="listing-geodir-category" href="listing.html">{{$cat[current_locale()] }}</a>
 
                                                     <h3><a href="{{ route('resolve.route', ['product' => $listing]) }}">{{ $listing->translation(current_locale())->title }}</a></h3>
-                                                    <p>Kroz 20-ak različitih inačica pizze, Toccare majstori su kreirali gastro kartu kroz svaku talijansku i hrvatsku regiju.</p>
+
                                                     <div class="geodir-category-options fl-wrap">
 
-                                                        <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Vukomerec ul. 36, 10000, Zagreb</a></div>
+                                                        <div class="geodir-category-location"><a href="#0" class="map-item scroll-top-map"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $listing->address }}</a></div>
                                                     </div>
                                                 </div>
                                             </article>

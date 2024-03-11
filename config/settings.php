@@ -23,7 +23,7 @@ return [
     'admin_input_currency' => 'EUR',
     'default_admin_id' => 1,
 
-    'images_domain' => '#',
+    'images_domain' => '',
     'image_size_ratio' => '800x530',
     'thumb_size_ratio' => '400x265',
     'default_apartment_image' => 'media/default_img.jpg',
@@ -80,16 +80,20 @@ return [
             'en' => 'All Categories'
         ],
         1 => [
-            'hr' => 'Trgovine',
-            'en' => 'Shops'
+            'hr' => 'Barovi',
+            'en' => 'Bars'
         ],
         2 => [
-            'hr' => 'Hoteli',
-            'en' => 'Hotels'
+            'hr' => 'Klubovi',
+            'en' => 'Clubs'
         ],
         3 => [
-            'hr' => 'Restoranti',
-            'en' => 'Restaurants'
+            'hr' => 'Hrana',
+            'en' => 'Food'
+        ],
+        4 => [
+            'hr' => 'Zabava',
+            'en' => 'Fun'
         ],
     ]
 
