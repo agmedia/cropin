@@ -41,7 +41,7 @@
 
 <div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" style="margin-bottom:20px">
             <div class="file-drop-area">
                 <label for="files" style="display: block;padding: 1rem 2rem;border: 1px solid #CCCCCC;background-color: #eee;text-align: center;cursor: pointer;border-radius: 10px;">Drop files here to upload</label>
                 <input name="files[][image]" id="files" type="file" multiple>
