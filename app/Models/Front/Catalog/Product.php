@@ -264,4 +264,23 @@ class Product extends Model
         return $query;
     }
 
+
+    /**
+     * @return array
+     */
+    public function resolveMenuList(): array
+    {
+        $response = [];
+
+        if ($this->menu) {
+            foreach (json_decode($this->menu, true) as $item) {
+                if (isset($item['group'][current_locale()])) {
+                    $response[$item['group'][current_locale()]][] = $item;
+                }
+            }
+        }
+
+        return $response;
+    }
+
 }

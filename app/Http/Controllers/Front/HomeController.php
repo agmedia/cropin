@@ -40,8 +40,11 @@ class HomeController extends FrontBaseController
      */
     public function resolveRoute(Request $request, Product $product)
     {
+        $menu = $product->resolveMenuList();
 
-        return view('front.product', compact('product'));
+        dd($menu);
+
+        return view('front.product', compact('product', 'menu'));
     }
 
 
