@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Helpers\Helper;
 use App\Helpers\LanguageHelper;
+use App\Helpers\Query;
 use App\Helpers\Recaptcha;
 use App\Helpers\Session\CheckoutSession;
 use App\Http\Controllers\Controller;
@@ -27,24 +28,12 @@ class HomeController extends FrontBaseController
      */
     public function index(Request $request)
     {
-        $product_query = Product::query();
-
-        $product_query->active();
-
-        if ($request->has('category')) {
-            $id = collect(config('settings.categories'))->where(current_locale(), $request->input('category'))->keys()->first();
-
-            $product_query->where('category', $id);
-        }
-        if ($request->has('location')) {
-            $product_query->where('city', $request->input('location'));
-        }
-
-        $listings = $product_query->paginate(12);
+        $listings_query = Query::getListingFromSearch($request);
 
         $categories = Product::resolveCategories();
         $cities     = Product::query()->pluck('city')->unique();
-        $locations  = 0;
+        $locations  = Product::getLocationsFromListings($listings_query);
+        $listings   = $listings_query->paginate(12);
 
         return view('front.home', compact('listings', 'categories', 'cities', 'locations'));
     }

@@ -3,6 +3,7 @@
 namespace App\Models\Front\Catalog;
 
 use App\Helpers\Currency;
+use App\Helpers\Query;
 use App\Models\Back\Catalog\ProductTranslation;
 use App\Models\Back\Settings\Settings;
 use Carbon\Carbon;
@@ -280,6 +281,58 @@ class Product extends Model
     public static function resolveCategories(): array
     {
         return config('settings.categories');
+    }
+
+
+    /**
+     * @param Builder $listings
+     *
+     * @return array
+     */
+    public static function getLocationsFromListings(Builder $listings): array
+    {
+        $response = [];
+
+        foreach ($listings->get() as $item) {
+            if ($item->lon && $item->lan) {
+                $response[] = [
+                    'title' => $item->translation()->title,
+                    'url' => route('resolve.route', ['product' => $item]),
+                    'image' => asset($item->image),
+                    'category' => config('settings.categories')[$item->category][current_locale()],
+                    'address' => $item->address . ', ' . $item->zip . ', ' . $item->city,
+                    'phone' => $item->phone,
+                    'rating' => '5',
+                    'reviews' => '0',
+                    'latitude' => $item->lon,
+                    'longitude' => $item->lan,
+                ];
+            }
+        }
+
+        return $response;
+    }
+
+
+    /**
+     * @param Builder $listings
+     *
+     * @return array
+     */
+    public static function getNavigationFromListings(): array
+    {
+        $response = [];
+        $listings = Query::getListingFromSearch(request());
+
+        foreach ($listings->get()->groupBy('category') as $group_id => $items) {
+            if ($items->count()) {
+                $category = config('settings.categories')[$group_id][current_locale()];
+
+                $response[$category] = $items->sortBy('city')->pluck('city')->unique();
+            }
+        }
+
+        return $response;
     }
 
 }

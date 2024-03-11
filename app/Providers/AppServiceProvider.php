@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Back\Settings\Settings;
+use App\Models\Front\Catalog\Product;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
@@ -25,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $mode = Settings::getCached('app', 'mode');
         View::share('mode', $mode);
+
+        $navigation = Product::getNavigationFromListings();
+        View::share('navigation', $navigation);
         
         Paginator::useBootstrap();
     }
