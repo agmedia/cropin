@@ -361,7 +361,8 @@
     -o-text-overflow:ellipsis;
     text-overflow:ellipsis;
     white-space:nowrap;
-    overflow:hidden
+    overflow:hidden;
+    margin-left: -25px;
 }
 .mm-btn.mm-hidden+.mm-navbar__title:not(:last-child) {
     -webkit-padding-start:60px;
