@@ -58,9 +58,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
+
+                            @php($cat =collect(config('settings.categories'))->get($product->category))
                             <!-- list-single-main-wrapper -->
                             <div class="list-single-main-wrapper fl-wrap" id="sec2">
-                                <div class="breadcrumbs gradient-bg  fl-wrap"><a href="#">Home</a><a href="#">{{$product->category}}</a><span> {{ $product->translation(current_locale())->title }} </span></div>
+                                <div class="breadcrumbs gradient-bg  fl-wrap"><a href="#">Home</a><a href="#">{{$cat[current_locale()] }}</a><span> {{ $product->translation(current_locale())->title }} </span></div>
                                 <!-- list-single-header -->
                                 <div class="list-single-header list-single-header-inside fl-wrap" style="margin-bottom:20px">
                                     <div class="container">
@@ -69,7 +71,10 @@
                                                 <div class="col-md-8">
                                                     <div class="list-single-header-item-opt fl-wrap">
                                                         <div class="list-single-header-cat fl-wrap">
-                                                            <a href="#">{{$product->category}}</a>
+
+
+
+                                                            <a href="#">{{$cat[current_locale()] }}</a>
                                                         </div>
                                                     </div>
                                                     <h2> {{$image->translation()->title}} </h2>
