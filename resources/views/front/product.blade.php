@@ -226,4 +226,5 @@
     </div>
 @endsection
 @push('js_after')
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
 @endpush
