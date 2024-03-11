@@ -454,7 +454,7 @@
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_API_KEY')}}&libraries=places&callback=initAutocomplete"></script>
-    
+
     <script src="{{ asset('assets/back/js/plugins/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/back/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
     <script>

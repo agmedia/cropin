@@ -85,6 +85,7 @@ class HomeController extends FrontBaseController
      */
     public function sendContactMessage(Request $request)
     {
+        dd($request->toArray());
         $request->validate([
             'name'    => 'required',
             'email'   => 'required|email',
@@ -103,7 +104,7 @@ class HomeController extends FrontBaseController
 
         dispatch(function () use ($message) {
             Mail::to(Helper::getBasicInfo()->email)->send(new ContactFormMessage($message));
-        });
+        })->afterResponse();
 
         return redirect()->back()->with(['success' => __('front/common.message_success')]);
     }

@@ -29,7 +29,7 @@
                         <!-- slick-slide-item -->
                         <div class="slick-slide-item">
                             <div class="box-item">
-                                <img src="{{$image->image}}"   alt="{{$image->translation()->title}}">
+                                <img src="{{$image->image}}" alt="{{$image->translation()->title}}">
                                 <a href="{{$image->image}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
                             </div>
                         </div>
@@ -165,34 +165,35 @@
                                     </div>
                                     <div class="box-widget opening-hours">
                                         <div class="box-widget-content">
-                                            <form   class="add-comment custom-form">
+                                            <form action="{{ route('poruka') }}" class="add-comment custom-form" method="POST">
+                                                @csrf
                                                 <fieldset>
                                                     <label><i class="fa fa-user-o"></i></label>
-                                                    <input type="text" placeholder="{{ __('front/apartment.your_name') }}" value=""/>
+                                                    <input type="text" placeholder="{{ __('front/apartment.your_name') }}" name="name"/>
                                                     <div class="clearfix"></div>
                                                     <label><i class="fa fa-envelope-o"></i>  </label>
-                                                    <input type="text" placeholder="{{ __('front/apartment.email_address') }}" value=""/>
+                                                    <input type="text" placeholder="{{ __('front/apartment.email_address') }}" name="email"/>
                                                     <div class="quantity fl-wrap">
                                                         <span><i class="fa fa-user-plus"></i>{{ __('front/apartment.persons') }} </span>
                                                         <div class="quantity-item">
                                                             <input type="button" value="-" class="minus">
-                                                            <input type="text"    name="quantity"   title="{{ __('front/apartment.qty') }}" class="qty" min="1" max="3" step="1" value="1">
+                                                            <input type="text" name="quantity" title="{{ __('front/apartment.qty') }}" class="qty" min="1" max="3" step="1" value="1">
                                                             <input type="button" value="+" class="plus">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label><i class="fa fa-calendar-check-o"></i>  </label>
-                                                            <input type="text" placeholder="{{ __('front/apartment.date') }}" class="datepicker"   data-large-mode="true" data-large-default="true" value=""/>
+                                                            <input type="text" name="date" placeholder="{{ __('front/apartment.date') }}" class="datepicker" data-large-mode="true" data-large-default="true" value=""/>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label><i class="fa fa-clock-o"></i>  </label>
-                                                            <input type="text" placeholder="{{ __('front/apartment.time') }}" class="timepicker" value="12:00 am"/>
+                                                            <input type="text" name="time" placeholder="{{ __('front/apartment.time') }}" class="timepicker" value="12:00 am"/>
                                                         </div>
                                                     </div>
-                                                    <textarea cols="40" rows="3" placeholder="{{ __('front/apartment.additional_info') }}"></textarea>
+                                                    <textarea cols="40" rows="3" name="message" placeholder="{{ __('front/apartment.additional_info') }}"></textarea>
                                                 </fieldset>
-                                                <button class="btn  big-btn  color-bg flat-btn book-btn">{{ __('front/apartment.book_now') }}<i class="fa fa-angle-right"></i></button>
+                                                <button type="submit" class="btn big-btn color-bg flat-btn book-btn">{{ __('front/apartment.book_now') }}<i class="fa fa-angle-right"></i></button>
                                             </form>
                                         </div>
                                     </div>
