@@ -30,7 +30,7 @@
     <style>
         [v-cloak] { display:none !important; }
     </style>
-    <style> #mm-1 .mm-navbar{display:none}</style>
+    <style>  #menu:not( .mm-menu ) {display: none;}</style>
 </head>
 <!-- Body-->
 <body>
