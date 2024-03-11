@@ -33,7 +33,6 @@ class Product extends Model
      * @var string[]
      */
     protected $appends = [
-        'price_text',
         'thumb'
     ];
 
@@ -111,15 +110,6 @@ class Product extends Model
 
 
     /**
-     * @return Collection|string
-     */
-    public function getPriceTextAttribute()
-    {
-        return Currency::main($this->price, true);
-    }
-
-
-    /**
      * @param $value
      *
      * @return array|string|string[]
@@ -148,7 +138,7 @@ class Product extends Model
      */
     public function scopeActive(Builder $query): Builder
     {
-        return $query->where('status', 1)->where('price', '!=', 0);
+        return $query->where('status', 1);
     }
 
 
@@ -281,6 +271,15 @@ class Product extends Model
         }
 
         return $response;
+    }
+
+
+    /**
+     * @return array
+     */
+    public static function resolveCategories(): array
+    {
+        return config('settings.categories');
     }
 
 }

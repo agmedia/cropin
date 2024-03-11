@@ -27,9 +27,26 @@ class HomeController extends FrontBaseController
      */
     public function index(Request $request)
     {
-        $listings = Product::query()->paginate(12);
+        $product_query = Product::query();
 
-        return view('front.home', compact('listings'));
+        $product_query->active();
+
+        if ($request->has('category')) {
+            $id = collect(config('settings.categories'))->where(current_locale(), $request->input('category'))->keys()->first();
+
+            $product_query->where('category', $id);
+        }
+        if ($request->has('location')) {
+            $product_query->where('city', $request->input('location'));
+        }
+
+        $listings = $product_query->paginate(12);
+
+        $categories = Product::resolveCategories();
+        $cities     = Product::query()->pluck('city')->unique();
+        $locations  = 0;
+
+        return view('front.home', compact('listings', 'categories', 'cities', 'locations'));
     }
 
 
@@ -41,8 +58,6 @@ class HomeController extends FrontBaseController
     public function resolveRoute(Request $request, Product $product)
     {
         $menu = $product->resolveMenuList();
-
-
 
         return view('front.product', compact('product', 'menu'));
     }
