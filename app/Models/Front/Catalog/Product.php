@@ -98,10 +98,6 @@ class Product extends Model
      */
     public function translation($lang = null, bool $all = false)
     {
-        Log::info('translation');
-        Log::info($lang);
-        Log::info($this->locale);
-
         if ($lang) {
             return $this->hasOne(ProductTranslation::class, 'product_id')->where('lang', $lang)->first();
         }

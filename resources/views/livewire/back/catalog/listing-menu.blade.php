@@ -2,9 +2,9 @@
     <div class="card">
         <div class="d-flex card-header align-items-center justify-content-between">
             <h5 class="mb-0">Menu Items</h5>
-
-            <button type="button" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="ti ti-plus me-2"></i> Add Menu Item </button>
-
+            <button type="button" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="ti ti-plus me-2"></i> Add Menu Item
+            </button>
         </div>
 
         <div class="card-body">
@@ -45,44 +45,61 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Group</label>
-                        <select class="form-select" wire:model="new_item.group">
+                        <select class="form-select" wire:model="new_item.group.{{ $lang->code }}">
                             <option>Select...</option>
-                            @foreach ($groups as $group)
-                                <option value="{{ $group }}">{{ $group }}</option>
+                            @foreach ($groups as $key => $group)
+                                <option value="{{ $group[current_locale()] }}">{{ $group[current_locale()] }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="address">Or enter a new group</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" wire:model="new_group" placeholder="Left Button">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="position-relative">
+                                <ul class="nav nav-pills position-absolute langimg me-0 mb-2" id="menu-group-tab" role="tablist">
+                                    @foreach(ag_lang() as $lang)
+                                        <li class="nav-item">
+                                            <a class="btn btn-icon btn-sm btn-link-primary ms-2 @if ($lang->code == current_locale()) active @endif" id="menu-group-{{ $lang->code }}-tab" data-bs-toggle="pill" href="#menu-group-{{ $lang->code }}" role="tab" aria-controls="menu-group-{{ $lang->code }}" aria-selected="true">
+                                                <img src="{{ asset('assets/flags/' . $lang->code . '.png') }}" />
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+                                <div class="tab-content" id="menu-group-tabContent">
+                                    @foreach(ag_lang() as $lang)
+                                        <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="menu-group-{{ $lang->code }}" role="tabpanel" aria-labelledby="menu-group-{{ $lang->code }}-tab">
+                                            <div class="form-group row">
+                                                <div class="col-12">
+                                                    <label for="new-group-{{ $lang->code }}">Or enter a new group</label>
+                                                    <input type="text" class="form-control" wire:model="new_group.{{ $lang->code }}" id="new-group-{{ $lang->code }}" placeholder="{{ $lang->code }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
                             <button class="btn btn-outline-secondary" type="button" wire:click="addNewGroup()">Save</button>
                         </div>
                     </div>
 
                     <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="title">Price</label>
-                        <input type="text" class="form-control" wire:model="new_item.price" placeholder="..." />
+                        <div class="form-group col-md-6">
+                            <label for="title">Price</label>
+                            <input type="text" class="form-control" wire:model="new_item.price" placeholder="..." />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="title">Sort order</label>
+                            <input type="text" class="form-control" wire:model="new_item.sort" placeholder="..." />
+                        </div>
                     </div>
-
-
-
-                    <div class="form-group col-md-6">
-                        <label for="title">Sort order</label>
-                        <input type="text" class="form-control" wire:model="new_item.sort" placeholder="..." />
-                    </div>
-                    </div>
-
 
                     <div class="form-check form-switch custom-switch-v1 ">
                         <input type="checkbox" class="form-check-input input-success" id="status-swich" wire:model="new_item.status">
                         <label class="form-check-label" for="status-swich">Status</label>
                     </div>
-
-
-
 
                 </div>
 
@@ -106,61 +123,42 @@
 
                         <div class="dt-responsive table-responsive">
                             <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th style="width: 80%;">{{ __('Title') }} </th>
+                                    <th class="text-end">{{ __('Group') }}</th>
+                                    <th class="text-end">{{ __('Price') }}</th>
+                                    <th class="text-end">{{ __('Sort') }}</th>
+                                    <th class="text-end">{{ __('Actions') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
-
-
-                                    <thead class="thead-light">
+                                @foreach ($items as $key => $item)
                                     <tr>
-                                        <th style="width: 80%;">{{ __('Title') }} </th>
-                                        <th class="text-end">{{ __('Group') }}</th>
-                                        <th class="text-end">{{ __('Price') }}</th>
-                                        <th class="text-end">{{ __('Sort') }}</th>
+                                        <td>{{ $item['title'][current_locale()]}}</td>
+                                        <td>{{ $item['group'][current_locale()] }}</td>
+                                        <td>{{ $item['price'] }}</td>
+                                        <td>{{ $item['sort'] }}</td>
+                                        <td class="text-end font-size-sm">
+                                            <ul class="list-inline me-auto mb-0">
+                                                <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Edit">
+                                                    <a data-bs-toggle="collapse" href="#collapseExample" wire:click="editItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
+                                                        <i class="ti ti-edit-circle f-18"></i>
+                                                    </a>
+                                                </li>
 
-                                        <th class="text-end">{{ __('Actions') }}</th>
+                                                <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Delete">
+                                                    <a wire:click="removeItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
+                                                        <i class="ti ti-trash f-18"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                    @foreach ($items as $key => $item)
-                                        <tr>
-                                            <td>
-                                                {{$item['title'][current_locale()]}}
-                                            </td>
-                                            <td>
-                                                {{$item['group']}}
-                                            </td>
-                                            <td>
-                                                {{$item['price']}}
-                                            </td>
-                                            <td>
-                                                {{$item['sort']}}
-                                            </td>
-
-                                            <td class="text-end font-size-sm">
-
-                                                <ul class="list-inline me-auto mb-0">
-
-                                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Edit">
-                                                        <a data-bs-toggle="collapse" href="#collapseExample" wire:click="editItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
-                                                            <i class="ti ti-edit-circle f-18"></i>
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Delete">
-                                                        <a wire:click="removeItem({{ $key }})" class="avtar avtar-xs btn-link-danger btn-pc-default">
-                                                            <i class="ti ti-trash f-18"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-
-
-
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                @endforeach
+                                </tbody>
+                            </table>
 
                         </div>
                     @endif

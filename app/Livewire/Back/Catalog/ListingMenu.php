@@ -44,7 +44,7 @@ class ListingMenu extends Component
     /**
      * @var string
      */
-    public $new_group = '';
+    public $new_group = [];
 
     /**
      * @var bool
@@ -57,13 +57,13 @@ class ListingMenu extends Component
      */
     public function mount()
     {
-        $this->addDefaultsToNewItem();
-        $this->groups = collect();
+        $this->addDefaultsToNew_Item();
+        $this->addDefaultsToNew_Group();
 
         if ($this->menu != '') {
             $this->items = json_decode($this->menu, true);
 
-            $this->groups = collect($this->items)->pluck('group')->unique();
+            $this->collectGroups();
         }
     }
 
@@ -80,7 +80,7 @@ class ListingMenu extends Component
             $this->should_update = false;
         }
 
-        $this->addDefaultsToNewItem();
+        $this->addDefaultsToNew_Item();
     }
 
 
@@ -124,7 +124,7 @@ class ListingMenu extends Component
     public function cancelEdit()
     {
         $this->should_update = false;
-        $this->addDefaultsToNewItem();
+        $this->addDefaultsToNew_Item();
     }
 
 
@@ -133,11 +133,13 @@ class ListingMenu extends Component
      */
     public function addNewGroup()
     {
-        if ($this->new_group != '') {
-            $this->groups->push($this->new_group);
+        if ($this->new_group[current_locale()]) {
+            array_push($this->groups, $this->new_group);
+
+            $this->new_item['group'] = $this->new_group;
         }
 
-        $this->new_group = '';
+        $this->new_group = [];
     }
 
 
@@ -146,8 +148,6 @@ class ListingMenu extends Component
      */
     public function render()
     {
-
-
         return view('livewire.back.catalog.listing-menu', [
             'items' => $this->items
         ]);
@@ -170,7 +170,46 @@ class ListingMenu extends Component
     /**
      * @return void
      */
-    private function addDefaultsToNewItem()
+    private function addDefaultsToNew_Item(): void
+    {
+        $add = $this->resolveLangs();
+
+        $this->new_item = [
+            'id' => count($this->items) + 1,
+            'group' => $add,
+            'title' => $add,
+            'description' => $add,
+            'price' => 0,
+            'sort' => 0,
+            'status' => true
+        ];
+    }
+
+
+    /**
+     * @return void
+     */
+    private function addDefaultsToNew_Group(): void
+    {
+        $this->new_group = $this->resolveLangs();
+    }
+
+
+    /**
+     * @return void
+     */
+    private function collectGroups(): void
+    {
+        foreach ($this->items as $item) {
+            array_push($this->groups, $item['group']);
+        }
+    }
+
+
+    /**
+     * @return array
+     */
+    private function resolveLangs(): array
     {
         $add = [];
 
@@ -178,14 +217,6 @@ class ListingMenu extends Component
             $add[$lang->code] = null;
         }
 
-        $this->new_item = [
-            'id' => count($this->items) + 1,
-            'group' => null,
-            'title' => $add,
-            'description' => $add,
-            'price' => 0,
-            'sort' => 0,
-            'status' => true
-        ];
+        return $add;
     }
 }
