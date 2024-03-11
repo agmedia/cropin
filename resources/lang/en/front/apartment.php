@@ -14,6 +14,23 @@ return [
     */
 
 
+    'gallery' => 'Gallery',
+    'about' => 'About',
+    'menu' => 'Menu',
+    'reserve' => 'Reserve',
+    'reserve_online' => 'Book a Table Online',
+    'directions' => 'Directions',
+    'home' => 'Home',
+    'working_hours' => 'Working hours',
+    'your_name' => 'Your Name *',
+    'email_address' => 'Email Adress *',
+    'persons' => 'Persons:',
+    'qty' => 'Qty',
+    'date' => 'Date',
+    'time' => 'Time',
+    'additional_info' => 'Additional Information',
+    'book_now' => 'Book Now',
+
     'reserve_title' => 'Reserve your apartment stay',
     'view_gallery' => 'View Full Gallery',
     'checkin_title' => 'Check-in -> Checkout',

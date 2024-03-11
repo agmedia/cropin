@@ -13,6 +13,23 @@ return [
     |
     */
 
+    'gallery' => 'Galerija',
+    'about' => 'O nama',
+    'menu' => 'Menu',
+    'reserve' => 'Rezerviraj',
+    'reserve_online' => 'Rezerviraj stol online',
+    'directions' => 'Gdje smo',
+    'home' => 'Naslovnica',
+    'working_hours' => 'Radno vrijeme',
+    'your_name' => 'Vaše ime*',
+    'email_address' => 'Email adresa *',
+    'persons' => 'Broj osoba:',
+    'qty' => 'Kol.',
+    'date' => 'Datum',
+    'time' => 'Vrijeme',
+    'additional_info' => 'Dodatne napomene',
+    'book_now' => 'Rezerviraj',
+
     'reserve_title' => 'Rezervirajte svoj smještaj',
     'view_gallery' => 'Pogledajte cijelu galeriju',
     'checkin_title' => 'Prijava -> Odjava',

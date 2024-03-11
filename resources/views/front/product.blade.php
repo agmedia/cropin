@@ -43,14 +43,14 @@
                 <div class="container">
                     <nav class="scroll-nav scroll-init">
                         <ul>
-                            <li><a class="act-scrlink" href="#sec1">Gallery</a></li>
-                            <li><a href="#sec2">About</a></li>
-                            <li><a href="#sec3">Menu </a></li>
-                            <li><a href="#sec5">Reserve</a></li>
-                            <li><a href="#sec4">Directions</a></li>
+                            <li><a class="act-scrlink" href="#sec1">{{ __('front/apartment.gallery') }}</a></li>
+                            <li><a href="#sec2">{{ __('front/apartment.about') }}</a></li>
+                            <li><a href="#sec3">{{ __('front/apartment.menu') }}  </a></li>
+                            <li><a href="#sec5">{{ __('front/apartment.reserve') }}</a></li>
+                            <li><a href="#sec4">{{ __('front/apartment.directions') }}</a></li>
                         </ul>
                     </nav>
-                    <a href="#" class="save-btn"> <i class="fa fa-heart"></i> Save </a>
+                   {{--  <a href="#" class="save-btn"> <i class="fa fa-heart"></i> Save </a> --}}
                 </div>
             </div>
             <!--  section   -->
@@ -62,18 +62,15 @@
                             @php($cat =collect(config('settings.categories'))->get($product->category))
                             <!-- list-single-main-wrapper -->
                             <div class="list-single-main-wrapper fl-wrap" id="sec2">
-                                <div class="breadcrumbs gradient-bg  fl-wrap"><a href="#">Home</a><a href="#">{{$cat[current_locale()] }}</a><span> {{ $product->translation(current_locale())->title }} </span></div>
+                                <div class="breadcrumbs gradient-bg  fl-wrap"><a href="{{ route('index') }}">{{ __('front/apartment.home') }}</a><a href="#">{{$cat[current_locale()] }}</a><span> {{ $product->translation(current_locale())->title }} </span></div>
                                 <!-- list-single-header -->
                                 <div class="list-single-header list-single-header-inside fl-wrap" style="margin-bottom:20px">
                                     <div class="container">
                                         <div class="list-single-header-item">
                                             <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="col-md-12">
                                                     <div class="list-single-header-item-opt fl-wrap">
                                                         <div class="list-single-header-cat fl-wrap">
-
-
-
                                                             <a href="#">{{$cat[current_locale()] }}</a>
                                                         </div>
                                                     </div>
@@ -81,11 +78,11 @@
                                                     <span class="section-separator"></span>
 
                                                 </div>
-                                                <div class="col-md-4">
+                                            {{--    <div class="col-md-4">
                                                     <div class="fl-wrap list-single-header-column">
                                                         <span class="viewed-counter"><i class="fa fa-eye"></i> Viewed -  156 </span>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -93,14 +90,14 @@
 
                                 <div class="list-single-main-item fl-wrap">
                                     <div class="list-single-main-item-title fl-wrap">
-                                        <h3>About  </h3>
+                                        <h3>{{ __('front/apartment.about') }}</h3>
                                     </div>
                                     {!! $product->translation(current_locale())->description !!}
                                 </div>
                                 <!-- list-single-main-item-->
                                 <div class="list-single-main-item fl-wrap" id="sec3">
                                     <div class="list-single-main-item-title fl-wrap">
-                                        <h3>Menu</h3>
+                                        <h3>{{ __('front/apartment.menu') }}</h3>
                                     </div>
                                     <div class="iframe-holder fl-wrap">
                                         <div class="accordion">
@@ -125,7 +122,7 @@
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec4">
                                     <div class="box-widget-item-header">
-                                        <h3>Location / Contacts : </h3>
+                                        <h3>{{ __('front/apartment.directions') }} </h3>
                                     </div>
                                     <div class="box-widget">
                                         <div class="map-container">
@@ -164,38 +161,38 @@
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec5">
                                     <div class="box-widget-item-header">
-                                        <h3>Book a Table Online : </h3>
+                                        <h3>{{ __('front/apartment.reserve_online') }} </h3>
                                     </div>
                                     <div class="box-widget opening-hours">
                                         <div class="box-widget-content">
                                             <form   class="add-comment custom-form">
                                                 <fieldset>
                                                     <label><i class="fa fa-user-o"></i></label>
-                                                    <input type="text" placeholder="Your Name *" value=""/>
+                                                    <input type="text" placeholder="{{ __('front/apartment.your_name') }}" value=""/>
                                                     <div class="clearfix"></div>
                                                     <label><i class="fa fa-envelope-o"></i>  </label>
-                                                    <input type="text" placeholder="Email Address*" value=""/>
+                                                    <input type="text" placeholder="{{ __('front/apartment.email_address') }}" value=""/>
                                                     <div class="quantity fl-wrap">
-                                                        <span><i class="fa fa-user-plus"></i>Persons : </span>
+                                                        <span><i class="fa fa-user-plus"></i>{{ __('front/apartment.persons') }} </span>
                                                         <div class="quantity-item">
                                                             <input type="button" value="-" class="minus">
-                                                            <input type="text"    name="quantity"   title="Qty" class="qty" min="1" max="3" step="1" value="1">
+                                                            <input type="text"    name="quantity"   title="{{ __('front/apartment.qty') }}" class="qty" min="1" max="3" step="1" value="1">
                                                             <input type="button" value="+" class="plus">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label><i class="fa fa-calendar-check-o"></i>  </label>
-                                                            <input type="text" placeholder="Date" class="datepicker"   data-large-mode="true" data-large-default="true" value=""/>
+                                                            <input type="text" placeholder="{{ __('front/apartment.date') }}" class="datepicker"   data-large-mode="true" data-large-default="true" value=""/>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label><i class="fa fa-clock-o"></i>  </label>
-                                                            <input type="text" placeholder="Time" class="timepicker" value="12:00 am"/>
+                                                            <input type="text" placeholder="{{ __('front/apartment.time') }}" class="timepicker" value="12:00 am"/>
                                                         </div>
                                                     </div>
-                                                    <textarea cols="40" rows="3" placeholder="Additional Information:"></textarea>
+                                                    <textarea cols="40" rows="3" placeholder="{{ __('front/apartment.additional_info') }}"></textarea>
                                                 </fieldset>
-                                                <button class="btn  big-btn  color-bg flat-btn book-btn">Book Now<i class="fa fa-angle-right"></i></button>
+                                                <button class="btn  big-btn  color-bg flat-btn book-btn">{{ __('front/apartment.book_now') }}<i class="fa fa-angle-right"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -204,11 +201,11 @@
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap">
                                     <div class="box-widget-item-header">
-                                        <h3>Working Hours : </h3>
+                                        <h3>{{ __('front/apartment.working_hours') }}</h3>
                                     </div>
                                     <div class="box-widget opening-hours">
                                         <div class="box-widget-content">
-                                            <span class="current-status"><i class="fa fa-clock-o"></i> Now Open</span>
+                                         {{--   <span class="current-status"><i class="fa fa-clock-o"></i> Now Open</span>--}}
                                             <ul>
                                                 @foreach (json_decode($product->working_hours) as $day)
                                                     <li><span class="opening-hours-day">  {{ $day->title->{current_locale()} }}</span><span class="opening-hours-time">{{ $day->open }} h - {{ $day->close }} h</span></li>
