@@ -47,19 +47,19 @@
                                         <div class="listsearch-input-wrap fl-wrap">
 
                                             <div class="box-widget-item-header">
-                                                <h3>Search </h3>
+                                                <h3>{{ __('front/apartment.search') }} </h3>
                                             </div>
 
                                             <div class="listsearch-input-item">
                                                 <select data-placeholder="Location" class="chosen-select" name="location" id="select-location">
-                                                    <option value="all">All Locations</option>
+                                                    <option value="all">{{ __('front/apartment.all_locations') }} </option>
                                                     @foreach ($cities as $city)
                                                         <option value="{{ $city }}" {{ $city == request()->input('location') ? 'selected' : '' }}>{{ $city }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="listsearch-input-item">
-                                                <select data-placeholder="All Categories" class="chosen-select" name="category" id="select-category">
+                                                <select data-placeholder="{{ __('front/apartment.all_categories') }}" class="chosen-select" name="category" id="select-category">
                                                     @foreach ($categories as $key => $category)
                                                         <option value="{{ $key ? $category[current_locale()] : 'all' }}" {{ $category[current_locale()] == request()->input('category') ? 'selected' : '' }}>{{ $category[current_locale()] }}</option>
                                                     @endforeach
@@ -67,7 +67,7 @@
                                             </div>
 
                                             <!-- hidden-listing-filter end -->
-                                            <button class="button fs-map-btn">Update</button>
+                                            <button class="button fs-map-btn">{{ __('front/apartment.search') }} </button>
                                         </div>
                                     </form>
                                     <!-- listsearch-input-wrap end -->
@@ -76,7 +76,7 @@
                             <!-- sidebar filters end -->
                             <div class="col-md-8 ">
                                 <div class="listsearch-header fl-wrap">
-                                    <h3>Results For : <span>{{request()->get('category') ? request()->get('category') : 'All Categories'}}</span></h3>
+                                    <h3>{{ __('front/apartment.result_for') }}: <span>{{request()->get('category') ? request()->get('category') :  __('front/apartment.all_categories') }}</span></h3>
 
                                 </div>
                                 <!-- list-main-wrap-->

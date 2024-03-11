@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="copyright"> &#169; CroPins 2024.  All rights reserved.</div>
+                    <div class="copyright"> &#169; CroPins 2024.  {{ __('front/apartment.all_rights') }}.</div>
                 </div>
                 <div class="col-md-4">
                     <div class="footer-social">

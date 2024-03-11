@@ -6,15 +6,15 @@
 
 @push('meta_tags')
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="CroPins - Croatian Clubs, Bars, Food and Fun."/>
+    <meta property="og:title" content="{{ $product->translation(current_locale())->title }}"/>
     <meta property="og:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png"/>
     <meta property="og:site_name" content="CroPins - Croatian Clubs, Bars, Food and Fun"/>
     <meta property="og:url" content="https://www.cropins.hr/"/>
-    <meta property="og:description" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia."/>
+    <meta property="og:description" content="{{ $product->translation(current_locale())->meta_description }}"/>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="" />
-    <meta name="twitter:title" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
-    <meta name="twitter:description" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
+    <meta name="twitter:title" content="{{ $product->translation(current_locale())->meta_title }}" />
+    <meta name="twitter:description" content="{{ $product->translation(current_locale())->meta_description }}" />
     <meta name="twitter:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png" />
 @endpush
 
@@ -131,9 +131,9 @@
                                         <div class="box-widget-content">
                                             <div class="list-author-widget-contacts list-item-widget-contacts">
                                                 <ul>
-                                                    <li><span><i class="fa fa-map-marker"></i> Adress :</span> <a href="https://www.google.com/maps/search/?api=1&query={{ $product->translation(current_locale())->title }}+{{$product->street}}+{{$product->zip}}+{{$product->city}}, {{$product->country}}">{{$product->street}}, {{$product->zip}}, {{$product->city}}</a></li>
-                                                    <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">{{$product->phone}}</a></li>
-                                                    <li><span><i class="fa fa-globe"></i> Website :</span> <a href="{{$product->web}}">{{$product->web}}</a></li>
+                                                    <li><span><i class="fa fa-map-marker"></i> {{ __('front/apartment.address') }}:</span> <a href="https://www.google.com/maps/search/?api=1&query={{ $product->translation(current_locale())->title }}+{{$product->street}}+{{$product->zip}}+{{$product->city}}, {{$product->country}}">{{$product->street}}, {{$product->zip}}, {{$product->city}}</a></li>
+                                                    <li><span><i class="fa fa-phone"></i>{{ __('front/apartment.phone') }}: </span> <a href="#">{{$product->phone}}</a></li>
+                                                    <li><span><i class="fa fa-globe"></i>{{ __('front/apartment.web') }}: </span> <a href="{{$product->web}}">{{$product->web}}</a></li>
                                                 </ul>
                                             </div>
                                             <div class="list-widget-social">
