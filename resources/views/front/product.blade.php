@@ -99,28 +99,21 @@
                                     </div>
                                     <div class="iframe-holder fl-wrap">
                                         <div class="accordion">
-
-                                            @foreach (json_decode($product->menu) as $group)
-
-                                                <a class="toggle act-accordion" href="#">{{ $group->group }} <i class="fa fa-angle-down"></i></a>
-
-                                                <div class="accordion-inner ">
+                                            @foreach ($menu as $key => $group)
+                                                <a class="toggle @if ($loop->first) act-accordion @endif" href="#"> {{ $key}}<i class="fa fa-angle-down"></i></a>
+                                                <div class="accordion-inner  @if ($loop->first) visible @endif">
                                                     <div class="opening-hours">
-                                                        <ul>
-
-
-                                                              <li><span class="opening-hours-day">{{ $group->title->{current_locale()} }} </span><span class="opening-hours-time">{{ $group->price }} €</span></li>
-
-
-
+                                                      <ul>
+                                                            @foreach ($group as $item)
+                                                              <li><span class="opening-hours-day">{{ $item['title'][current_locale()] }} </span><span class="opening-hours-time">{{ $item['price'] }} €</span></li>
+                                                            @endforeach
                                                         </ul>
+
+
                                                     </div>
                                                 </div>
-
-
                                             @endforeach
                                         </div>
-
                                     </div>
                                 </div>
                                 <!-- list-single-main-item end -->
@@ -143,9 +136,15 @@
                                             </div>
                                             <div class="list-widget-social">
                                                 <ul>
-                                                    <li><a href="{{$product->facebook}}" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                                                    @if($product->facebook)
+                                                        <li><a href="{{$product->facebook}}" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                                                    @endif
 
-                                                    <li><a href="#" target="_blank" ><i class="fa fa-whatsapp"></i></a></li>
+                                                    @if($product->instagram)
+                                                        <li><a href="{{$product->instagram}}" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                                                    @endif
+
+                                                   {{--<li><a href="#" target="_blank" ><i class="fa fa-whatsapp"></i></a></li> --}}
                                                 </ul>
                                             </div>
                                         </div>

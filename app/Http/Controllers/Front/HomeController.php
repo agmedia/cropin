@@ -42,7 +42,7 @@ class HomeController extends FrontBaseController
     {
         $menu = $product->resolveMenuList();
 
-        dd($menu);
+
 
         return view('front.product', compact('product', 'menu'));
     }

@@ -34,6 +34,10 @@
 </head>
 <!-- Body-->
 <body>
+<div class="loader-wrap">
+    <div class="pin"></div>
+    <div class="pulse"></div>
+</div>
 <div id="page">
     @include('front.layouts.partials.header')
     @yield('content')
