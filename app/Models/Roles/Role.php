@@ -113,7 +113,7 @@ class Role extends Model
         $user = User::find($user_id);
 
         if ($user) {
-            $user->retract($user->details->role);
+            $user->retract($user->detail->role);
             $user->assign($role);
 
             return true;
@@ -133,7 +133,7 @@ class Role extends Model
     {
         $user = User::find($user_id);
 
-        if ($user->details->role != $role) {
+        if ($user->detail->role != $role) {
             return true;
         }
 

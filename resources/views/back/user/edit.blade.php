@@ -158,10 +158,10 @@
                         <div class="col-lg-8 col-xl-5">
                             <div class="form-group ">
                                 <label for="price-input">{{ __('back/user.user_role') }}</label>
-                                <select class=" form-select" id="role-select" name="role" data-placeholder="{{ __('back/user.user_role_select') }}">
+                                <select class=" form-select" id="role-select" name="role" data-placeholder="{{ __('back/user.user_role_select') }}" @if($user->role != 'master') disabled @endif>
                                     <option></option>
                                     @foreach ($roles as $role)
-                                        <option value="{{ $role->name }}" {{ ((isset($user)) and ($user->detail->role == $role->name)) ? 'selected' : '' }}>{{ $role->title }}</option>
+                                        <option value="{{ $role->name }}" {{ ((isset($user)) and ($user->role == $role->name)) ? 'selected' : '' }}>{{ $role->title }}</option>
                                     @endforeach
                                 </select>
                             </div>

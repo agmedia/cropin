@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Laravel\Sanctum\HasApiTokens;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 
@@ -196,10 +198,32 @@ class User extends Authenticatable
      */
     public function edit()
     {
+        $this->request->validate([
+            'username' => ['required', 'string', 'max:255'],
+            'email'    => [
+                'required',
+                'string',
+                'email',
+                'max:255'
+            ]
+        ]);
+
         if (isset($this->request->username)) {
             $this->update([
                 'name'       => $this->request->username,
                 'email'      => $this->request->email,
+                'password'   => Hash::make($this->request->password),
+                'updated_at' => Carbon::now()
+            ]);
+        }
+
+        if ($this->shouldChangePassword()) {
+            $this->request->validate([
+                'password' => ['required', 'string', Password::default(), 'confirmed']
+            ]);
+
+            $this->update([
+                'password'   => Hash::make($this->request->password),
                 'updated_at' => Carbon::now()
             ]);
         }
@@ -211,6 +235,11 @@ class User extends Authenticatable
 
             if (Role::checkIfChanged($this->id, $this->request->role)) {
                 Role::change($this->id, $this->request->role);
+
+                $this->update([
+                    'role'   => $this->request->role,
+                    'updated_at' => Carbon::now()
+                ]);
             }
 
             UserDetail::where('user_id', $this->id)->update([
@@ -228,12 +257,29 @@ class User extends Authenticatable
                 'avatar'     => 'media/avatars/avatar1.jpg',
                 'bio'        => '',
                 'social'     => '',
-                'role'       => $this->request->role,
                 'status'     => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
                 'updated_at' => Carbon::now()
             ]);
 
             return $this->find($this->id);
+        }
+
+        return false;
+    }
+
+
+    /**
+     * @return bool
+     */
+    private function shouldChangePassword(): bool
+    {
+        if (isset($this->request->old_password) && ! empty($this->request->old_password) &&
+            isset($this->request->password) && ! empty($this->request->password) &&
+            isset($this->request->password_confirmation) && ! empty($this->request->password_confirmation)
+        ) {
+            if ($this->request->password == $this->request->password_confirmation) {
+                return true;
+            }
         }
 
         return false;
