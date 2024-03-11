@@ -294,9 +294,9 @@ class Product extends Model
         $response = [];
 
         foreach ($listings->get() as $item) {
-            if ($item->lon && $item->lan) {
+            if ($item->lon && $item->lat) {
                 $response[] = [
-                    'title' => $item->translation()->title,
+                    'title' => $item->translation->title,
                     'url' => route('resolve.route', ['product' => $item]),
                     'image' => asset($item->image),
                     'category' => config('settings.categories')[$item->category][current_locale()],
@@ -305,7 +305,7 @@ class Product extends Model
                     'rating' => '5',
                     'reviews' => '0',
                     'latitude' => $item->lon,
-                    'longitude' => $item->lan,
+                    'longitude' => $item->lat,
                 ];
             }
         }
