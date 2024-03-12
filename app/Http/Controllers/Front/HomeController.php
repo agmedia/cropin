@@ -90,11 +90,11 @@ class HomeController extends FrontBaseController
     public function sendContactMessage(Request $request)
     {
         $request->validate([
-            'name'    => 'required',
-            'email'   => 'required|email',
-            'quantity'   => 'required',
-            'date' => 'required',
-            'time' => 'required',
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'quantity' => 'required',
+            'date'     => 'required',
+            'time'     => 'required',
         ]);
 
         // Recaptcha
