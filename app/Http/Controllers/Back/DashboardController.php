@@ -21,7 +21,13 @@ class DashboardController extends Controller
     {
 
         $data['countlistings'] = Product::query()->whereIn('status', ['1'])->count();
-        return view('back.dashboard', compact('data'));
+
+        $query = Product::query();
+
+        $products = $query->orderByDesc('created_at')->limit(10)->get();
+
+
+        return view('back.dashboard', compact('data', 'products'));
     }
 
 }

@@ -213,6 +213,8 @@ Route::group(
     Route::get('/kontakt', [HomeController::class, 'contact'])->name('kontakt');
     Route::post('/kontakt/posalji', [HomeController::class, 'sendContactMessage'])->name('poruka');
 
+    Route::get('info/{page}', [HomeController::class, 'page'])->name('page');
+
     Route::get('/{product?}', [HomeController::class, 'resolveRoute'])->name('resolve.route');
 
     /**
