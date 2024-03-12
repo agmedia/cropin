@@ -39,6 +39,6 @@ return [
     'all_locations' => 'All Locations',
     'all_categories' => 'All Categories',
     'result_for' => 'Results For',
-    'all_rights' => 'Sva prava pridržana'
+    'all_rights' => 'All Rights reserved.'
 
 ];

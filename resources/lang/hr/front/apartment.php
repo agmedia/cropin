@@ -38,6 +38,6 @@ return [
     'all_categories' => 'Sve kategorije',
     'result_for' => 'Rezultati za',
 
-    'all_rights' => 'All rights reserved'
+    'all_rights' => 'Sva prava pridržana.'
 
 ];
