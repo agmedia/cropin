@@ -227,7 +227,7 @@
                                             <td class="text-end">
                                                 <ul class="list-inline me-auto mb-0">
                                                     <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="View Listing">
-                                                        <a href="#" class="avtar avtar-xs btn-link-secondary btn-pc-default">
+                                                        <a href="{{ route('resolve.route', ['product' => $product->translation(current_locale())->slug]) }}" target="_blank" class="avtar avtar-xs btn-link-secondary btn-pc-default">
                                                             <i class="ti ti-eye f-18"></i>
                                                         </a>
                                                     </li>
