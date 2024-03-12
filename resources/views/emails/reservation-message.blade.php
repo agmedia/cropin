@@ -14,30 +14,30 @@
                 <table cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                         <td style="width: 26%">{{ __('front/common.mail.contact_name') }}:</td>
-                        <td style="width: 74%"><b>{{ $name }}</b></td>
+                        <td style="width: 74%"><b>{{ $data['name'] }}</b></td>
                     </tr>
                     <tr>
                         <td>Email:</td>
-                        <td><b>{{ $email }}</b></td>
+                        <td><b>{{ $data['email'] }}</b></td>
                     </tr>
 
                     <tr>
                         <td>{{ __('front/apartment.qty') }}</td>
-                        <td><b>{{ $quantity }}</b></td>
+                        <td><b>{{ $data['quantity'] }}</b></td>
                     </tr>
                     <tr>
                         <td>{{ __('front/apartment.date') }}</td>
-                        <td><b>{{ $date }}</b></td>
+                        <td><b>{{ $data['date'] }}</b></td>
                     </tr>
 
                     <tr>
                         <td>{{ __('front/apartment.time') }}</td>
-                        <td><b>{{ $time }}</b></td>
+                        <td><b>{{ $data['time'] }}</b></td>
                     </tr>
 
                     <tr>
                         <td>{{ __('front/apartment.additional_info') }}</td>
-                        <td><b>{{ $message }}</b></td>
+                        <td><b>{{ $data['message'] }}</b></td>
                     </tr>
 
 
