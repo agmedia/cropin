@@ -17,6 +17,7 @@ use App\Models\Front\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends FrontBaseController
 {
@@ -47,6 +48,10 @@ class HomeController extends FrontBaseController
     public function resolveRoute(Request $request, Product $product)
     {
         $menu = $product->resolveMenuList();
+
+        $viewed = DB::update('update products set viewed = viewed + 1');
+
+
 
         return view('front.product', compact('product', 'menu'));
     }

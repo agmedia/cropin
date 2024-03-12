@@ -199,6 +199,7 @@
 
                 var locations = [];
 
+
                 @json($locations).forEach((item, index) => {
                     locations.push([
                         locationData(item.url, item.category, item.image, item.title, item.address, item.phone, item.rating, item.reviews),
@@ -209,13 +210,7 @@
                     ]);
                 });
 
-                /*var locations = [
-                    [locationData('listing-single.html', 'Food', 'images/all/1.jpg', 'Pizzeria Toccare', "Vukomerec ul. 36, 10000, Zagreb", "+38518893717", "5", "27"), 45.81272188424127, 15.992770800143356, 0, markerIcon],
-                    [locationData('listing-single.html', 'Food', 'images/all/1.jpg', 'Pizzeria Toccare', "Vukomerec ul. 36, 10000, Zagreb", "+38518893717", "5", "27"), 45.81327555215147, 15.99724010376194, 0, markerIcon],
-                    [locationData('listing-single.html', 'Food', 'images/all/1.jpg', 'Pizzeria Toccare', "Vukomerec ul. 36, 10000, Zagreb", "+38518893717", "5", "27"), 45.80501675050284, 15.859690069788094, 5, markerIcon],
-                    [locationData('listing-single.html', 'Food', 'images/all/1.jpg', 'Pizzeria Toccare', "Vukomerec ul. 36, 10000, Zagreb", "+38518893717", "5", "27"), 45.80788865004683, 16.04362523696516, 5, markerIcon],
 
-                ];*/
 
                 var map = new google.maps.Map(document.getElementById('map-main'), {
                     zoom: 9,
@@ -392,65 +387,7 @@
                 google.maps.event.addDomListener(window, 'load', mainMap);
             }
 
-            function singleMap() {
-                var myLatLng = {
-                    lng: $('#singleMap').data('longitude'),
-                    lat: $('#singleMap').data('latitude'),
-                };
-                var single_map = new google.maps.Map(document.getElementById('singleMap'), {
-                    zoom: 14,
-                    center: myLatLng,
-                    scrollwheel: false,
-                    zoomControl: false,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    panControl: false,
-                    navigationControl: false,
-                    streetViewControl: false,
-                    styles: [{
-                        "featureType": "landscape",
-                        "elementType": "all",
-                        "stylers": [{
-                            "color": "#f2f2f2"
-                        }]
-                    }]
-                });
-                var markerIcon2 = {
-                    url: 'images/marker.png',
-                }
-                var marker = new google.maps.Marker({
-                    position: myLatLng,
-                    map: single_map,
-                    icon: markerIcon2,
-                    title: 'Our Location'
-                });
-                var zoomControlDiv = document.createElement('div');
-                var zoomControl = new ZoomControl(zoomControlDiv, single_map);
 
-                function ZoomControl(controlDiv, single_map) {
-                    zoomControlDiv.index = 1;
-                    single_map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(zoomControlDiv);
-                    controlDiv.style.padding = '5px';
-                    var controlWrapper = document.createElement('div');
-                    controlDiv.appendChild(controlWrapper);
-                    var zoomInButton = document.createElement('div');
-                    zoomInButton.className = "mapzoom-in";
-                    controlWrapper.appendChild(zoomInButton);
-                    var zoomOutButton = document.createElement('div');
-                    zoomOutButton.className = "mapzoom-out";
-                    controlWrapper.appendChild(zoomOutButton);
-                    google.maps.event.addDomListener(zoomInButton, 'click', function () {
-                        single_map.setZoom(single_map.getZoom() + 1);
-                    });
-                    google.maps.event.addDomListener(zoomOutButton, 'click', function () {
-                        single_map.setZoom(single_map.getZoom() - 1);
-                    });
-                }
-            }
-            var single_map = document.getElementById('singleMap');
-            if (typeof (single_map) != 'undefined' && single_map != null) {
-                google.maps.event.addDomListener(window, 'load', singleMap);
-            }
         })(this.jQuery);
 
     </script>
