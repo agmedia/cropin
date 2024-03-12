@@ -14,26 +14,37 @@
                 <table cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                         <td style="width: 26%">{{ __('front/common.mail.contact_name') }}:</td>
-                        <td style="width: 74%"><b>Name</b></td>
+                        <td style="width: 74%"><b>{{ $name }}</b></td>
                     </tr>
                     <tr>
                         <td>Email:</td>
-                        <td><b>email</b></td>
+                        <td><b>{{ $email }}</b></td>
                     </tr>
+
+                    <tr>
+                        <td>{{ __('front/apartment.qty') }}</td>
+                        <td><b>{{ $quantity }}</b></td>
+                    </tr>
+                    <tr>
+                        <td>{{ __('front/apartment.date') }}</td>
+                        <td><b>{{ $date }}</b></td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ __('front/apartment.time') }}</td>
+                        <td><b>{{ $time }}</b></td>
+                    </tr>
+
+                    <tr>
+                        <td>{{ __('front/apartment.additional_info') }}</td>
+                        <td><b>{{ $message }}</b></td>
+                    </tr>
+
+
                 </table>
             </td>
         </tr>
-        <tr>
-            <td style="padding: 5px 20px 30px 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
-                <pre>message</pre>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; text-align: center;">
-                <a href="{{ route('index') }}" style="display: block; display: inline-block; width: 200px; min-height: 20px; padding: 10px; background-color: #a50000; border-radius: 3px; color: #ffffff; font-size: 15px; line-height: 25px; text-align: center; text-decoration: none; -webkit-text-size-adjust: none;">
-                    {{ __('front/common.mail.contact_btn_go') }}
-                </a>
-            </td>
-        </tr>
+
+
     </table>
 @endsection

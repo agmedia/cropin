@@ -1,27 +1,22 @@
 @if(session('success'))
     <!-- Success alert -->
-    <div class="alert alert-success d-flex" role="alert">
-        <div class="alert-icon">
-            <i class="ci-check-circle"></i>
-        </div>
-        <div>{{ session('success') }}</div>
+    <div class="notification success " role="alert">
+
+        <p>{{ session('success') }}</p>
     </div>
+
 @endif
 @if(session('error'))
-    <div class="alert alert-danger d-flex" role="alert">
-        <div class="alert-icon">
-            <i class="ci-close-circle"></i>
-        </div>
-        <div>{{ session('error') }}</div>
+    <p class="notification  reject" role="alert">
+
+        <p>{{ session('error') }}</p>
     </div>
 
 @endif
 @if(session('warning'))
-    <div class="alert alert-warning d-flex" role="alert">
-        <div class="alert-icon">
-            <i class="ci-security-announcement"></i>
-        </div>
-        <div>{{ session('warning') }}</div>
+    <div class="notification waitforreview" role="alert">
+
+        <p>{{ session('warning') }}</p>
     </div>
 @endif
 

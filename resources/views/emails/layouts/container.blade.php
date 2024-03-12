@@ -238,14 +238,14 @@
 <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #f7f7f7;">
 <center style="width: 100%; background-color: #163c68;">
     <!--[if mso | IE]>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #163c68;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #2F3B59;">
         <tr>
             <td>
     <![endif]-->
 
     <!-- Visually Hidden Preheader Text : BEGIN -->
     <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-        SelfCheckIns
+        CROPINS
     </div>
     <!-- Visually Hidden Preheader Text : END -->
 
@@ -260,7 +260,7 @@
         <!-- Email Header : BEGIN -->
         <tr>
             <td style="padding: 20px 0 15px 0; text-align: center">
-                <label class="large bold" style="color: white;">   <img src="https://selfcheckins.agmedia.rocks/assets/images/logo.svg" alt="SelfCheckIns" border="0" style="max-width:200px;height: auto;"></label>
+                <label class="large bold" style="color: white;">   <img src="https://cropins.agmedia.rocks/images/cro-pins.svg" alt="CroPins" border="0" style="max-width:200px;height: auto;"></label>
             </td>
         </tr>
         <!-- Email Header : END -->
@@ -280,7 +280,7 @@
     <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="margin: auto;" class="email-container">
         <tr>
             <td style="padding: 20px; font-family: sans-serif; font-size: 12px; line-height: 15px; text-align: center; color: #ffffff;">
-                {{ __('front/common.copy_text') }} <br><a href="https://selfcheckins.agmedia.rocks/en/info/terms-and-conditions" style="color:#ffffff;">{{ __('front/common.copy_text') }} {{ __('front/common.terms') }}</a>
+                {{ __('front/common.copy_text') }} <br><a href="https://cropins.agmedia.rocks/en/info/terms-and-conditions" style="color:#ffffff;">{{ __('front/common.copy_text') }} {{ __('front/common.terms') }}</a>
                 <br>
             </td>
         </tr>

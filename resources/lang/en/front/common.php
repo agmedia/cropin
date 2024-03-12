@@ -28,7 +28,7 @@ return [
     'footer_text' => ' SelfCheckIns - Independent and flexible entry and exit of guests from the apartment using smart locks or codes.',
     'legal' => 'Legal Info',
     'support' => 'Support',
-    'copy_text' => '© 2023 SelfCheckIns. All right reserved.',
+    'copy_text' => '© 2024 CroPins. All right reserved.',
     'terms' => 'Terms and Conditions',
     'apartment' => 'Apartment',
     'total' => 'Total',
