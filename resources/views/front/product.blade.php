@@ -235,4 +235,5 @@
 @endsection
 @push('js_after')
     <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+    @include('front.layouts.partials.recaptcha-js')
 @endpush
