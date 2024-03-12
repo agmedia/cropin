@@ -260,7 +260,7 @@
         <!-- Email Header : BEGIN -->
         <tr>
             <td style="padding: 20px 0 15px 0; text-align: center">
-                <label class="large bold" style="color: white;">  <img src="{{ asset('media/cro-pins.png') }}" alt="CroPins" border="0" style="max-width:200px;height: auto;"></label>
+                <label class="large bold" style="color: white;">  <img src="{{ asset('assets/media/cro-pins.png') }}" alt="CroPins" border="0" style="max-width:200px;height: auto;"></label>
             </td>
         </tr>
         <!-- Email Header : END -->
