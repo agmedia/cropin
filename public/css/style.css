@@ -791,6 +791,14 @@ section.color-bg .section-title .breadcrumbs a:before {
     font-size:44px;
 }
 
+.white{
+    color: rgba(255,255,255,0.61);
+}
+.white:hover{
+    color:#fff!important;
+
+}
+
 .section-title h1 {
     float:left;
     width:100%;

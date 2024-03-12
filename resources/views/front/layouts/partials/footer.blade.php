@@ -3,15 +3,22 @@
     <div class="sub-footer fl-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="about-widget">
                         <img src="{{ asset('images/cro-pins.svg') }}" alt="CroPins">
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="copyright"> &#169; CroPins 2024.  {{ __('front/apartment.all_rights') }}.</div>
+                <div class="col-md-6">
+                    <div class="copyright"> &#169; CroPins 2024.  {{ __('front/apartment.all_rights') }}.
+                        @if (isset($pages) && $pages)
+                            @foreach($pages as $page)
+
+                                    <a class="white" href="{{ route('page', ['page' => $page->translation->slug]) }}">{{ $page->translation->title }}</a>
+
+                            @endforeach
+                        @endif</div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="footer-social">
                         <ul>
                             <li><a href="#" target="_blank" ><i class="fa fa-facebook-official"></i></a></li>
