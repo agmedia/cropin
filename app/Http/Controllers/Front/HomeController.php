@@ -92,8 +92,9 @@ class HomeController extends FrontBaseController
         $request->validate([
             'name'    => 'required',
             'email'   => 'required|email',
-            'phone'   => 'required',
-            'message' => 'required',
+            'quantity'   => 'required',
+            'date' => 'required',
+            'time' => 'required',
         ]);
 
         // Recaptcha

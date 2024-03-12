@@ -157,6 +157,7 @@
                         </div>
                         <!--box-widget-wrap -->
                         <div class="col-md-4">
+                            @include('front.layouts.partials.session')
                             <div class="box-widget-wrap">
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec5">
