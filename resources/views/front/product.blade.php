@@ -192,6 +192,7 @@
                                                         </div>
                                                     </div>
                                                     <textarea cols="40" rows="3" name="message" placeholder="{{ __('front/apartment.additional_info') }}"></textarea>
+                                                    <input type="hidden" name="listing_email" value="{{ $product->email }}">
                                                 </fieldset>
                                                 <button type="submit" class="btn big-btn color-bg flat-btn book-btn">{{ __('front/apartment.book_now') }}<i class="fa fa-angle-right"></i></button>
                                             </form>

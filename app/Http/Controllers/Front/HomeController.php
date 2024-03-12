@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontBaseController;
 use App\Imports\ProductImport;
 use App\Mail\ContactFormMessage;
+use App\Mail\ReservationMessage;
 use App\Models\Front\Catalog\Page;
 use App\Models\Front\Catalog\Product;
 use App\Models\Front\Faq;
@@ -47,11 +48,9 @@ class HomeController extends FrontBaseController
      */
     public function resolveRoute(Request $request, Product $product)
     {
+        $product->increment('viewed');
+
         $menu = $product->resolveMenuList();
-
-        $viewed = DB::update('update products set viewed = viewed + 1');
-
-
 
         return view('front.product', compact('product', 'menu'));
     }
@@ -90,7 +89,6 @@ class HomeController extends FrontBaseController
      */
     public function sendContactMessage(Request $request)
     {
-        dd($request->toArray());
         $request->validate([
             'name'    => 'required',
             'email'   => 'required|email',
@@ -105,10 +103,10 @@ class HomeController extends FrontBaseController
             return back()->withErrors(['error' => __('front/common.recapta_error')]);
         }
 
-        $message = $request->toArray();
+        $data = $request->toArray();
 
-        dispatch(function () use ($message) {
-            Mail::to(Helper::getBasicInfo()->email)->send(new ContactFormMessage($message));
+        dispatch(function () use ($data) {
+            Mail::to($data['listing_email'])->send(new ReservationMessage($data));
         })->afterResponse();
 
         return redirect()->back()->with(['success' => __('front/common.message_success')]);
