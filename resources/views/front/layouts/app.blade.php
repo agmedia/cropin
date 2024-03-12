@@ -64,13 +64,18 @@
                     {
                         "position": "top",
                         "content": [
-                            "searchfield"
+                            "searchfield",
+
                         ]
                     }
                 ],
                 "navbar": {
                     title: "Menu",
                 },
+
+                "searchfield": {
+                "placeholder": "{{ __('back/apartment.searchname') }}"
+            },
                 "offCanvas": {
                     "position": "bottom"
                 },
