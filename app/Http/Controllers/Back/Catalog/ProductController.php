@@ -26,7 +26,7 @@ class ProductController extends Controller
         $query = Product::query();
 
         if ($request->has('search')) {
-            $query->where('from_city', 'LIKE', '%' . $request->input('search') . '%');
+            $query->where('city', 'LIKE', '%' . $request->input('search') . '%')->orWhere;
         }
 
         $products = $query->orderByDesc('created_at')

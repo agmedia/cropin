@@ -27,7 +27,7 @@ return [
     'porukakarta' => 'Potražite adresu na karti ili kliknite na kartu za lokaciju.',
     'osnovneinformacije' => 'Osnovne informacije',
     'searchaddress' => 'Pretraži po adresi',
-    'searchname' => 'Pretraži po nazivu',
+    'searchname' => 'Pretraži po gradu',
     'cijenetitle' => 'Cijena, akcije i porez',
     'price_regular' => 'Cijena za dane u tjednu',
     'price_weekends' => 'Cijena za vikend (Petak & Subota)',

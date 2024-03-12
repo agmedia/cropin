@@ -27,7 +27,7 @@ return [
     'porukakarta' => 'Search address on map or click on map for location.',
     'osnovneinformacije' => 'Basic information',
     'searchaddress' => 'Search Address',
-    'searchname' => 'Search by name',
+    'searchname' => 'Search by city',
     'cijenetitle' => 'Price, promotions and tax',
     'price_regular' => 'Price for regular days',
     'price_weekends' => 'Price for weekends (Friday & Saturday)',

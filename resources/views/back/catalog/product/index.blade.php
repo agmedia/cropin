@@ -25,6 +25,16 @@
     <div class="row">
         @include('back.layouts.partials.session')
 
+        <div class="col-md-4 mb-3">
+
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" id="search-input" value="{{ request()->input('search') }}" placeholder="{{ __('back/apartment.searchname') }}">
+                <button class="btn btn-primary" id="btn-search" onclick="setURL('search', $('#search-input').val(), true);"><i class="fa fa-search"></i> </button>
+            </div>
+
+
+        </div>
+
         <div class="col-sm-12">
             <div class="dt-responsive table-responsive">
                 <table  class="table table-striped table-bordered nowrap">
@@ -41,6 +51,8 @@
                     <tbody>
 
                     @forelse ($products as $product)
+
+                        @php($cat =collect(config('settings.categories'))->get($product->category))
                         <tr>
                             <td class="text-center">{{ $product->id }}</td>
                             <td>
@@ -48,7 +60,7 @@
                                 <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
 
                             </td>
-                            <td class="text-center">{{ $product->category}}</td>
+                            <td class="text-center">{{$cat[current_locale()] }}</td>
                             <td class="text-center">{{ $product->city }}</td>
                             <td class="text-center">@include('back.layouts.partials.status', ['status' => $product->status])</td>
                             <td class="text-end">
@@ -86,3 +98,80 @@
 @endsection
 
 
+@push('js_after')
+
+    <!-- Page JS Plugins -->
+
+    <script>
+        $(() => {
+            $('#status-select').select2({
+                placeholder: '{{ __('back/app.select_status') }}',
+                allowClear: true
+            });
+            $('#sort-select').select2({
+                placeholder: '{{ __('back/app.sort') }}',
+                allowClear: true
+            });
+
+            //
+            $('#status-select').on('change', (e) => {
+                setURL('status', e.currentTarget.selectedOptions[0]);
+            });
+            $('#sort-select').on('change', (e) => {
+                setURL('sort', e.currentTarget.selectedOptions[0]);
+            });
+
+            //
+            let url = new URL(location.href);
+            if (url.search != '') {
+                $('#apartments-filter').collapse();
+            }
+
+            //
+            let input = document.getElementById("search-input");
+
+            input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("btn-search").click();
+                }
+            });
+        });
+
+        /**
+         *
+         * @param type
+         * @param search
+         */
+        function setURL(type, search, isValue = false) {
+            let url = new URL(location.href);
+            let params = new URLSearchParams(url.search);
+            let keys = [];
+
+            for(var key of params.keys()) {
+                if (key === type) {
+                    keys.push(key);
+                }
+            }
+
+            keys.forEach((value) => {
+                if (params.has(value)) {
+                    params.delete(value);
+                }
+            })
+
+            if (search.value) {
+                params.append(type, search.value);
+            }
+
+            if (isValue && search) {
+                params.append(type, search);
+            }
+
+            url.search = params;
+            location.href = url;
+        }
+
+    </script>
+
+@endpush
