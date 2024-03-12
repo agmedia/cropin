@@ -491,7 +491,7 @@ function initCitybook() {
         $('.leave-rating .selected').removeClass('selected');
         $radio.closest('label').addClass('selected');
     });
- 
+
 	 $('.chosen-select').niceSelect();
     $('input[type="range"].distance-radius').rangeslider({
         polyfill: false,
@@ -520,15 +520,15 @@ function initCitybook() {
         }
     });
 			var  datacityw = $("#weather-widget").data("city");
-	
-	
+
+
 			$("#weather-widget").ideaboxWeather({
 			location		: datacityw,
- 
- 
+
+
 		});
-	
- 
+
+
     // Styles ------------------
     if ($("footer.main-footer").hasClass("fixed-footer")) {
         $('<div class="height-emulator fl-wrap"></div>').appendTo("#main");
@@ -545,8 +545,8 @@ function initCitybook() {
         });
         $(".map-container.column-map").css({
             height: $(window).outerHeight(true)-80+"px"
-        });		
-					
+        });
+
     }
     csselem();
     // Mob Menu------------------
@@ -587,94 +587,11 @@ function initCitybook() {
             offset: 0
         });
     }
-	
-	
-	function showBookingForm (){
-		$(".booking-modal-wrap , .bmw-overlay").fadeIn(400);
-		$("html, body").addClass("hid-body");
-	}
-	function hideBookingForm (){
-		$(".booking-modal-wrap , .bmw-overlay").fadeOut(400);
-		$("html, body").removeClass("hid-body");
-	}	
-    $(".booking-modal-close , .bmw-overlay").on("click", function () {
-  		hideBookingForm ();
-    });
-    $(".book-btn").on("click", function (e) {
-		e.preventDefault();
-  		showBookingForm ();
-    });		
- 
-	 
-    var current_fs, next_fs, previous_fs;
-    var left, opacity, scale;
-    var animating;
-    $(".next-form").on("click", function (e) {
-        e.preventDefault();
-        if (animating) return false;
-        animating = true;
-        current_fs = $(this).parent();
-        next_fs = $(this).parent().next();
-        $("#progressbar li").eq($(".bookiing-form-wrap fieldset").index(next_fs)).addClass("active");
-        next_fs.show();
-        current_fs.animate({
-            opacity: 0
-        }, {
-            step: function (now, mx) {
-                scale = 1 - (1 - now) * 0.2;
-                left = (now * 50) + "%";
-                opacity = 1 - now;
-                current_fs.css({
-                    'transform': 'scale(' + scale + ')',
-                    'position': 'absolute'
-                });
-                next_fs.css({
-                    'left': left,
-                    'opacity': opacity,
-                    'position': 'relative'
-                });
-            },
-            duration: 1200,
-            complete: function () {
-                current_fs.hide();
-                animating = false;
-            },
-            easing: 'easeInOutBack'
-        });
-    });
-    $(".back-form").on("click", function (e) {
-        e.preventDefault();
-        if (animating) return false;
-        animating = true;
-        current_fs = $(this).parent();
-        previous_fs = $(this).parent().prev();
-        $("#progressbar li").eq($(".bookiing-form-wrap fieldset").index(current_fs)).removeClass("active");
-        previous_fs.show();
-        current_fs.animate({
-            opacity: 0
-        }, {
-            step: function (now, mx) {
-                scale = 0.8 + (1 - now) * 0.2;
-                left = ((1 - now) * 50) + "%";
-                opacity = 1 - now;
-                current_fs.css({
-                    'left': left,
-                    'position': 'absolute'
-                });
-                previous_fs.css({
-                    'transform': 'scale(' + scale + ')',
-                    'opacity': opacity,
-                    'position': 'relative'
-                });
-            },
-            duration: 1200,
-            complete: function () {
-                current_fs.hide();
-                animating = false;
-            },
-            easing: 'easeInOutBack'
-        });
-    });	
+
+
+
+
+
 }
 //   Parallax ------------------
 function initparallax() {
@@ -729,7 +646,7 @@ $(".location a , .loc-act").on("click", function (e) {
 	e.preventDefault();
 $.get("http://ipinfo.io", function (response) {
   $(".location input , .qodef-archive-places-search").val( response.city);
- 
+
 }, "jsonp");
  });
 $('.fuzone input').each(function () {
@@ -756,7 +673,7 @@ $('.fuzone input').each(function () {
           var newVal = oldValue;
         } else {
           var newVal = oldValue + 1;
-		
+
         }
         spinner.find("input.qty").val(newVal);
         spinner.find("input.qty").trigger("change");
@@ -772,7 +689,7 @@ $('.fuzone input').each(function () {
         spinner.find("input.qty").val(newVal);
         spinner.find("input.qty").trigger("change");
       });
-    }); 
+    });
  function initAutocomplete() {
             var input = document.getElementById('autocomplete-input');
             var autocomplete = new google.maps.places.Autocomplete(input);
@@ -782,7 +699,7 @@ $('.fuzone input').each(function () {
                 window.alert("No details available for input: '" + place.name + "'");
                 return;
               }
-            });		
+            });
         }
 $(".notification-close").on("click", function () {
 	$(this).parent(".notification").slideUp(500);
@@ -798,7 +715,7 @@ var chatwidwrap = $(".chat-widget_wrap"),
     function hideChat(){
 	   cahtwidbutton.removeClass("closechat_btn");
 	   chatwidwrap.fadeOut(500).addClass("not-vis-chat");
-	}   
+	}
 cahtwidbutton.on("click", function () {
      if(chatwidwrap.hasClass("not-vis-chat")){
 		 showChat();
@@ -809,7 +726,7 @@ cahtwidbutton.on("click", function () {
 });
 document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
-}); 
+});
 //   Init All ------------------
 $(function () {
     initCitybook();
