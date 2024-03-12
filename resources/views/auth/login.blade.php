@@ -16,11 +16,11 @@
                 <input class="form-check-input input-primary" name="remember" type="checkbox" id="remember" checked="">
                 <label class="form-check-label text-muted" for="remember">{{ __('Remember me') }}</label>
             </div>
-            @if (Route::has('password.request'))
+            {{--@if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                     <h6 class="text-secondary f-w-400 mb-0">{{ __('Forget Your Password?') }}</h6>
                 </a>
-            @endif
+            @endif --}}
         </div>
         <div class="d-grid mt-4">
             <button type="submit" class="btn btn-primary">Login</button>
