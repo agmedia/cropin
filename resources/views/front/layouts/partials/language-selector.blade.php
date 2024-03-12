@@ -14,12 +14,12 @@
             @foreach (ag_lang() as $lang)
                 <li>
                     @if (isset($page))
-                        <a class=" @if (current_locale() == $lang->code) active @endif" href="{{ LaravelLocalization::getLocalizedURL($lang->code, $page->translation($lang->code)->slug, [], true) }}">
+                        <a class=" @if (current_locale() == $lang->code) active @endif" href="{{ LaravelLocalization::getLocalizedURL($lang->code, route('page', ['page' => $page->translation($lang->code)->slug]), [], true) }}">
                             <img class="lang" style="width:16px" src="{{ asset('images/'.Str::upper($lang->code).'.png') }}" alt="">
                             {{ $lang->title->{LaravelLocalization::getCurrentLocale()} }}
                         </a>
                     @elseif(isset($product))
-                        <a class=" @if (current_locale() == $lang->code) active @endif" href="{{ LaravelLocalization::getLocalizedURL($lang->code, $product->translation($lang->code)->slug, [], true) }}">
+                        <a class=" @if (current_locale() == $lang->code) active @endif" href="{{ LaravelLocalization::getLocalizedURL($lang->code, route('resolve.route', ['product' => $product->translation($lang->code)->slug]), [], true) }}">
                             <img class="lang" style="width:16px" src="{{ asset('images/'.Str::upper($lang->code).'.png') }}" alt="">
                             {{ $lang->title->{LaravelLocalization::getCurrentLocale()} }}
                         </a>
