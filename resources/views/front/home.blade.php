@@ -357,8 +357,8 @@
                         map.setOptions({'scrollwheel': false});
                     }
                 });
-                //    var zoomControlDiv = document.createElement('div');
-                //  var zoomControl = new ZoomControl(zoomControlDiv, map);
+                    var zoomControlDiv = document.createElement('div');
+                  var zoomControl = new ZoomControl(zoomControlDiv, map);
 
                 function ZoomControl(controlDiv, map) {
                     zoomControlDiv.index = 1;
