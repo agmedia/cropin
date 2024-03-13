@@ -260,10 +260,7 @@
                     width: 50
                 }];
 
-                var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://cropins.agmedia.rocks/images/croatiaaa.kml',
-                    map: map
-                });
+
 
 
                 for (i = 0; i < locations.length; i++) {
@@ -385,6 +382,14 @@
                         map.setZoom(map.getZoom() - 1);
                     });
                 }
+
+                var myCustomRegion = new google.maps.KmlLayer({
+                    url: 'https://cropins.agmedia.rocks/images/croatiamap.kml',
+                    map: map,
+                    suppressInfoWindows: true,
+                    zindex: 0,
+                    clickable : false
+                });
 
 
             }
