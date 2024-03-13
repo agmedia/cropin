@@ -87,6 +87,8 @@ class Image
         Storage::disk($disk)->put($path_jpg, $img->encode('jpg'));
         Storage::disk($disk)->put($path_webp, $img->encode('webp'));
 
+        chmod(config('filesystems.disks.product.url') . $resource->id, 0755);
+
         // Thumb creation
         $thumb_ratio = static::setPreferedWidth($img, 'thumb');
         $path_thumb  = $resource->id . '/' . Str::slug($resource->translation()->title) . '-' . $time . '-thumb.';
