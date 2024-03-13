@@ -10,7 +10,11 @@
 <Folder><name>croatia_administrative_boundaries_national_polygon</name>
   <Placemark>
 	<name>Hrvatska</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle>
+                                                                     <color>8014B4FF</color>
+                                                                     <fill>1</fill>
+                                                                     <outline>1</outline>
+                                                                 </PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#croatia_administrative_boundaries_national_polygon">
 		<SimpleData name="admin_level">2</SimpleData>
 		<SimpleData name="boundary">administrative</SimpleData>
