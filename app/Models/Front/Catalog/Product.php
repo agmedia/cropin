@@ -289,24 +289,31 @@ class Product extends Model
      *
      * @return array
      */
-    public static function getLocationsFromListings(Builder $listings): array
+    public static function getLocationsFromListings(Builder $listings, Request $request): array
     {
+        $should_fill_response = false;
         $response = [];
 
-        foreach ($listings->get() as $item) {
-            if ($item->lon && $item->lat) {
-                $response[] = [
-                    'title' => $item->translation->title,
-                    'url' => route('resolve.route', ['product' => $item]),
-                    'image' => asset($item->image),
-                    'category' => config('settings.categories')[$item->category][current_locale()],
-                    'address' => $item->address . ', ' . $item->zip . ', ' . $item->city,
-                    'phone' => $item->phone,
-                    'rating' => '5',
-                    'reviews' => '0',
-                    'latitude' => $item->lon,
-                    'longitude' => $item->lat,
-                ];
+        if ($request->has('category') || $request->has('location')) {
+            $should_fill_response = true;
+        }
+
+        if ($should_fill_response) {
+            foreach ($listings->get() as $item) {
+                if ($item->lon && $item->lat) {
+                    $response[] = [
+                        'title' => $item->translation->title,
+                        'url' => route('resolve.route', ['product' => $item]),
+                        'image' => asset($item->image),
+                        'category' => config('settings.categories')[$item->category][current_locale()],
+                        'address' => $item->address . ', ' . $item->zip . ', ' . $item->city,
+                        'phone' => $item->phone,
+                        'rating' => '5',
+                        'reviews' => '0',
+                        'latitude' => $item->lon,
+                        'longitude' => $item->lat,
+                    ];
+                }
             }
         }
 

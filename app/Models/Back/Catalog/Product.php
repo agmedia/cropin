@@ -183,13 +183,13 @@ class Product extends Model
     {
         $working_hours = $this->resolveWorkingHours();
 
-        $image = DB::table('product_images')->where('default', 1)->first();
+        /*$image = DB::table('product_images')->where('default', 1)->first();
 
         if ($image){
             $thumb = $image->image;
         }else{
             $thumb = '';
-        }
+        }*/
 
         $response = [
             'hash'          => Str::random(),
@@ -198,7 +198,7 @@ class Product extends Model
             'city'          => $this->request->city,
             'street'        => $this->request->street,
             'country'       => $this->request->country,
-            'category'      => $this->request->category,
+            'category'      => $this->request->category ?: 1,
             'lat'           => $this->request->lat,
             'lon'           => $this->request->lon,
             'phone'         => $this->request->phone,
@@ -209,7 +209,7 @@ class Product extends Model
             'tiktok'        => $this->request->tiktok,
             'working_hours' => $working_hours,
             'menu'          => $this->request->menu,
-            'image'         => $thumb,
+            'image'         => config('settings.default_listing_image'),
             'sort_order'    => 0,
             'featured'      => 1,
             'status'        => (isset($this->request->status) and $this->request->status == 'on') ? 1 : 0,
