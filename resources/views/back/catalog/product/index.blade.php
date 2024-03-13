@@ -1,8 +1,6 @@
 @extends('back.layouts.admin')
 
 
-
-
 @section('content')
 
     <div class="page-header">
@@ -51,8 +49,6 @@
                     <tbody>
 
                     @forelse ($products as $product)
-
-                        @php($cat =collect(config('settings.categories'))->get($product->category))
                         <tr>
                             <td class="text-center">{{ $product->id }}</td>
                             <td>
@@ -60,7 +56,7 @@
                                 <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
 
                             </td>
-                            <td class="text-center">{{$cat[current_locale()] }}</td>
+                            <td class="text-center">{{collect(config('settings.categories'))[$product->category][current_locale()] }}</td>
                             <td class="text-center">{{ $product->city }}</td>
                             <td class="text-center">@include('back.layouts.partials.status', ['status' => $product->status])</td>
                             <td class="text-end">
