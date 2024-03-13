@@ -188,7 +188,7 @@
         (function ($) {
             "use strict";
             var markerIcon = {
-                anchor: new google.maps.Point(22, 16),
+                anchor: new google.maps.Point(25, 50),
                 url: 'images/marker.png',
             }
 
