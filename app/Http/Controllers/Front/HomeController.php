@@ -34,7 +34,7 @@ class HomeController extends FrontBaseController
 
         $categories = Product::resolveCategories();
         $cities     = Product::query()->pluck('city')->unique();
-        $locations  = Product::getLocationsFromListings($listings_query);
+        $locations  = Product::getLocationsFromListings($listings_query, $request);
         $listings   = $listings_query->paginate(12);
 
         return view('front.home', compact('listings', 'categories', 'cities', 'locations'));

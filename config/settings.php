@@ -26,7 +26,7 @@ return [
     'images_domain' => '',
     'image_size_ratio' => '800x530',
     'thumb_size_ratio' => '400x265',
-    'default_apartment_image' => 'media/default_img.jpg',
+    'default_listing_image' => 'media/default_img.jpg',
 
     'sorting_list' => [
         0 => [
