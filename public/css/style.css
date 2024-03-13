@@ -6745,6 +6745,11 @@ footer.main-footer.fixed-footer {
         width:100%;
     }
 }
+
+@media only screen and  (max-width: 768px) {
+
+#maincontent{display:none}
+}
 @media only screen and  (max-width: 540px) {
     .gallery-item  , .single-facts .inline-facts-wrap , .team-box   , .cs-countdown-item , .list-single-header-contacts li   , .list-single-facts .inline-facts-wrap , .listing-features li , .listing-item , .statistic-item-wrap , #progressbar li{
         width:100%;

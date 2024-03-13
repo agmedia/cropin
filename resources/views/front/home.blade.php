@@ -34,7 +34,7 @@
             </div>
             <!-- Map end -->
             <!-- section -->
-            <section class="gray-bg no-pading no-top-padding">
+            <section class="gray-bg no-pading no-top-padding" id="maincontent">
                 <div class="col-list-wrap fh-col-list-wrap  left-list">
                     <div class="container">
                         <div class="row">
@@ -213,19 +213,19 @@
 
 
                 var map = new google.maps.Map(document.getElementById('map-main'), {
-                    zoom: 9,
-                    scrollwheel: false,
+                    zoom: 7,
+                    scrollwheel: true,
                     center: new google.maps.LatLng(45.81272188424127, 15.992770800143356),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     zoomControl: false,
                     mapTypeControl: false,
                     scaleControl: false,
-                    panControl: false,
+                    panControl: true,
                     fullscreenControl: true,
                     navigationControl: false,
                     streetViewControl: false,
                     animation: google.maps.Animation.BOUNCE,
-                    gestureHandling: 'cooperative',
+                    gestureHandling: 'greedy',
                     styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#4DB7FE"},{"visibility":"on"}]}]
                 });
 
@@ -258,6 +258,11 @@
                     height: 50,
                     width: 50
                 }];
+
+                var myCustomRegion = new google.maps.KmlLayer({
+                    url: 'https://cropins.agmedia.rocks/images/croatia.kml',
+                    map: map
+                });
 
 
                 for (i = 0; i < locations.length; i++) {
@@ -357,8 +362,8 @@
                         map.setOptions({'scrollwheel': false});
                     }
                 });
-                    var zoomControlDiv = document.createElement('div');
-                  var zoomControl = new ZoomControl(zoomControlDiv, map);
+                  //  var zoomControlDiv = document.createElement('div');
+                 // var zoomControl = new ZoomControl(zoomControlDiv, map);
 
                 function ZoomControl(controlDiv, map) {
                     zoomControlDiv.index = 1;
