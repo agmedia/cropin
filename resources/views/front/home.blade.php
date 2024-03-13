@@ -260,7 +260,7 @@
                 }];
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://cropins.agmedia.rocks/images/croatia.kml',
+                    url: 'https://cropins.agmedia.rocks/images/croatia-2.kml',
                     map: map
                 });
 
