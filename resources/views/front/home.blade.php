@@ -108,7 +108,7 @@
                                             </article>
                                         </div>
 
-                                        @if($loop->iteration / 2)
+                                        @if($loop->iteration % 2 === 0)
                                             <div class="clearfix"></div>
                                         @endif
                                     @endforeach
