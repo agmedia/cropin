@@ -15,7 +15,7 @@
     <meta name="twitter:site" content="" />
     <meta name="twitter:title" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
     <meta name="twitter:description" content="Croatian Clubs, Bars, Food and Fun. Where to go out in Croatia - a guide to nightlife in  Croatia." />
-    <meta name="twitter:image" content="https://www.socializertravel.com/images/cropins-bck.png" />
+    <meta name="twitter:image" content="https://www.socializertravel.com/images/social-image.jpg" />
 @endpush
 
 @section('content')
