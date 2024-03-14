@@ -11,8 +11,32 @@
             </a>
         </div>
 
+
+
+
         <!-- The menu -->
         @include('front.layouts.partials.language-selector')
+
+
+        <div class="nav-holder main-menu">
+            <nav>
+                <ul>
+
+                    @foreach ($navigation as $category => $cities)
+                        <li>
+                            <a href="#"> {{ $category }} <i class="fa fa-caret-down"></i></a>
+                            <ul>
+                                @foreach ($cities as $city)
+                                    <li><a href="{{ route('index', ['category' => $category, 'location' => $city]) }}">{{ $city }}</a></li>
+                                @endforeach
+
+                            </ul>
+                        </li>
+                    @endforeach
+
+                </ul>
+            </nav>
+        </div>
 
         <!--  navigation -->
         <nav id="menu">

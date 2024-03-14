@@ -32,4 +32,15 @@ class Query
         return $query;
     }
 
+    public static function getListingNav(Request $request): Builder
+    {
+        $query = Product::query();
+
+        $query->active();
+
+
+        return $query;
+    }
+
+
 }

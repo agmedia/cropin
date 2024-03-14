@@ -330,7 +330,7 @@ class Product extends Model
     public static function getNavigationFromListings(): array
     {
         $response = [];
-        $listings = Query::getListingFromSearch(request());
+        $listings = Query::getListingNav(request());
 
         foreach ($listings->get()->groupBy('category') as $group_id => $items) {
             if ($items->count()) {

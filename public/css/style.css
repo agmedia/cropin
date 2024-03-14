@@ -443,7 +443,7 @@ blockquote p {
 .header-user-menu {
     float:right;
     position:relative;
-    top:25px;
+    top:22px;
     margin-left:50px;
     margin-right:40px;
 }
@@ -638,6 +638,7 @@ nav li ul a:before , nav li ul a:after {
     border-radius:4px;
     top:24px;
     margin-right:5px;
+    display: none;
 
 }
 .nav-button  {
