@@ -282,8 +282,12 @@
                             ib.open(map, marker);
                             currentInfobox = marker.id;
                             var latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+
+                            map.setZoom(map.getZoom() + 3);
+
                             map.panTo(latLng);
                             map.panBy(0, -180);
+
                             google.maps.event.addListener(ib, 'domready', function () {
                                 $('.infoBox-close').click(function (e) {
                                     e.preventDefault();
@@ -348,6 +352,8 @@
                         }, 500)
                     }
                 });
+
+
                 // Scroll enabling button
                 var scrollEnabling = $('.scrollControl');
 
