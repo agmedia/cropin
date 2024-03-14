@@ -213,7 +213,7 @@
                 if (locations.length > 0) {
                     var lati = locations[0][1];
                     var ling = locations[0][2];
-                    var zoomi = 11;
+                    var zoomi = 10;
 
 
 
