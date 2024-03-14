@@ -296,6 +296,7 @@
                 var options = {
                     imagePath: 'images/',
                     styles: clusterStyles,
+                    maxZoom: 13
 
 
                 };
@@ -303,13 +304,12 @@
                 google.maps.event.addDomListener(window, "resize", function () {
                     var center = map.getCenter();
                     google.maps.event.trigger(map, "resize");
-                    map.setCenter(overlay.getPosition()); // set map center to marker position
-                    smoothZoom(map, 12, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
+                    map.setCenter(center);
                 });
 
                 $('.nextmap-nav').click(function (e) {
                     e.preventDefault();
-                    map.setZoom(15);
+                    map.setZoom(13);
                     var index = currentInfobox;
                     if (index + 1 < allMarkers.length) {
                         google.maps.event.trigger(allMarkers[index + 1], 'click');
@@ -319,7 +319,7 @@
                 });
                 $('.prevmap-nav').click(function (e) {
                     e.preventDefault();
-                    map.setZoom(15);
+                    map.setZoom(13);
                     if (typeof (currentInfobox) == "undefined") {
                         google.maps.event.trigger(allMarkers[allMarkers.length - 1], 'click');
                     } else {
@@ -333,7 +333,7 @@
                 });
                 $('.map-item').click(function (e) {
                     e.preventDefault();
-                    map.setZoom(15);
+                    map.setZoom(13);
                     var index = currentInfobox;
                     var marker_index = parseInt($(this).attr('href').split('#')[1], 10);
                     google.maps.event.trigger(allMarkers[marker_index], "click");
@@ -349,7 +349,7 @@
                     }
                 });
                 // Scroll enabling button
-                var scrollEnabling = $('.scrollContorl');
+                var scrollEnabling = $('.scrollControl');
 
                 $(scrollEnabling).click(function(e){
                     e.preventDefault();
