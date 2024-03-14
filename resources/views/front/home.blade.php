@@ -193,8 +193,8 @@
             }
 
             function mainMap() {
-                function locationData(locationURL, locationCategory, locationImg, locationTitle, locationAddress, locationPhone, locationStarRating, locationRevievsCounter) {
-                    return ('<div class="map-popup-wrap"><div class="map-popup"><div class="infoBox-close"><i class="fa fa-times"></i></div><div class="map-popup-category">' + locationCategory + '</div><a href="' + locationURL + '" class="listing-img-content fl-wrap"><img src="' + locationImg + '" alt=""></a> <div class="listing-content fl-wrap"><div class="card-popup-raining map-card-rainting" data-staRrating="' + locationStarRating + '"><span class="map-popup-reviews-count">( ' + locationRevievsCounter + ' reviews )</span></div><div class="listing-title fl-wrap"><h4><a href=' + locationURL + '>' + locationTitle + '</a></h4><span class="map-popup-location-info"><i class="fa fa-map-marker"></i>' + locationAddress + '</span><span class="map-popup-location-phone"><i class="fa fa-phone"></i>' + locationPhone + '</span></div></div></div></div>')
+                function locationData(locationURL, locationCategory, locationImg, locationTitle, locationAddress, locationUpute, locationStarRating, locationRevievsCounter) {
+                    return ('<div class="map-popup-wrap"><div class="map-popup"><div class="infoBox-close"><i class="fa fa-times"></i></div><div class="map-popup-category">' + locationCategory + '</div><a href="' + locationURL + '" class="listing-img-content fl-wrap"><img src="' + locationImg + '" alt=""></a> <div class="listing-content fl-wrap"><div class="card-popup-raining map-card-rainting" data-staRrating="' + locationStarRating + '"><span class="map-popup-reviews-count">( ' + locationRevievsCounter + ' reviews )</span></div><div class="listing-title fl-wrap"><h4><a href=' + locationURL + '>' + locationTitle + '</a></h4><span class="map-popup-location-info"><i class="fa fa-map-marker"></i>' + locationAddress + '</span><span class="map-popup-location-phone"><i class="fa fa-phone"></i><a href="https://www.google.com/maps/search/?api=1&query=' + locationUpute + '">{{ __('front/apartment.upute') }} </a></span></div></div></div></div>')
                 }
 
                 var locations = [];
@@ -202,7 +202,7 @@
 
                 @json($locations).forEach((item, index) => {
                     locations.push([
-                        locationData(item.url, item.category, item.image, item.title, item.address, item.phone, item.rating, item.reviews),
+                        locationData(item.url, item.category, item.image, item.title, item.address, item.upute, item.rating, item.reviews),
                         item.longitude,
                         item.latitude,
                         5,

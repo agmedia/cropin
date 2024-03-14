@@ -308,6 +308,7 @@ class Product extends Model
                         'category' => config('settings.categories')[$item->category][current_locale()],
                         'address' => $item->street . ', ' . $item->zip . ', ' . $item->city,
                         'phone' => $item->phone,
+                        'upute' => $item->translation->title .'+' . $item->street . '+' . $item->zip .'+' . $item->city . ','. $item->country,
                         'rating' => '5',
                         'reviews' => '0',
                         'latitude' => $item->lon,

@@ -32,6 +32,7 @@ return [
     'address' => 'Adresa',
     'phone' => 'Tel.',
     'web' => 'Web',
+    'upute' => 'Upute',
 
     'search' => 'Pretraži',
     'all_locations' => 'Sve lokacije',

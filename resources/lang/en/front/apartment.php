@@ -33,6 +33,7 @@ return [
     'address' => 'Address',
     'phone' => 'Phone',
     'web' => 'Web site',
+    'upute' => 'Directions',
 
 
     'search' => 'Search',
