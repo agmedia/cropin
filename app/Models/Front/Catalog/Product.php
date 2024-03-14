@@ -306,7 +306,7 @@ class Product extends Model
                         'url' => route('resolve.route', ['product' => $item]),
                         'image' => asset($item->image),
                         'category' => config('settings.categories')[$item->category][current_locale()],
-                        'address' => $item->address . ', ' . $item->zip . ', ' . $item->city,
+                        'address' => $item->street . ', ' . $item->zip . ', ' . $item->city,
                         'phone' => $item->phone,
                         'rating' => '5',
                         'reviews' => '0',
