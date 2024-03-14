@@ -210,14 +210,31 @@
                     ]);
                 });
 
+                if (locations.length > 0) {
+                    var lati = locations[0][1];
+                    var ling = locations[0][2];
+                    var zoomi = 12;
+
+
+
+                } else {
+
+                    var zoomi = 7;
+
+                    var lati = 45.81272188424127;
+                    var ling = 15.992770800143356;
+
+                }
+
 
 
                 var map = new google.maps.Map(document.getElementById('map-main'), {
-                    zoom: 7,
+                    zoom: zoomi,
                     minZoom: 7,
                     scrollwheel: true,
-                    center: new google.maps.LatLng(45.81272188424127, 15.992770800143356),
+                    center: new google.maps.LatLng(lati,ling),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+
                     zoomControl: false,
                     mapTypeControl: false,
                     scaleControl: false,
@@ -291,12 +308,9 @@
                             ib.open(map, marker);
                             currentInfobox = marker.id;
                             var latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-
-                            map.setZoom(map.getZoom() + 3);
-
+                            map.setZoom(map.getZoom() + 2);
                             map.panTo(latLng);
                             map.panBy(0, -180);
-
                             google.maps.event.addListener(ib, 'domready', function () {
                                 $('.infoBox-close').click(function (e) {
                                     e.preventDefault();
@@ -346,7 +360,7 @@
                 });
                 $('.map-item').click(function (e) {
                     e.preventDefault();
-                    map.setZoom(13);
+                    map.setZoom(map.getZoom() + 2);
                     var index = currentInfobox;
                     var marker_index = parseInt($(this).attr('href').split('#')[1], 10);
                     google.maps.event.trigger(allMarkers[marker_index], "click");
@@ -379,18 +393,7 @@
                   //  var zoomControlDiv = document.createElement('div');
                  // var zoomControl = new ZoomControl(zoomControlDiv, map);
 
-                function smoothZoom (map, max, cnt) {
-                    if (cnt >= max) {
-                        return;
-                    }
-                    else {
-                        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
-                            google.maps.event.removeListener(z);
-                            smoothZoom(map, max, cnt + 1);
-                        });
-                        setTimeout(function(){map.setZoom(cnt)}, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
-                    }
-                }
+
 
                 function ZoomControl(controlDiv, map) {
                     zoomControlDiv.index = 1;
@@ -417,6 +420,7 @@
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
+                    preserveViewport: true,
                     clickable : false
                 });
 
