@@ -7,15 +7,15 @@
 @push('meta_tags')
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="{{ $product->translation(current_locale())->title }}"/>
-    <meta property="og:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png"/>
-    <meta property="og:site_name" content="CroPins - Croatian Clubs, Bars, Food and Fun"/>
-    <meta property="og:url" content="https://www.cropins.hr/"/>
+    <meta property="og:image" content="https://www.socializertravel.com/images/cropins-bck.png"/>
+    <meta property="og:site_name" content="Socializer - Croatian Clubs, Bars, Food and Fun"/>
+    <meta property="og:url" content="https://www.socializertravel.com/"/>
     <meta property="og:description" content="{{ $product->translation(current_locale())->meta_description }}"/>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="" />
     <meta name="twitter:title" content="{{ $product->translation(current_locale())->meta_title }}" />
     <meta name="twitter:description" content="{{ $product->translation(current_locale())->meta_description }}" />
-    <meta name="twitter:image" content="https://cropins.agmedia.rocks/images/cropins-bck.png" />
+    <meta name="twitter:image" content="https://www.socializertravel.com/images/cropins-bck.png" />
 @endpush
 
 @section('content')
