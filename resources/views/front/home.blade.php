@@ -303,7 +303,8 @@
                 google.maps.event.addDomListener(window, "resize", function () {
                     var center = map.getCenter();
                     google.maps.event.trigger(map, "resize");
-                    map.setCenter(center);
+                    map.setCenter(overlay.getPosition()); // set map center to marker position
+                    smoothZoom(map, 12, map.getZoom()); // call smoothZoom, parameters map, final zoomLevel, and starting zoom level
                 });
 
                 $('.nextmap-nav').click(function (e) {
@@ -362,6 +363,19 @@
                 });
                   //  var zoomControlDiv = document.createElement('div');
                  // var zoomControl = new ZoomControl(zoomControlDiv, map);
+
+                function smoothZoom (map, max, cnt) {
+                    if (cnt >= max) {
+                        return;
+                    }
+                    else {
+                        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
+                            google.maps.event.removeListener(z);
+                            smoothZoom(map, max, cnt + 1);
+                        });
+                        setTimeout(function(){map.setZoom(cnt)}, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+                    }
+                }
 
                 function ZoomControl(controlDiv, map) {
                     zoomControlDiv.index = 1;

@@ -6749,6 +6749,9 @@ footer.main-footer.fixed-footer {
 @media only screen and  (max-width: 768px) {
 
 #maincontent{display:none}
+    .fw-map {
+        height: calc(100vh - 160px);
+    }
 }
 @media only screen and  (max-width: 540px) {
     .gallery-item  , .single-facts .inline-facts-wrap , .team-box   , .cs-countdown-item , .list-single-header-contacts li   , .list-single-facts .inline-facts-wrap , .listing-features li , .listing-item , .statistic-item-wrap , #progressbar li{
