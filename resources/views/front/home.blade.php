@@ -416,7 +416,7 @@
                 }
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://cropins.agmedia.rocks/images/croatia-map-white.kml',
+                    url: 'https://www.socializertravel.com/images/klm/wklm.kml&ver=' + Date.now(),
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
