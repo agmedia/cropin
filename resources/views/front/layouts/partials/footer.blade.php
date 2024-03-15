@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="about-widget">
-                        <img src="{{ asset('images/socializer.svg') }}" alt="Socializer">
+                        <img src="{{ asset('images/socializer-logo.svg') }}" alt="Socializer">
                     </div>
                 </div>
                 <div class="col-md-6">
