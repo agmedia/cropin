@@ -416,7 +416,7 @@
                 }
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://cropins.agmedia.rocks/images/croatia-map.kml',
+                    url: 'https://cropins.agmedia.rocks/images/croatia-map-white.kml',
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
