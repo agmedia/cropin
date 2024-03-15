@@ -130,7 +130,7 @@
 @endsection
 
 @push('js_after')
-{{--    <script type="text/javascript" src="{{ asset('js/maps.js') }}"></script>--}}
+    {{--    <script type="text/javascript" src="{{ asset('js/maps.js') }}"></script>--}}
 
     <script>
         $(() => {
@@ -219,7 +219,11 @@
 
                 } else {
 
-                    var zoomi = 7;
+                    var zoomi = 7.3;
+
+                    if (window.matchMedia('(max-width: 767px)').matches) {
+                        var zoomi = 6.4;
+                    }
 
                     var lati = 44.31096256624275;
                     var ling = 16.528291294534572;
@@ -228,9 +232,12 @@
 
 
 
+
+
+
                 var map = new google.maps.Map(document.getElementById('map-main'), {
                     zoom: zoomi,
-                    minZoom: 7,
+                    minZoom: 6,
                     scrollwheel: true,
                     center: new google.maps.LatLng(lati,ling),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -244,16 +251,16 @@
                     streetViewControl: false,
                     restriction: {
                         latLngBounds: {
-                            north: 48,
-                            south: 40,
-                            east: 22,
-                            west: 11,
+                            north: 47,
+                            south: 41,
+                            east: 21,
+                            west: 12,
                         },
                     },
 
 
                     gestureHandling: 'greedy',
-                    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#333"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#b4b4b4"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-50},{"lightness":15}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#4DB7FE"},{"visibility":"on"}]}]
+                    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#333"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#cccccc"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-50},{"lightness":15}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#4DB7FE"},{"visibility":"on"}]}]
                 });
 
 
@@ -390,8 +397,8 @@
                         map.setOptions({'scrollwheel': false});
                     }
                 });
-                  //  var zoomControlDiv = document.createElement('div');
-                 // var zoomControl = new ZoomControl(zoomControlDiv, map);
+                //  var zoomControlDiv = document.createElement('div');
+                // var zoomControl = new ZoomControl(zoomControlDiv, map);
 
 
 
@@ -416,7 +423,7 @@
                 }
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://www.socializertravel.com/images/klm/wklm.kml&ver=' + Date.now(),
+                    url: 'https://www.socializertravel.com/images/wk.kml',
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
