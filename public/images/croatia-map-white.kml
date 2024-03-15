@@ -10,7 +10,7 @@
 <Folder><name>croatia_administrative_boundaries_national_polygon</name>
   <Placemark>
 	<name>Hrvatska</name>
-	<Style><LineStyle><color>E8FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
+	<Style><LineStyle><color>00FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#croatia_administrative_boundaries_national_polygon">
 		<SimpleData name="admin_level">2</SimpleData>
 		<SimpleData name="boundary">administrative</SimpleData>
@@ -21,7 +21,7 @@
   </Placemark>
   <Placemark>
 	<name>Hrvatska</name>
-	<Style><LineStyle><color>E8FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
+	<Style><LineStyle><color>00FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#croatia_administrative_boundaries_national_polygon">
 		<SimpleData name="admin_level">2</SimpleData>
 		<SimpleData name="boundary">administrative</SimpleData>
@@ -32,7 +32,7 @@
   </Placemark>
   <Placemark>
 	<name>Hrvatska</name>
-	<Style><LineStyle><color>E8FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
+	<Style><LineStyle><color>00FFFFFF</color></LineStyle><PolyStyle><fill>1</fill></PolyStyle></Style>
 	<ExtendedData><SchemaData schemaUrl="#croatia_administrative_boundaries_national_polygon">
 		<SimpleData name="admin_level">2</SimpleData>
 		<SimpleData name="boundary">administrative</SimpleData>
