@@ -3537,6 +3537,7 @@ article .list-single-main-item {
     width:100%;
     position:relative;
     overflow: hidden;
+    transition: unset!important;
 }
 .fw-map {
     height:100vh;
