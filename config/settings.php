@@ -95,6 +95,14 @@ return [
             'hr' => 'Zabava',
             'en' => 'Fun'
         ],
+        5 => [
+            'hr' => 'Sobe',
+            'en' => 'Rooms'
+        ],
+        6 => [
+            'hr' => 'Prijevoz',
+            'en' => 'Transportation'
+        ],
     ]
 
 ];
