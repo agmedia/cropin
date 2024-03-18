@@ -40,14 +40,16 @@ if ( ! function_exists('ag_lang')) {
         if ($main) {
             return Cache::rememberForever('lang' . LaravelLocalization::getCurrentLocale(), function () {
                 return Settings::get('language', 'list')
-                               ->where('status', true)
+                               ->where('status', 'true')
                                ->where('code', LaravelLocalization::getCurrentLocale())
                                ->first();
             });
         }
 
         return Cache::rememberForever('langs', function () {
-            return Settings::get('language', 'list')->where('status', true)->sortBy('sort_order');
+            return Settings::get('language', 'list')
+                           ->where('status', 'true')
+                           ->sortBy('sort_order');
         });
     }
 }

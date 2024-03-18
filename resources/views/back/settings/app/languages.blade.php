@@ -96,7 +96,29 @@
                 <div class="modal-body">
                     <div class="row justify-content-center mb-3">
                         <div class="col-md-10 position-relative">
-                            @include('back.layouts.translations.input', ['title' => 'Naslov', 'tab_title' => 'language-title', 'input_name' => 'title'])
+
+                            <div class="position-relative">
+                                <ul class="nav nav-pills position-absolute langimg mb-2 me-0" id="language-title-tab" role="tablist" >
+                                    @foreach($items as $lang)
+                                        <li class="nav-item">
+                                            <a class="btn btn-icon btn-sm btn-link-primary ms-2  @if ($lang->code == current_locale()) active @endif" id="language-title-{{ $lang->code }}-tab" data-bs-toggle="pill" href="#language-title-{{ $lang->code }}-view" role="tab" aria-controls="language-title-{{ $lang->code }}-view" aria-selected="true">
+                                                <img src="{{ asset('assets/flags/' . $lang->code . '.png') }}" />
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+                                <div class="tab-content mb-4" id="language-title-tabContent">
+                                    @foreach($items as $lang)
+                                        <div class="tab-pane fade show @if ($lang->code == current_locale()) active @endif" id="language-title-{{ $lang->code }}-view" role="tabpanel" aria-labelledby="language-title-{{ $lang->code }}-tab">
+                                            <div class="form-group">
+                                                <label for="language-title-{{ $lang->code }}">Naslov </label>
+                                                <input type="text" class="form-control" id="language-title-{{ $lang->code }}" name="title[{{ $lang->code }}]">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
 
                             <div class="form-group mb-4">
                                 <label for="language-code">{{ __('back/app.languages.code_title') }}</label>
@@ -148,7 +170,7 @@
         function createLanguage() {
             let values = {};
 
-            {!! ag_lang() !!}.forEach(function(item) {
+            @json($items).forEach(function(item) {
                 values[item.code] = document.getElementById('language-title-' + item.code).value;
             });
 
@@ -173,7 +195,7 @@
             $('#language-id').val(item.id);
             $('#language-code').val(item.code);
 
-            {!! ag_lang() !!}.forEach((lang) => {
+            @json($items).forEach((lang) => {
                 if (typeof item.title[lang.code] !== undefined) {
                     $('#language-title-' + lang.code).val(item.title[lang.code]);
                 }

@@ -16,7 +16,7 @@ class LanguageHelper
     public static function list()
     {
         return Cache::rememberForever('lang_list', function () {
-            return Settings::get('language', 'list')->where('status', true)->sortBy('sort_order');
+            return Settings::get('language', 'list')->where('status', 'true')->sortBy('sort_order');
         });
     }
 
@@ -37,7 +37,7 @@ class LanguageHelper
     {
         return Cache::rememberForever('lang_' . LaravelLocalization::getCurrentLocale(), function () {
             return Settings::get('language', 'list')
-                           ->where('status', true)
+                           ->where('status', 'true')
                            ->where('code', LaravelLocalization::getCurrentLocale())
                            ->first();
         });
