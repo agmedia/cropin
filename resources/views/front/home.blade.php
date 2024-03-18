@@ -412,8 +412,8 @@
                     var controlUI = document.createElement('div');
                     controlUI.style.backgroundColor = '#2F3B59';
                     controlUI.style.borderStyle = 'solid';
-                    controlUI.style.borderColor='rgba(255,255,255,0.4)'
-
+                    controlUI.style.borderColor='rgba(255,255,255,0.8)'
+                    controlUI.style.borderWidth = '4px';
                     controlUI.style.borderRadius = '4px';
                     controlUI.style.height = '32px';
                     controlUI.style.marginTop = '10px';
