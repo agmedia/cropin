@@ -68,6 +68,8 @@ class Image
      */
     public static function save(string $disk, array $new_image, $resource): string
     {
+
+        ini_set('memory_limit', '2048M');
         $time  = Str::random(4);
         $image = json_decode($new_image['image']);
 
