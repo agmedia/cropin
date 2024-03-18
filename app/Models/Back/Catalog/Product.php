@@ -185,13 +185,9 @@ class Product extends Model
         $category      = ($this->request->category && $this->request->category != 'Select...') ? $this->request->category : 1;
 
 
-        $image = DB::table('product_images')->where('default', 1)->first();
 
-        if ($image){
-            $thumb = $image->image;
-        }else{
             $thumb = config('settings.default_listing_image');
-        }
+
 
         $response = [
             'hash'          => Str::random(),
