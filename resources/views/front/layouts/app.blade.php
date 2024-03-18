@@ -23,7 +23,7 @@
     @stack('meta_tags')
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/plugins.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css?v=1') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css?v=2') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/color.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/mmenu.css') }}">
     @stack('css_after')
