@@ -246,7 +246,7 @@
                     mapTypeControl: false,
                     scaleControl: false,
                     panControl: true,
-                    fullscreenControl: true,
+                    fullscreenControl: false,
                     navigationControl: false,
                     streetViewControl: false,
                     restriction: {
@@ -599,7 +599,7 @@
                 var geolocationDiv = document.createElement('div');
                 var geolocationControl = new GeolocationControl(geolocationDiv, map);
 
-                map.controls[google.maps.ControlPosition.TOP_CENTER].push(geolocationDiv);
+                map.controls[google.maps.ControlPosition.TOP_RIGHT].push(geolocationDiv);
 
 
                 var boxText = document.createElement("div");
@@ -743,12 +743,13 @@
 
                     // Set CSS for the control button
                     var controlUI = document.createElement('div');
-                    controlUI.style.backgroundColor = '#444';
+                    controlUI.style.backgroundColor = '#2F3B59';
                     controlUI.style.borderStyle = 'solid';
                     controlUI.style.borderWidth = '1px';
                     controlUI.style.borderColor = 'white';
                     controlUI.style.height = '28px';
                     controlUI.style.marginTop = '5px';
+                    controlUI.style.marginRight = '10px';
                     controlUI.style.cursor = 'pointer';
                     controlUI.style.textAlign = 'center';
                     controlUI.title = 'Click to center map on your location';
@@ -756,13 +757,13 @@
 
                     // Set CSS for the control text
                     var controlText = document.createElement('div');
-                    controlText.style.fontFamily = 'Arial,sans-serif';
-                    controlText.style.fontSize = '10px';
+                    controlText.style.fontFamily = 'Quicksand, sans-serif';
+                    controlText.style.fontSize = '13px';
                     controlText.style.color = 'white';
                     controlText.style.paddingLeft = '10px';
                     controlText.style.paddingRight = '10px';
                     controlText.style.marginTop = '8px';
-                    controlText.innerHTML = 'Center map on your location';
+                    controlText.innerHTML = 'My location';
                     controlUI.appendChild(controlText);
 
                     // Setup the click event listeners to geolocate user
