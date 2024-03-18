@@ -430,7 +430,7 @@
                     controlText.style.color = 'white';
                     controlText.style.paddingLeft = '10px';
                     controlText.style.paddingRight = '15px';
-                    controlText.style.marginTop = '5px';
+                    controlText.style.marginTop = '3px';
                     controlText.innerHTML = 'Find Your Location';
                     controlUI.appendChild(controlText);
 
