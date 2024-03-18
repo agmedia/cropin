@@ -748,7 +748,7 @@
                     controlUI.style.borderWidth = '1px';
                     controlUI.style.borderColor = 'white';
                     controlUI.style.height = '28px';
-                    controlUI.style.marginTop = '5px';
+                    controlUI.style.marginTop = '10px';
                     controlUI.style.marginRight = '10px';
                     controlUI.style.cursor = 'pointer';
                     controlUI.style.textAlign = 'center';
@@ -762,7 +762,7 @@
                     controlText.style.color = 'white';
                     controlText.style.paddingLeft = '10px';
                     controlText.style.paddingRight = '10px';
-                    controlText.style.marginTop = '8px';
+                    controlText.style.marginTop = '5px';
                     controlText.innerHTML = 'My location';
                     controlUI.appendChild(controlText);
 
