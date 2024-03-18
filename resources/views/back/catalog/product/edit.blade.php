@@ -156,7 +156,7 @@
                                 <div class="form-group row ">
                                     <div class="col-md-6 mt-3">
                                         <label for="address">Street and Number</label>
-                                        <input type="text" class="form-control" id="street" name="street" value="{{ isset($product) ? $product->street: old('street') }}" />
+                                        <input type="text" class="form-control" id="street" name="street" value="{{ isset($product) ? $product->street: old('street') }}" readonly/>
                                     </div>
 
                                     <div class="col-md-6 mt-3">
@@ -467,7 +467,7 @@
 
     <script>
         $(() => {
-            {!! ag_lang() !!}.forEach(function(item) {
+            AG_LANGS.forEach(function(item) {
                 ClassicEditor
                 .create(document.querySelector('#description-' + item.code))
                 .then(editor => {

@@ -107,6 +107,7 @@
     const API_PATH = window.location.origin + '/api/';
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     window.axios.defaults.baseURL = API_PATH;
+    const AG_LANGS = (Object.prototype.toString.call({!! ag_lang() !!}) === '[object Array]') ? {!! ag_lang() !!} : [{!! ag_lang() !!}[Object.keys({!! ag_lang() !!})[0]]]
 
     /**
      *

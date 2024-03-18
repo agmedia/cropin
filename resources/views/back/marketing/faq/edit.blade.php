@@ -81,7 +81,7 @@
 @push('js_after')
     <script>
         $(() => {
-            {!! ag_lang() !!}.forEach(function(item) {
+            AG_LANGS.forEach(function(item) {
                 ClassicEditor.create(document.querySelector('#description-editor-' + item.code))
                 .then(editor => {
                     console.log(editor);
