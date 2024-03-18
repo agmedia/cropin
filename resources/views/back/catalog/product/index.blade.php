@@ -86,6 +86,7 @@
                     @endforelse
                     </tbody>
                 </table>
+                {{ $products->links() }}
             </div>
             <!-- [ sample-page ] end -->
         </div>
