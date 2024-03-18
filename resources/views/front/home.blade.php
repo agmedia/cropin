@@ -482,7 +482,7 @@
                 }
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://www.socializertravel.com/images/black.kml',
+                    url: 'https://www.socializertravel.com/images/blackjedan.kml',
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
