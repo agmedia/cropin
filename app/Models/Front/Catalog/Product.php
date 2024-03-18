@@ -304,7 +304,7 @@ class Product extends Model
                     $response[] = [
                         'title' => $item->translation->title,
                         'url' => route('resolve.route', ['product' => $item]),
-                        'image' => asset($item->image),
+                        'image' => asset($item->images()->first()->image),
                         'category' => config('settings.categories')[$item->category][current_locale()],
                         'address' => $item->street . ', ' . $item->zip . ', ' . $item->city,
                         'phone' => $item->phone,
