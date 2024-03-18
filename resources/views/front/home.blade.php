@@ -484,7 +484,7 @@
                 }
 
                 var myCustomRegion = new google.maps.KmlLayer({
-                    url: 'https://www.socializertravel.com/images/bela.kml',
+                    url: 'https://www.socializertravel.com/images/vrt.kml',
                     map: map,
                     suppressInfoWindows: true,
                     zindex: 0,
