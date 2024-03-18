@@ -2423,6 +2423,7 @@ section.list-single-section .bg {
     border-radius:10px;
     border:1px solid #eee;
     margin-bottom:20px;
+    text-align: left;
 }
 article .list-single-main-item {
     margin-bottom:0;
