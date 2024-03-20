@@ -32,6 +32,18 @@
     </style>
     <style>  #menu:not( .mm-menu ) {display: none;}</style>
 </head>
+
+@if (config('app.env') == 'production')
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWLJRC4F1R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XWLJRC4F1R');
+    </script>
+@endif
 <!-- Body-->
 <body>
 <div class="loader-wrap">
