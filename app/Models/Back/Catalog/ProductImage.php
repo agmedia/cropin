@@ -184,6 +184,13 @@ class ProductImage extends Model
             'updated_at' => Carbon::now()
         ]);
 
+        if ($this->where('id', $id)->first()) {
+            $path = str_replace(config('filesystems.disks.product.url'), '', $this->where('id', $id)->first()->image);
+
+            $this->isDefaultImage($image_data, $path);
+        }
+
+
         if ($updated) {
             ProductImageTranslation::edit($id, $image_data);
 
