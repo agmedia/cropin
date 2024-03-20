@@ -68,7 +68,7 @@
                                     <div class="container">
                                         <div class="list-single-header-item">
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-8">
                                                     <div class="list-single-header-item-opt fl-wrap">
                                                         <div class="list-single-header-cat fl-wrap">
                                                             <a href="#">{{$cat[current_locale()] }}</a>
@@ -78,11 +78,11 @@
                                                     <span class="section-separator"></span>
 
                                                 </div>
-                                            {{--    <div class="col-md-4">
+                                              <div class="col-md-4">
                                                     <div class="fl-wrap list-single-header-column">
-                                                        <span class="viewed-counter"><i class="fa fa-eye"></i> Viewed -  156 </span>
+                                                        <span class="viewed-counter"><i class="fa fa-eye"></i> Viewed -  {{$product->viewed}} </span>
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

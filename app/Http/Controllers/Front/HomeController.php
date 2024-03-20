@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
+use Cookie;
 
 class HomeController extends FrontBaseController
 {
@@ -60,12 +61,20 @@ class HomeController extends FrontBaseController
      */
     public function resolveRoute(Request $request, Product $product)
     {
+
+        if ( !Cookie::get('post_viewed') ) {
+
         $product->increment('viewed');
+
+            Cookie::queue('post_viewed', true, 60 * 24 * 30);
+        }
 
         $menu = $product->resolveMenuList();
 
         return view('front.product', compact('product', 'menu'));
     }
+
+
 
 
     /**
