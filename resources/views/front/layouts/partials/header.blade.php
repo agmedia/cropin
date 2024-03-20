@@ -15,7 +15,7 @@
 
 
         <!-- The menu -->
-        @include('front.layouts.partials.language-selector')
+        {{--@include('front.layouts.partials.language-selector') --}}
 
 
         <div class="nav-holder main-menu">
@@ -24,7 +24,7 @@
 
                     @foreach ($navigation as $category => $cities)
                         <li>
-                            <a href="#"> {{ $category }} <i class="fa fa-caret-down"></i></a>
+                            <a href="{{ route('index', ['category' => $category]) }}"> {{ $category }} <i class="fa fa-caret-down"></i></a>
                             <ul>
                                 @foreach ($cities as $city)
                                     <li><a href="{{ route('index', ['category' => $category, 'location' => $city]) }}">{{ $city }}</a></li>
@@ -43,7 +43,7 @@
             <ul>
                 @foreach ($navigation as $category => $cities)
                     <li>
-                        <span>{{ $category }}</span>
+                        <span><a href="{{ route('index', ['category' => $category]) }}">{{ $category }}</a></span>
                         <ul>
                             @foreach ($cities as $city)
                                 <li><a href="{{ route('index', ['category' => $category, 'location' => $city]) }}">{{ $city }}</a></li>

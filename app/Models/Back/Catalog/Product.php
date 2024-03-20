@@ -186,7 +186,7 @@ class Product extends Model
 
 
 
-            $thumb = config('settings.default_listing_image');
+        $thumb = config('settings.default_listing_image');
 
 
         $response = [

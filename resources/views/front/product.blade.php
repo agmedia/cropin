@@ -95,10 +95,14 @@
                                     {!! $product->translation(current_locale())->description !!}
                                 </div>
                                 <!-- list-single-main-item-->
+
+                                @if(count($menu))
                                 <div class="list-single-main-item fl-wrap" id="sec3">
                                     <div class="list-single-main-item-title fl-wrap">
                                         <h3>{{ __('front/apartment.menu') }}</h3>
                                     </div>
+
+
                                     <div class="iframe-holder fl-wrap">
                                         <div class="accordion">
                                             @foreach ($menu as $key => $group)
@@ -117,7 +121,10 @@
                                             @endforeach
                                         </div>
                                     </div>
+
                                 </div>
+
+                                @endif
                                 <!-- list-single-main-item end -->
                                 <!--box-widget-item -->
                                 <div class="box-widget-item fl-wrap" id="sec4">
@@ -132,8 +139,12 @@
                                             <div class="list-author-widget-contacts list-item-widget-contacts">
                                                 <ul>
                                                     <li><span><i class="fa fa-map-marker"></i> {{ __('front/apartment.address') }}:</span> <a href="https://www.google.com/maps/search/?api=1&query={{ $product->translation(current_locale())->title }}+{{$product->street}}+{{$product->zip}}+{{$product->city}}, {{$product->country}}">{{$product->street}}, {{$product->zip}}, {{$product->city}}</a></li>
+                                                    @if($product->phone)
                                                     <li><span><i class="fa fa-phone"></i>{{ __('front/apartment.phone') }}: </span> <a href="#">{{$product->phone}}</a></li>
+                                                    @endif
+                                                        @if($product->web)
                                                     <li><span><i class="fa fa-globe"></i>{{ __('front/apartment.web') }}: </span> <a href="{{$product->web}}">{{$product->web}}</a></li>
+                                                        @endif
                                                 </ul>
                                             </div>
                                             <div class="list-widget-social">
@@ -147,6 +158,7 @@
                                                     @endif
 
                                                    {{--<li><a href="#" target="_blank" ><i class="fa fa-whatsapp"></i></a></li> --}}
+
                                                 </ul>
                                             </div>
                                         </div>
