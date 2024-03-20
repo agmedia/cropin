@@ -458,7 +458,7 @@
                             // Create a marker and center map on user location
                             marker = new google.maps.Marker({
                                 position: pos,
-                                draggable: true,
+                                draggable: false,
                                 animation: google.maps.Animation.DROP,
                                 map: map
                             });
