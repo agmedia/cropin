@@ -178,7 +178,7 @@
                                     </div>
                                     <div class="box-widget opening-hours">
                                         <div class="box-widget-content">
-                                            <form action="{{ route('poruka') }}" class="add-comment custom-form" method="POST">
+                                            <form action="{{ route('poruka') }}" class="add-comment custom-form" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <fieldset>
                                                     <label><i class="fa fa-user-o"></i></label>
