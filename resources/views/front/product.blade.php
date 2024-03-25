@@ -1,5 +1,8 @@
 @extends('front.layouts.app')
 
+@section ('title', $product->translation(current_locale())->title. ' - Socializertravel.com')
+@section ('description', $product->translation(current_locale())->meta_description)
+
 @push('css_after')
 
 @endpush
