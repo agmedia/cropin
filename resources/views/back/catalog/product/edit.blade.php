@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <form action="{{ isset($product) ? route('product.update', ['product' => $product]) : route('product.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ isset($product) ? route('product.update', ['product' => $product]) : route('product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @if (isset($product))
             {{ method_field('PATCH') }}

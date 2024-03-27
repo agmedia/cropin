@@ -87,9 +87,9 @@ class Image
         $path_webp = $path . 'webp';
 
         Storage::disk($disk)->put($path_jpg, $img->encode('jpg'));
-        Storage::disk($disk)->put($path_webp, $img->encode('webp'));
+       // Storage::disk($disk)->put($path_webp, $img->encode('webp'));
 
-        chmod(config('filesystems.disks.product.url') . $resource->id, 0755);
+      //  chmod(config('filesystems.disks.product.url') . $resource->id, 0755);
 
         // Thumb creation
         $thumb_ratio = static::setPreferedWidth($img, 'thumb');
@@ -100,7 +100,7 @@ class Image
         })->resizeCanvas($thumb_ratio['width'], $thumb_ratio['height']);
 
         $path_webp_thumb = $path_thumb . 'webp';
-        Storage::disk($disk)->put($path_webp_thumb, $img->encode('webp'));
+      //  Storage::disk($disk)->put($path_webp_thumb, $img->encode('webp'));
 
         return $path_jpg;
     }
