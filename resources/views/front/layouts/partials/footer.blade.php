@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="copyright"> &#169; CroPins 2024.  {{ __('front/apartment.all_rights') }}.
+                    <div class="copyright"> &#169; Socializer 2024.  {{ __('front/apartment.all_rights') }}.
                         @if (isset($pages) && $pages)
                             @foreach($pages as $page)
 

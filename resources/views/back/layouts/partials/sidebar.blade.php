@@ -5,9 +5,9 @@
             <a href="../dashboard/index.html" class="b-brand text-primary">
 
                 @if($mode =='dark')
-                <img src="{{ asset('assets/back/images/cro-pins-light.svg') }}" style="width:140px" class="img-fluid" alt="logo">
+                <img src="{{ asset('assets/back/images/socializer-light.svg') }}" style="width:140px" class="img-fluid" alt="logo">
                 @else
-                    <img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="width:140px" class="img-fluid" alt="logo">
+                    <img src="{{ asset('assets/back/images/socializer-dark.svg') }}" style="width:140px" class="img-fluid" alt="logo">
                 @endif
             </a>
         </div>

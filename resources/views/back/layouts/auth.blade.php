@@ -64,7 +64,7 @@
             <div class="card my-5">
                 <div class="card-body">
                     <div class="text-center">
-                        <a href="{{ route('index') }}"><img src="{{ asset('assets/back/images/cro-pins-dark.svg') }}" style="max-width:160px" alt="img"></a>
+                        <a href="{{ route('index') }}"><img src="{{ asset('assets/back/images/socializer-dark.svg') }}" style="max-width:160px" alt="img"></a>
                     </div>
 
                     @yield('content')
