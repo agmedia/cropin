@@ -86,8 +86,6 @@ class Image
         $path_jpg  = $path . 'jpg';
         $path_webp = $path . 'webp';
 
-
-
         Storage::disk($disk)->put($path_jpg, $img->encode('jpg'));
         Storage::disk($disk)->put($path_webp, $img->encode('webp'));
 
@@ -105,6 +103,7 @@ class Image
         Storage::disk($disk)->put($path_webp_thumb, $img->encode('webp'));
 
         return $path_jpg;
+
     }
 
 
