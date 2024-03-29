@@ -17,7 +17,7 @@ return [
     'about' => 'O nama',
     'menu' => 'Menu',
     'reserve' => 'Rezerviraj',
-    'reserve_online' => 'Rezerviraj stol online',
+    'reserve_online' => 'Rezerviraj online',
     'directions' => 'Gdje smo',
     'home' => 'Naslovnica',
     'working_hours' => 'Radno vrijeme',

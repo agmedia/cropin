@@ -18,7 +18,7 @@ return [
     'about' => 'About',
     'menu' => 'Menu',
     'reserve' => 'Reserve',
-    'reserve_online' => 'Book a Table Online',
+    'reserve_online' => 'Book Online',
     'directions' => 'Directions',
     'home' => 'Home',
     'working_hours' => 'Working hours',
