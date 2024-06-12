@@ -220,7 +220,7 @@
                                             <td class="text-center">{{ $product->id }}</td>
                                             <td>
                                                 <img src="{{ asset($product->image) }}" alt="user-image" class="wid-80 ">
-                                                <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? $product->translation(current_locale())->title : old('title.*') }}</a>
+                                                <a href="{{ route('product.edit', ['product' => $product]) }}" class="fs-6 fw-medium bs-primary pc-link ps-2">{{ isset($product) ? (isset($product->translation(current_locale())->title) ? $product->translation(current_locale())->title : '') : '' }}</a>
 
                                             </td>
                                             <td class="text-center">{{$cat[current_locale()] }}</td>
@@ -228,11 +228,13 @@
                                             <td class="text-center">@include('back.layouts.partials.status', ['status' => $product->status])</td>
                                             <td class="text-end">
                                                 <ul class="list-inline me-auto mb-0">
-                                                    <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="View Listing">
-                                                        <a href="{{ route('resolve.route', ['product' => $product->translation(current_locale())->slug]) }}" target="_blank" class="avtar avtar-xs btn-link-secondary btn-pc-default">
-                                                            <i class="ti ti-eye f-18"></i>
-                                                        </a>
-                                                    </li>
+                                                    @if (isset($product->translation(current_locale())->slug))
+                                                        <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="View Listing">
+                                                            <a href="{{ route('resolve.route', ['product' => $product->translation(current_locale())->slug]) }}" target="_blank" class="avtar avtar-xs btn-link-secondary btn-pc-default">
+                                                                <i class="ti ti-eye f-18"></i>
+                                                            </a>
+                                                        </li>
+                                                    @endif
                                                     <li class="list-inline-item align-bottom" data-bs-toggle="tooltip" title="Edit">
                                                         <a href="{{ route('product.edit', ['product' => $product]) }}" class="avtar avtar-xs btn-link-success btn-pc-default">
                                                             <i class="ti ti-edit-circle f-18"></i>
