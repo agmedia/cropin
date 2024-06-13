@@ -115,7 +115,7 @@
                                                       <ul>
                                                             @foreach ($group as $item)
                                                               <li><span class="opening-hours-day">{{ $item['title'][current_locale()] }} </span><span class="opening-hours-time">{{ $item['price'] }} €</span>
-                                                                  <div><br><span>{{ $item['desription'][current_locale()] }}</span></div>
+                                                                  <div><br><span>{{ $item['description'][current_locale()] }}</span></div>
                                                               </li>
                                                             @endforeach
                                                         </ul>
