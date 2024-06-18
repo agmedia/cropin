@@ -2,7 +2,7 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="../dashboard/index.html" class="b-brand text-primary">
+            <a href="{{ route('dashboard') }}" class="b-brand text-primary">
 
                 @if($mode =='dark')
                 <img src="{{ asset('assets/back/images/socializer-light.svg') }}" style="width:140px" class="img-fluid" alt="logo">
