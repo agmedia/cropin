@@ -203,6 +203,10 @@ class ListingMenu extends Component
         foreach ($this->items as $item) {
             array_push($this->groups, $item['group']);
         }
+
+        $groups = collect($this->groups)->unique(current_locale())->toArray();
+
+        $this->groups = $groups;
     }
 
 
